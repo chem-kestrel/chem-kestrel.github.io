@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kestrel — Cellular Ligand Field Theory for 3d Complexes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --navy:        #0B2447;
+            --navy-mid:    #19376D;
+            --accent:      #2171C7;
+            --accent-hover:#1558A8;
+            --accent-light:#EBF4FF;
+            --teal:        #0EA5A0;
+            --white:       #ffffff;
+            --surface:     #F8FAFD;
+            --surface-2:   #EFF4FB;
+            --border:      #DDE6F0;
+            --border-dark: #BDD0E8;
+            --text:        #0F1B2D;
+            --text-mid:    #3A4D6B;
+            --text-muted:  #6B7C99;
+            --font-display:'Arimo', sans-serif;
+            --font-body:   'IBM Plex Sans', system-ui, sans-serif;
+            --font-mono:   'IBM Plex Mono', monospace;
+            --radius-sm:   4px;
+            --radius-md:   8px;
+            --radius-lg:   12px;
+            --shadow-sm:   0 1px 3px rgba(11,36,71,0.08), 0 1px 2px rgba(11,36,71,0.04);
+            --shadow-md:   0 4px 12px rgba(11,36,71,0.10), 0 2px 4px rgba(11,36,71,0.06);
+            --shadow-lg:   0 10px 30px rgba(11,36,71,0.12), 0 4px 8px rgba(11,36,71,0.06);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--surface);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER (Responsive & Grid-based) ──────────────── */
+                header {
+                    background: var(--white);
+                    border-bottom: 1px solid var(--border);
+                    padding: 0 32px;
+                    display: grid;
+                    grid-template-columns: 1fr auto 1fr; /* Restored Grid */
+                    align-items: center;
+                    min-height: 72px;
+                    height: auto;
+                    position: sticky;
+                    top: 0;
+                    z-index: 200;
+                    box-shadow: var(--shadow-sm);
+                }
+
+                .logo-area { display: flex; align-items: center; gap: 10px; }
+                .header-logo { height: 50px; width: auto; transition: height 0.2s; }
+                .logo-wordmark { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--navy); }
+
+                nav { display: flex; align-items: center; gap: 4px; justify-content: center; }
+
+                .nav-btn {
+                    background: none; border: none; font-family: var(--font-body); font-size: 1.0rem;
+                    font-weight: 500; color: var(--text-mid); padding: 7px 14px; border-radius: 6px;
+                    cursor: pointer; transition: background 0.18s, color 0.18s;
+                }
+                .nav-btn:hover { background: var(--surface-2); color: var(--navy); }
+                .nav-btn.active { background: var(--navy); color: var(--white); }
+
+                .uoy-logo-area { display: flex; align-items: center; justify-content: flex-end; }
+                .uoy-logo-slot img { height: auto; width: 130px; padding-top: 10px;}
+
+                /* Mobile Adjustments */
+                @media (max-width: 950px) {
+                    header { display: flex; flex-direction: column; padding: 15px; }
+                    .header-logo { height: 50px; }
+                    .uoy-logo-area { display: none; }
+                    nav { width: 100%; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+                    .nav-btn { font-size: 0.9rem; padding: 6px 10px; }
+                }
+
+
+        .nav-btn:hover {
+            background: var(--surface-2);
+            color: var(--navy);
+        }
+
+        .nav-btn.active {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .dropdown { position: relative; display: inline-block; }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 190px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            z-index: 300;
+        }
+
+        .dropdown-content a,
+        .dropdown-content button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 16px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--text-mid);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content button:hover {
+            background: var(--surface-2);
+            color: var(--navy);
+        }
+
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover > .nav-btn { background: var(--surface-2); color: var(--navy); }
+        .dropdown:hover > .nav-btn.active { background: var(--navy); color: var(--white); }
+
+        /* ── MAIN LAYOUT ────────────────────────────── */
+        main {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 52px 32px 80px;
+        }
+
+        .page-section { display: none; }
+        .page-section.active {
+            display: block;
+            animation: fadeUp 0.35s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── TYPOGRAPHY ─────────────────────────────── */
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.25;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--navy-mid);
+            margin-bottom: 0.75rem;
+        }
+
+        p { color: var(--text-mid); margin-bottom: 1rem; }
+        p:last-child { margin-bottom: 0; }
+        p strong { color: var(--text); font-weight: 600; }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.82em;
+            background: var(--surface-2);
+            color: var(--navy-mid);
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+
+        ul { padding-left: 1.4em; color: var(--text-mid); }
+        ul li { margin-bottom: 0.35rem; }
+
+        /* ── WELCOME PAGE ───────────────────────────── */
+        /* New Header Layout */
+        .welcome-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-logo {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            height: 116px; /* Slightly larger, adjust as needed */
+            width: auto;
+            filter: brightness(0) invert(1); /* Optional: Forces a colored logo to turn pure white */
+            opacity: 0.9;
+            z-index: 1;
+        }
+
+        @media (max-width: 940px) {
+            .welcome-logo {
+                height: 48px;
+                top: 12px;
+                right: 12px;
+            }
+        }
+
+        .welcome-intro {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+            border-radius: var(--radius-lg);
+            padding: 44px 52px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-intro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 60%),
+                              radial-gradient(circle at 20% 80%, rgba(14,165,160,0.12) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .welcome-intro h1 { color: var(--white); margin-bottom: 0.75rem; }
+
+        .welcome-intro p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-intro p:last-of-type { margin-bottom: 0; }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--teal);
+            background: rgba(14,165,160,0.15);
+            border: 1px solid rgba(14,165,160,0.3);
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+        }
+
+        .gui-wrapper {
+            margin: 2rem 0 2.5rem;
+            text-align: center;
+        }
+
+        .kestrel-gui {
+            max-width: 78%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .cta-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 1.75rem 0;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 12px 26px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.18s, box-shadow 0.18s, transform 0.12s;
+            box-shadow: 0 2px 8px rgba(33,113,199,0.3);
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 4px 14px rgba(33,113,199,0.4);
+            transform: translateY(-1px);
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            color: var(--accent);
+            padding: 11px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-dark);
+            transition: background 0.18s, border-color 0.18s, transform 0.12s;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+            text-decoration: none;
+            color: var(--accent);
+        }
+
+        /* ── FEATURE CARDS ───────────────────────────── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin-top: 1rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px 22px;
+            transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+            cursor: default;
+        }
+
+        .feature-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-dark);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-light);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .feature-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .feature-card h3 {
+            font-size: 0.92rem;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        /* ── AUTHOR BOX ─────────────────────────────── */
+        .author-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: 22px 26px;
+            margin-top: 3rem;
+        }
+
+        .author-box h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .author-box p {
+            font-size: 0.9rem;
+            color: var(--text-mid);
+            margin-bottom: 6px;
+        }
+
+        .author-box p strong { color: var(--text); }
+
+        /* ── DOWNLOAD PAGE ──────────────────────────── */
+        .release-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .release-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0B7C4E;
+            background: #E6F7EF;
+            border: 1px solid #A7E3C4;
+            padding: 3px 9px;
+            border-radius: 100px;
+            margin-bottom: 10px;
+        }
+
+        .release-card h3 { margin-bottom: 16px; font-size: 1.15rem; }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .install-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 600px) { .install-grid { grid-template-columns: 1fr; } }
+
+        .install-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 22px;
+        }
+
+        .install-box h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .install-box ol {
+            padding-left: 1.3em;
+            color: var(--text-mid);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .install-box ol li { margin-bottom: 6px; }
+
+        /* ── TABLES ─────────────────────────────────── */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.25rem 0 2rem;
+            font-size: 0.8rem;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        .data-table thead th {
+            background: var(--surface-2);
+            color: var(--text-mid);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table tbody td {
+            padding: 11px 16px;
+            color: var(--text-mid);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table tbody tr:last-child td { border-bottom: none; }
+        .data-table tbody tr:hover td { background: var(--surface); }
+        .data-table td a { font-weight: 500; }
+
+        /* ── CITATION ───────────────────────────────── */
+        .citation-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            font-size: 0.875rem;
+            color: var(--text-mid);
+            margin-top: 0.75rem;
+        }
+
+        /* ── DOCUMENTATION ──────────────────────────── */
+        .info-banner {
+            background: var(--accent-light);
+            border: 1px solid #BDD5F5;
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            font-size: 0.88rem;
+            color: var(--navy-mid);
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        /* ── RESOURCES PAGE ─────────────────────────── */
+        .select-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+            margin: 1rem 0 2rem;
+        }
+
+        @media (max-width: 620px) { .select-row { grid-template-columns: 1fr; } }
+
+        .styled-select {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-mid);
+            background: var(--white);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-md);
+            padding: 10px 14px;
+            width: 100%;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7C99' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            cursor: pointer;
+            transition: border-color 0.18s;
+        }
+
+        .styled-select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(33,113,199,0.12);
+        }
+
+        .complex-display {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 22px;
+            min-height: 120px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .complex-display h3 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .complex-display ul {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .complex-display p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .lit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lit-list li {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            font-size: 0.875rem;
+            color: var(--text-mid);
+        }
+
+        .lit-list li strong { color: var(--text); display: block; margin-bottom: 2px; }
+
+        /* ── SUBSCRIBE PAGE ─────────────────────────── */
+        .subscribe-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px 40px;
+            margin-top: 1.5rem;
+            text-align: center;
+            max-width: 520px;
+        }
+
+        /* ── FOOTER ─────────────────────────────────── */
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 28px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 60px;
+            font-size: 0.83rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.83rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .footer-btn-outline {
+            color: var(--text-mid);
+            border: 1px solid var(--border-dark);
+        }
+
+        .footer-btn-outline:hover {
+            background: var(--surface-2);
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .footer-btn-filled {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .footer-btn-filled:hover {
+            background: var(--accent-hover);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* ── COMMUNITY PAGE ─────────────────────────────────── */
+        .table-scroll-container {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin: 1.5rem 0;
+            background: var(--white);
+        }
+
+        .table-scroll-container .data-table {
+            margin: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        /* Sticky Header for Scrollable Table */
+        .table-scroll-container thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--surface-2);
+        }
+
+        /* Upload Form Styling */
+        .upload-box {
+            background: var(--accent-light);
+            border: 1px dashed var(--accent);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+        }
+
+        .char-count {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: right;
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* ── PDF MODAL ──────────────────────────────── */
+        .pdf-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 25, 50, 0.55);
+            backdrop-filter: blur(3px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .pdf-modal-overlay.open {
+            display: flex;
+        }
+        .pdf-modal-box {
+            background: #fff;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+            width: min(860px, 100%);
+            height: min(90vh, 900px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .pdf-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2eaf4;
+            background: var(--accent-light);
+            flex-shrink: 0;
+        }
+        .pdf-modal-header span {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--navy-mid);
+        }
+        .pdf-modal-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .pdf-modal-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.82rem;
+            padding: 5px 11px;
+            border-radius: var(--radius-md);
+            border: 1px solid #BDD5F5;
+            background: #fff;
+            color: var(--navy-mid);
+            cursor: pointer;
+            text-decoration: none;
+            font-family: inherit;
+            transition: background 0.15s;
+        }
+        .pdf-modal-btn:hover {
+            background: #ddeeff;
+        }
+        #pdf-modal-frame {
+            flex: 1;
+            width: 100%;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <img src="kestrel_logo.png" alt="Kestrel Logo" class="header-logo">
+        <span class="logo-wordmark"></span>
+    </div>
+    <nav>
+        <button id="nav-welcome" class="nav-btn active" onclick="showPage('welcome')">Welcome</button>
+        <div class="dropdown">
+            <button id="nav-download" class="nav-btn" onclick="showPage('download')">Download</button>
+            <div class="dropdown-content">
+                <button onclick="showPage('download')">Kestrel GUI</button>
+                <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank">Python Version (GitHub)</a>
+            </div>
+        </div>
+        <button id="nav-documentation" class="nav-btn" onclick="showPage('documentation')">Documentation</button>
+        <button id="nav-resources" class="nav-btn" onclick="showPage('resources')">Resources</button>
+        <button id="nav-community" class="nav-btn" onclick="showPage('community')">Community</button>
+    </nav>
+    <div class="uoy-logo-area">
+        <div class="uoy-logo-slot">
+            <img src="uni_york_logo.svg" alt="University of York Logo">
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <!-- ══ WELCOME ══════════════════════════════════════════════════════ -->
+    <section id="welcome" class="page-section active">
+
+        <div class="welcome-intro">
+            <img src="kestrel_logo.png" alt="Kestrel Logo" class="welcome-logo">
+
+            <div class="welcome-header">
+                <h1>Kestrel - Ligand Field Calculations <br> for 3d transition metal complexes</h1>
+            </div>
+
+            <p>
+                Kestrel is a computational package that performs ligand field calculations on any monomeric 3d transition metal complex
+                in any coordination geometry. Based on the Cellular Ligand Field (CLF) model developed by Malcolm Gerloch et al.,
+                Kestrel assumes minimal spatial overlap between the metal and ligand orbitals and can be run on standard desktop computers and laptops.
+            </p>
+            <p>
+                The effect of the ligands is described using chemically significant parameter values, allowing calculations to be carried out and interpreted in real-time
+                — providing a tool for relating the chemistry of a transition metal complex to its spectroscopic results.
+            </p>
+        </div>
+
+        <div class="gui-wrapper">
+            <img src="kestrel_gui.png" alt="Kestrel GUI" class="kestrel-gui">
+        </div>
+
+        <p>
+            <strong>Kestrel can be downloaded free of charge as a GUI (Graphical User Interface) that provides a user-friendly visual interface.</strong>
+            Alternatively, a Python package (KestrelPy) is available for advanced use via <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank">GitHub</a>.
+        </p>
+
+        <div class="cta-row">
+            <a href="#" onclick="showPage('download')" class="btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download the GUI
+            </a>
+            <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank" class="btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Python Package (GitHub)
+            </a>
+        </div>
+
+        <div class="info-banner">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>
+                <strong>The GUI is recommended for most users.</strong> A standalone python package (KestrelPy) is available for advanced users
+                who want full control of the code. KestrelPy can also be installed as a python module and used in other projects.
+            </span>
+        </div>
+
+        <h2>Features</h2>
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Real-time calculations</h3>
+                <p>
+                    Up to <strong>1,000 calculations per second</strong> for d¹ and d⁹ systems.
+                    Even d⁵ systems complete in under a second through Kestrel's parametric approach.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                </div>
+                <h3>Multi-configurational energies</h3>
+                <p>
+                    Calculates the energy and spin multiplicity of the ground state and each excited state.
+                    Tanabe-Sugano-style diagrams can also be generated to visualise how the ligand field affects the electronic states.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>UV/CD/MCD spectral simulation</h3>
+                <p>
+                    Calculates d-d transition intensities, enabling simulation of d-d transitions in
+                    absorption (UV), circular dichroism (CD), and magnetic circular dichroism (MCD) spectra.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>EPR A and g values</h3>
+                <p>
+                    Calculates EPR parameters including electronic <em>g</em> factors,
+                    metal-hyperfine coupling A values and its isotropic and anisotropic contributions.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                </div>
+                <h3>Paramagnetic susceptibilities</h3>
+                <p>Calculates the paramagnetic susceptibility and can plot susceptibility curves across a temperature range to model phenomena such as spin-crossover.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3>d-orbital energies &amp; compositions</h3>
+                <p>Computes the energy of each d-orbital and its orbital character, permitting comparison with experimental and theoretical crystal field splittings.</p>
+            </div>
+
+        </div>
+
+        <div class="author-box">
+            <h3>Authors &amp; Contact</h3>
+            <p><strong>Developed by:</strong> Dr George Nunn, Benjamin Grace, Dr Martin Bates and Prof. Paul Walton</p>
+            <p><strong>Institution:</strong> Department of Chemistry, University of York</p>
+            <p><strong>Email:</strong> <a href="mailto:chem-kestrel@york.ac.uk">chem-kestrel@york.ac.uk</a></p>
+        </div>
+
+    </section>
+
+    <!-- ══ DOWNLOAD ══════════════════════════════════════════════════════ -->
+    <section id="download" class="page-section">
+        <h1>Download Kestrel GUI</h1>
+        <p>
+            Kestrel's GUI is available for Windows and macOS as a <code>.exe</code> and <code>.dmg</code> file respectively.
+            The latest stable releases are linked below and are hosted on GitHub releases. We recommend checking back regularly for updates.
+        </p>
+
+        <div class="release-card">
+            <span class="release-tag">Latest stable</span>
+            <h3>Version 1.0.0</h3>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:0;">Released May 2026 — Initial public release</p>
+            <div class="btn-group">
+                <a href="https://github.com/chem-kestrel/KestrelGUI/releases/latest/download/kestrel-windows.exe" class="btn-primary">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    Windows (.exe)
+                </a>
+                <a href="https://github.com/chem-kestrel/kestrelGUI/releases/latest/download/kestrel-mac.dmg" class="btn-secondary">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v8M8 12h8"/></svg>
+                    macOS (.dmg)
+                </a>
+            </div>
+        </div>
+
+        <div class="info-banner">
+            <span>
+                <a href="#" onclick="showPage('subscribe')"><strong>✉ Subscribe to the Kestrel mailing list</strong></a> to be notified of new releases.
+            </span>
+        </div>
+
+        <h2>Installation Instructions</h2>
+        <div class="install-grid">
+            <div class="install-box">
+                <h4>Windows (.exe)</h4>
+                <ol>
+                    <li>Download the <code>.exe</code> file above.</li>
+                    <li>Double-click the <code>.exe</code> file to run Kestrel.</li>
+                    <li>If Windows Defender flags the file, right-click and select <code>Properties</code>, then check the <code>Unblock</code> option. Kestrel should then launch.</li>
+                </ol>
+            </div>
+            <div class="install-box">
+                <h4>macOS (.dmg)</h4>
+                <ol>
+                    <li>Download the <code>.dmg</code> file above.</li>
+                    <li>Double-click to open the <code>.dmg</code> file.</li>
+                    <li>Drag the Kestrel <code>.app</code> icon into your Applications folder and double-click to launch the GUI.</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2>Version History</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Version</th>
+                    <th>Release Date</th>
+                    <th>Notes</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>v1.0.0</strong></td>
+                    <td>May 2026</td>
+                    <td>Initial public release</td>
+                    <td><a href="#">GitHub Release</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Citation</h2>
+        <p>If you use Kestrel in your work, we kindly ask that you provide the following citation:</p>
+        <div class="citation-block">
+            G. Nunn, B. S. Grace, P. H. Walton and M. A. Bates, Kestrel [Computer software].
+            <a href=" https://github.com/chem-kestrel/Kestrelpy" target="_blank" style="font-size:0.82rem;"> https://github.com/chem-kestrel/Kestrelpy</a>
+        </div>
+    </section>
+
+    <!-- ══ DOCUMENTATION ════════════════════════════════════════════════ -->
+    <section id="documentation" class="page-section">
+        <h1>GUI Documentation</h1>
+
+        <div class="info-banner">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>
+                New users should start with the <strong>Quickstart Tutorial</strong> to set up and run your first calculation in the GUI.
+                The <strong>User Manual</strong> covers each option and calculation in detail, including an FAQ for troubleshooting.
+            </span>
+        </div>
+
+        <h2>User Guides</h2>
+        <div class="btn-group">
+            <a onclick="openPdfModal('kestrel_manual_v1.0.pdf', 'User Manual v1.0.0')" class="btn-primary" style="cursor:pointer;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                User Manual v1.0.0
+            </a>
+            <a onclick="openPdfModal('kestrel_quickstart_v1.0.pdf', 'Quickstart Tutorial v1.0.0')" class="btn-secondary" style="cursor:pointer;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Quickstart Tutorial v1.0.0
+            </a>
+        </div>
+
+        <h2>Quickstart Tutorial Files</h2>
+        <p>
+            Kestrel uses standard <code>.xyz</code> files for coordinate input and its own <code>.kes</code> format for saving calculations.
+            The <code>.xyz</code> file below provides the coordinates used in the quickstart tutorial and the <code>.kes</code> file the results.
+        </p>
+        <p>
+            For further examples, see the <a href="#" onclick="showPage('resources')">Resources</a> page.
+        </p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Filename</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="samples/cu_py4.xyz">cu_py4.xyz</a></td>
+                    <td><code>Input</code></td>
+                    <td>Coordinates for the square planar Cu(II) complex used in the quickstart tutorial.</td>
+                </tr>
+                <tr>
+                    <td><a href="samples/cu_py4.kes">cu_py4.kes</a></td>
+                    <td><code>Output</code></td>
+                    <td>Calculation results for the example in the quickstart tutorial.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ══ RESOURCES ════════════════════════════════════════════════════ -->
+    <section id="resources" class="page-section">
+        <h1>Resources</h1>
+        <p><strong>This page contains sample datasets and academic literature that supports the theoretical basis of Kestrel's calculations.</strong></p>
+        <p>
+            Sample datasets contain input (<code>.xyz</code>) and calculation result (<code>.kes</code>) files for common coordination geometries.
+            By default, systems are configured as d⁵ Mn(II) complexes — the d electron count can be changed within the GUI and
+            different ligands can be represented by adjusting the <em>e</em> parameter values.
+        </p>
+
+        <h2>Sample Datasets</h2>
+        <div class="select-row">
+            <select id="complex-select" class="styled-select" onchange="updateComplexLinks()">
+                <option value="" selected disabled>Select a coordination geometry…</option>
+                <option value="octahedral">Octahedral (Oh)</option>
+                <option value="square-planar">Square Planar (D4h)</option>
+                <option value="tetrahedral">Tetrahedral (Td)</option>
+            </select>
+            <div id="complex-display" class="complex-display">
+                <p><em>Select a geometry above to view file details and download links.</em></p>
+            </div>
+        </div>
+
+        <div class="info-banner">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>
+                Each <code>.kes</code> file has been set up with 'standard' parameter values for a Cl⁻ ligand with
+                the electronic eigenfunctions, ligand field energies and UV/absorption spectrum calculated by default.
+                An example <code>.kes</code> file is shown below for the octahedral geometry.
+            </span>
+        </div>
+
+         <div class="gui-wrapper">
+            <img src="kestrel_gui_tanabe.png" alt="Kestrel GUI with Tanabe diagram" class="kestrel-gui">
+        </div>
+
+        <div class="install-box">
+            <h4>The variation of electronic energies with parameter value can be plotted in a manner akin to a Tanabe-Sugano
+            diagram by:</h4>
+            <ol>
+                <li>Setting SOC/Zeta to 0 cm⁻¹ and right-clicking on the parameter to be varied</li>
+                <li>Selecting <code>Plot v parameter</code> and then choosing <code>Many-Electron Eigenfunctions</code></li>
+            </ol>
+        </div>
+
+        <h2>Literature Resources</h2>
+
+        <p style="font-size:1.1rem;"><strong>Sources of parameter values</strong></p>
+        <p style="font-size:0.95rem;">
+            The following publications provide sources and explanation of ligand field parameter values. Please note that this is not an exhaustive
+            list and that parameter values may vary substantially depending on the exact system being parameterised.</p>
+        <ul class="lit-list">
+            <li>
+                <strong>P. E. Hoggard (2004)</strong> "Angular Overlap Model Parameters." <em>Structure and Bonding</em>
+                <a href="https://doi.org/10.1007/b11304" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+            </li>
+            <li>
+                <strong>H. Schmidtke (2004)</strong> "The variation of Slater-Condon parameters Fᵏ and Racah parameters B and C with chemical bonding in transition group complexes" <em>Structure and Bonding</em>
+                <a href="https://doi.org/10.1007/b11303" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+            </li>
+            <li>
+                <strong>G. Nunn (2023)</strong> "Development of a contemporary ligand-field program for 3d transition-metal complexes." <em>PhD Thesis, University of York</em>
+                <a href="https://etheses.whiterose.ac.uk/id/eprint/34322/" style="font-size:0.82rem; display:inline-block; margin-top:4px;">Web link ↗</a>
+            </li>
+        </ul>
+
+        <p style="margin-top:1.5rem; font-size:1.1rem;"><strong>Theoretical literature</strong></p>
+        <p style="font-size:0.95rem;"> The following publications provide an overview of the theoretical basis behind Kestrel's calculations.</p>
+        <ul class="lit-list">
+            <li>
+                <strong>M. Gerloch (1983)</strong> "Magnetism and ligand-field analysis." <em>Cambridge University Press, Cambridge, 1st edition</em>
+            </li>
+            <li>
+                <strong>M. Gerloch and R. G. Woolley (1981)</strong> "Is the Angular Overlap Model Chemically Significant?" <em>J. Chem. Soc., Dalton Transactions</em>
+                <a href="https://doi.org/10.1039/DT9810001714" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+            </li>
+            <li>
+                <strong>R. G. Woolley (1981)</strong> "The angular overlap model in ligand field theory." <em>Molecular Physics</em>
+                <a href="https://doi.org/10.1080/00268978100100551" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+            </li>
+              <li>
+                <strong>A. Bencini, C. Benelli and D. Gatteschi  (1984)</strong> "The Angular Overlap Model for the description of the paramagnetic properties of transition metal complexes." <em>Coordination Chemistry Reviews</em>
+                <a href="https://doi.org/10.1016/0010-8545(84)85064-X" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+            </li>
+             <li>
+                <strong>R. J. Deeth  (2022)</strong> "Ligand Field Theory for Linear ML2 Complexes." <em>European Journal of Inorganic Chemistry</em>
+                <a href="https://doi.org/10.1002/ejic.202100936" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ══ COMMUNITY ════════════════════════════════════════════════════ -->
+    <section id="community" class="page-section">
+        <h1>Community Hub</h1>
+        <p>
+            Share your <code>.kes</code> calculation results with the community or browse contributions from other users.
+            All the files below have been checked and approved by the Kestrel Development Team.
+        </p>
+
+        <div class="table-scroll-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Filename</th>
+                        <th>Description</th>
+                        <th>Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="samples/users/LsAA9.kes">LsAA9.kes</a></td>
+                        <td>Copper(II) protein (LPMO, AA9) fitted to experimental data.</td>
+                        <td>George Nunn - University of York</td>
+                    </tr>
+                    <tr>
+                        <td><a href="samples/users/BaAA10.kes">BaAA10.kes</a></td>
+                        <td>Copper(II) protein (LPMO, AA10) fitted to experimental EPR data.</td>
+                        <td>Ben Grace - University of York</td>
+                    </tr>
+                    <tr>
+                        <td><a href="samples/users/AoAA11.kes">AoAA11.kes</a></td>
+                        <td>Copper(II) protein (LPMO, AA11) fitted to experimental EPR data.</td>
+                        <td>Ben Grace - University of York</td>
+                    </tr>
+                    <tr>
+                        <td><a href="samples/users/FeIV_oxo.kes">FeIV_oxo.kes</a></td>
+                        <td>Iron(IV) oxo complex with calculated MCD/UV spectra and electronic energies.</td>
+                        <td>George Nunn - University of York</td>
+                    </tr>
+                    <tr>
+                        <td><a href="samples/users/FeII_bpp2_H.kes">FeII_bpp2_H.kes</a></td>
+                        <td>Fe(II) spin-crossover complex showing electronic energies and spin-crossover at 270K.</td>
+                        <td>Ben Grace - University of York</td>
+                    </tr>
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="upload-box">
+            <h3>Share Your Calculations</h3>
+            <p>
+                For security, we review all submissions via a Google Form.
+                Please attach your <code>.kes</code> file and give a short description (max 150 characters) via the link below.
+                Approved submissions will be added to the table above periodically.
+            </p>
+
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTf7WdMSy_VL-DvRLeiTBDI5kSXmVXkU0-8JKLzy_9CkykDg/viewform?usp=publish-editor"
+               id="google-form-submit-btn"
+               target="_blank"
+               class="btn-primary">
+               Upload via Google Form
+            </a>
+        </div>
+
+        <h2>Publications using Kestrel</h2>
+        <p>
+            The below publications make use of Kestrel. If you use Kestrel in any published work please
+            <a href="mailto:chem-kestrel@york.ac.uk">contact us</a> so we can add your publication to the list below.
+        </p>
+        <ul class="lit-list">
+            <li>
+                <strong>P. Comba, G. Nunn, F. Scherz and P. H. Walton (2022)</strong> "Intermediate-spin iron(IV)-oxido species with record reactivity."
+                <em>Faraday Discussions.</em> <a href="https://doi.org/10.1039/D1FD00073J" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ══ SUBSCRIBE ════════════════════════════════════════════════════ -->
+    <section id="subscribe" class="page-section">
+        <h1>Stay Updated</h1>
+        <p>Join the Kestrel mailing group to receive notifications about new releases and features.</p>
+        <div class="subscribe-card">
+            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;"><a href="https://groups.google.com/g/chem-kestrel" class="footer-btn footer-btn-outline"><strong>✉ Join the mailing list</strong></a></p>
+            <p style="font-size:0.83rem; color:var(--text-muted);">This link will redirect you to a Google group sign-up page. By subscribing, you agree to receive notifications of new releases and features.
+                We will never share your data. <strong>You can unsubscribe at any time.</strong></p>
+        </div>
+    </section>
+
+    <!-- ══ PDF MODAL ════════════════════════════════════════════════════ -->
+    <div id="pdf-modal" class="pdf-modal-overlay" onclick="closePdfModal(event)">
+        <div class="pdf-modal-box">
+            <div class="pdf-modal-header">
+                <span id="pdf-modal-title"></span>
+                <div class="pdf-modal-actions">
+                    <a id="pdf-modal-download" href="#" download class="pdf-modal-btn" title="Download">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download
+                    </a>
+                    <button onclick="closePdfModal()" class="pdf-modal-btn pdf-modal-close" title="Close">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        Close
+                    </button>
+                </div>
+            </div>
+            <iframe id="pdf-modal-frame" src="" title="PDF Viewer"></iframe>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <span>&copy; 2026 Kestrel Development Team — University of York</span>
+    <div class="footer-links">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_Bh0xELrcLXV5SQQKG7vmVpEV_v99ixryJ5AFKdnDpxr2Sw/viewform?usp=publish-editor" class="footer-btn footer-btn-outline">&#9888 Report a bug</a>
+        <a href="mailto:chem-kestrel@york.ac.uk" class="footer-btn footer-btn-outline">✉ Contact Us</a>
+        <a href="#" onclick="showPage('subscribe')" class="footer-btn footer-btn-filled">🔔 Stay Updated</a>
+    </div>
+</footer>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        const section = document.getElementById(pageId);
+        if (section) section.classList.add('active');
+        const navBtn = document.getElementById('nav-' + pageId);
+        if (navBtn) navBtn.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const complexData = {
+        'octahedral': {
+            title: 'Octahedral Complex (O<sub>h</sub>)',
+            desc:`<ul>
+                <li>A standard octahedral coordination geometry is provided as a <code>.xyz</code> file.</li>
+                <li>Calculation results for a generic Mn(II) Cl⁻ octahedral complex are given as a <code>.kes</code> file.</li>
+                </ul> The d electron count in the <code>.kes</code> file can be adjusted in the GUI to observe how the electronic states change.`,
+            xyzName: 'octahedral_complex.xyz', xyzLink: 'samples/octahedral_complex.xyz',
+            kesName:  'octahedral_complex.kes',  kesLink: 'samples/octahedral_complex.kes'
+        },
+        'square-planar': {
+            title: 'Square Planar Complex (D<sub>4h</sub>)',
+            desc: `<ul>
+                <li>A standard square-planar coordination geometry is provided as a <code>.xyz</code> file.</li>
+                <li>Calculation results for a generic Mn(II) Cl⁻ square-planar complex are given as a <code>.kes</code> file.</li>
+                </ul>
+                The d electron count in the <code>.kes</code> file can be adjusted in the GUI to observe how the electronic states change.`,
+            xyzName: 'square-planar_complex.xyz', xyzLink: 'samples/square-planar_complex.xyz',
+            kesName:  'square-planar_complex.kes',  kesLink: 'samples/square-planar_complex.kes'
+        },
+        'tetrahedral': {
+            title: 'Tetrahedral Complex (T<sub>d</sub>)',
+            desc: `<ul>
+                <li>A standard tetrahedral coordination geometry is provided as a <code>.xyz</code> file.</li>
+                <li>Calculation results for a generic Mn(II) Cl⁻ tetrahedral complex are given as a <code>.kes</code> file.</li>
+                </ul>
+                The d electron count in the <code>.kes</code> file can be adjusted in the GUI to observe how the electronic states change.`,
+            xyzName: 'tetrahedral_complex.xyz', xyzLink: 'samples/tetrahedral_complex.xyz',
+            kesName:  'tetrahedral_complex.kes',  kesLink: 'samples/tetrahedral_complex.kes'
+        }
+    };
+
+    function updateComplexLinks() {
+        const val = document.getElementById('complex-select').value;
+        const display = document.getElementById('complex-display');
+        if (val && complexData[val]) {
+            const d = complexData[val];
+            display.innerHTML = `
+                <h3>${d.title}</h3>
+                <p>${d.desc}</p>
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+                    <a href="${d.xyzLink}" class="btn-primary" style="font-size:0.82rem; padding:8px 16px;">Download ${d.xyzName}</a>
+                    <a href="${d.kesLink}" class="btn-secondary" style="font-size:0.82rem; padding:7px 15px;">Download ${d.kesName}</a>
+                </div>`;
+        }
+    }
+    function updateCharCount(input) {
+        const counter = document.getElementById('char-counter');
+        const link = document.getElementById('github-submit-link');
+        counter.innerText = `${input.value.length} / 100`;
+
+        const bodyText = encodeURIComponent(`Description: ${input.value}\n\n(Please attach your .kes or .xyz file to this issue)`);
+        link.href = `https://github.com/chem-kestrel/chem-kestrel.github.io/issues/new?title=File+Submission&body=${bodyText}`;
+    }
+
+    function openPdfModal(url, title) {
+        // iOS Safari doesn't reliably render PDFs in iframes — open in new tab instead
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if (isIOS) {
+            window.open(url, '_blank');
+            return;
+        }
+        // Desktop/Android - use as normal
+        document.getElementById('pdf-modal-title').textContent = title;
+        document.getElementById('pdf-modal-frame').src = url;
+        document.getElementById('pdf-modal-download').href = url;
+        document.getElementById('pdf-modal').classList.add('open');
+        document.body.style.overflow = 'hidden'; // prevent background scroll
+    }
+
+    function closePdfModal(event) {
+        // Close only if clicking the overlay itself, or the close button
+        if (event && event.target !== document.getElementById('pdf-modal')) return;
+        document.getElementById('pdf-modal-frame').src = ''; // stop loading
+        document.getElementById('pdf-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    // Also close on Escape key
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closePdfModal();
+    });
+</script>
+</body>
+</html>
