@@ -1,0 +1,1080 @@
+{
+  "molecule": {
+    "molecular_geometry": {
+      "file_name": "HALCROW-H.xyz",
+      "xyz_text": "51\nIdentifier: HALCROW-H, Formal Charge: 2, Multiplicity: 1\nFe 3.684e-07 -4.97161e-05 1.17711e-05\nC 4.6290931783 -0.0009307577 0.0005791472\nC 3.9503651193 0.8556122529 -0.8566242649\nC 2.5687068165 0.8164299479 -0.8173354204\nN 1.6952659297 1.5823452484 -1.5838410099\nC 1.9189610839 2.5284746417 -2.5307920974\nC 0.6966834018 2.9602790868 -2.9628630356\nC -0.2390684644 2.2193542488 -2.221264036\nN 0.3630783558 1.3897039235 -1.3909424994\nN 1.9111422717 -0.0004214596 0.0002370656\nC 2.5681958351 -0.8175179598 0.8179784634\nN 1.6942692945 -1.5831069098 1.5842614969\nC 1.9173602742 -2.5293503929 2.5312441061\nC 0.6948080307 -2.9606654977 2.963031831\nC -0.2404692724 -2.2193937678 2.2211841925\nN 0.3622029123 -1.3899514843 1.3910360507\nC 3.949828129 -0.8572148857 0.8576190583\nC -4.6290925569 0.0010344762 -0.000642788\nC -3.9501781949 -0.8562555983 -0.8569542678\nC -2.5685260982 -0.8171227442 -0.8173126508\nN -1.6949125172 -1.5837335498 -1.5829355971\nC -1.9183928369 -2.5306937812 -2.5291077241\nC -0.6960171314 -2.9629063771 -2.9604955439\nC 0.2395670869 -2.2213739082 -2.2192946104\nN -0.362768638 -1.3909683354 -1.3898615169\nN -1.9111398165 0.0003759788 -0.0002407595\nC -2.5683738396 0.8181871179 0.8166388672\nN -1.6946233409 1.5843681318 1.5825259169\nC -1.9179304665 2.5313227316 2.5287468809\nC -0.6954758685 2.9629531483 2.9604912481\nC 0.2399714846 2.2210576893 2.2194790488\nN -0.3625159547 1.3910033023 1.389805882\nC -3.9500161321 0.8579924049 0.8558707363\nH -5.7123854606 0.0013058819 -0.000810257\nH 5.7123846974 -0.0011262071 0.0007222375\nH 4.4854605607 1.5195835355 -1.5211666406\nH 4.4845093219 -1.5213688518 1.5223098794\nH -1.3179913279 -2.2622108724 2.2640972369\nH 2.9136467834 -2.820305432 2.8223575128\nH 0.4961190011 -3.7090064412 3.7120165344\nH -2.9142847271 2.822531918 2.8193849133\nH -0.4969540997 3.7118798214 3.7089319817\nH 1.3174824627 2.2638778746 2.2626484568\nH -4.4851338842 -1.5207397065 -1.5210961751\nH -4.484839818 1.5227423536 1.5198522624\nH -2.9147997144 -2.8214763422 -2.8199884233\nH -0.4976378172 -3.7119813152 -3.7088269649\nH 1.317072402 -2.2646702039 -2.262177577\nH -1.316563112 2.2625885554 -2.2644511001\nH 2.9154359475 2.8190355038 -2.8216604646\nH 0.4984683408 3.7087027222 -3.7118863535",
+      "atoms": [
+        {
+          "index": 0,
+          "element": "Fe",
+          "coordinates": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "index": 1,
+          "element": "C",
+          "coordinates": [
+            4.6290928098999995,
+            -0.0008810415999999999,
+            0.0005673761
+          ]
+        },
+        {
+          "index": 2,
+          "element": "C",
+          "coordinates": [
+            3.9503647509,
+            0.855661969,
+            -0.8566360359999999
+          ]
+        },
+        {
+          "index": 3,
+          "element": "C",
+          "coordinates": [
+            2.5687064481000004,
+            0.816479664,
+            -0.8173471914999999
+          ]
+        },
+        {
+          "index": 4,
+          "element": "N",
+          "coordinates": [
+            1.6952655612999998,
+            1.5823949645,
+            -1.583852781
+          ]
+        },
+        {
+          "index": 5,
+          "element": "C",
+          "coordinates": [
+            1.9189607155,
+            2.5285243578,
+            -2.5308038685
+          ]
+        },
+        {
+          "index": 6,
+          "element": "C",
+          "coordinates": [
+            0.6966830334,
+            2.9603288029,
+            -2.9628748067
+          ]
+        },
+        {
+          "index": 7,
+          "element": "C",
+          "coordinates": [
+            -0.23906883280000002,
+            2.2194039649,
+            -2.2212758071
+          ]
+        },
+        {
+          "index": 8,
+          "element": "N",
+          "coordinates": [
+            0.36307798739999997,
+            1.3897536395999999,
+            -1.3909542705
+          ]
+        },
+        {
+          "index": 9,
+          "element": "N",
+          "coordinates": [
+            1.9111419033,
+            -0.00037174349999999996,
+            0.0002252945
+          ]
+        },
+        {
+          "index": 10,
+          "element": "C",
+          "coordinates": [
+            2.5681954667,
+            -0.8174682436999999,
+            0.8179666923000001
+          ]
+        },
+        {
+          "index": 11,
+          "element": "N",
+          "coordinates": [
+            1.6942689261,
+            -1.5830571937,
+            1.5842497258
+          ]
+        },
+        {
+          "index": 12,
+          "element": "C",
+          "coordinates": [
+            1.9173599058,
+            -2.5293006768,
+            2.531232335
+          ]
+        },
+        {
+          "index": 13,
+          "element": "C",
+          "coordinates": [
+            0.6948076623,
+            -2.9606157816,
+            2.9630200599
+          ]
+        },
+        {
+          "index": 14,
+          "element": "C",
+          "coordinates": [
+            -0.2404696408,
+            -2.2193440517000003,
+            2.2211724214
+          ]
+        },
+        {
+          "index": 15,
+          "element": "N",
+          "coordinates": [
+            0.3622025439,
+            -1.3899017682,
+            1.3910242795999999
+          ]
+        },
+        {
+          "index": 16,
+          "element": "C",
+          "coordinates": [
+            3.9498277606000003,
+            -0.8571651696,
+            0.8576072872
+          ]
+        },
+        {
+          "index": 17,
+          "element": "C",
+          "coordinates": [
+            -4.6290929253,
+            0.0010841923,
+            -0.0006545591
+          ]
+        },
+        {
+          "index": 18,
+          "element": "C",
+          "coordinates": [
+            -3.9501785632999997,
+            -0.8562058821999999,
+            -0.8569660388999999
+          ]
+        },
+        {
+          "index": 19,
+          "element": "C",
+          "coordinates": [
+            -2.5685264666,
+            -0.8170730280999999,
+            -0.8173244219
+          ]
+        },
+        {
+          "index": 20,
+          "element": "N",
+          "coordinates": [
+            -1.6949128856,
+            -1.5836838337,
+            -1.5829473682000001
+          ]
+        },
+        {
+          "index": 21,
+          "element": "C",
+          "coordinates": [
+            -1.9183932053000001,
+            -2.5306440651,
+            -2.5291194952000002
+          ]
+        },
+        {
+          "index": 22,
+          "element": "C",
+          "coordinates": [
+            -0.6960174997999999,
+            -2.962856661,
+            -2.960507315
+          ]
+        },
+        {
+          "index": 23,
+          "element": "C",
+          "coordinates": [
+            0.2395667185,
+            -2.2213241921,
+            -2.2193063815
+          ]
+        },
+        {
+          "index": 24,
+          "element": "N",
+          "coordinates": [
+            -0.3627690064,
+            -1.3909186193,
+            -1.389873288
+          ]
+        },
+        {
+          "index": 25,
+          "element": "N",
+          "coordinates": [
+            -1.9111401849,
+            0.0004256949,
+            -0.00025253060000000004
+          ]
+        },
+        {
+          "index": 26,
+          "element": "C",
+          "coordinates": [
+            -2.568374208,
+            0.818236834,
+            0.8166270961000001
+          ]
+        },
+        {
+          "index": 27,
+          "element": "N",
+          "coordinates": [
+            -1.6946237093,
+            1.5844178479,
+            1.5825141458
+          ]
+        },
+        {
+          "index": 28,
+          "element": "C",
+          "coordinates": [
+            -1.9179308349000002,
+            2.5313724477,
+            2.5287351098
+          ]
+        },
+        {
+          "index": 29,
+          "element": "C",
+          "coordinates": [
+            -0.6954762368999999,
+            2.9630028644,
+            2.960479477
+          ]
+        },
+        {
+          "index": 30,
+          "element": "C",
+          "coordinates": [
+            0.2399711162,
+            2.2211074053999997,
+            2.2194672776999997
+          ]
+        },
+        {
+          "index": 31,
+          "element": "N",
+          "coordinates": [
+            -0.3625163231,
+            1.3910530183999998,
+            1.3897941109
+          ]
+        },
+        {
+          "index": 32,
+          "element": "C",
+          "coordinates": [
+            -3.9500165005,
+            0.858042121,
+            0.8558589652
+          ]
+        },
+        {
+          "index": 33,
+          "element": "H",
+          "coordinates": [
+            -5.7123858290000005,
+            0.001355598,
+            -0.0008220281
+          ]
+        },
+        {
+          "index": 34,
+          "element": "H",
+          "coordinates": [
+            5.712384329,
+            -0.001076491,
+            0.0007104664
+          ]
+        },
+        {
+          "index": 35,
+          "element": "H",
+          "coordinates": [
+            4.4854601923,
+            1.5196332516,
+            -1.5211784117
+          ]
+        },
+        {
+          "index": 36,
+          "element": "H",
+          "coordinates": [
+            4.4845089535,
+            -1.5213191357,
+            1.5222981083
+          ]
+        },
+        {
+          "index": 37,
+          "element": "H",
+          "coordinates": [
+            -1.3179916963,
+            -2.2621611563,
+            2.2640854658
+          ]
+        },
+        {
+          "index": 38,
+          "element": "H",
+          "coordinates": [
+            2.913646415,
+            -2.8202557159,
+            2.8223457417
+          ]
+        },
+        {
+          "index": 39,
+          "element": "H",
+          "coordinates": [
+            0.4961186327,
+            -3.7089567251,
+            3.7120047633
+          ]
+        },
+        {
+          "index": 40,
+          "element": "H",
+          "coordinates": [
+            -2.9142850955,
+            2.8225816341,
+            2.8193731422
+          ]
+        },
+        {
+          "index": 41,
+          "element": "H",
+          "coordinates": [
+            -0.4969544681,
+            3.7119295375,
+            3.7089202106
+          ]
+        },
+        {
+          "index": 42,
+          "element": "H",
+          "coordinates": [
+            1.3174820942999999,
+            2.2639275907,
+            2.2626366857
+          ]
+        },
+        {
+          "index": 43,
+          "element": "H",
+          "coordinates": [
+            -4.4851342526,
+            -1.5206899904,
+            -1.5211079462000001
+          ]
+        },
+        {
+          "index": 44,
+          "element": "H",
+          "coordinates": [
+            -4.4848401864000005,
+            1.5227920697,
+            1.5198404912999999
+          ]
+        },
+        {
+          "index": 45,
+          "element": "H",
+          "coordinates": [
+            -2.9148000828,
+            -2.8214266261,
+            -2.8200001944
+          ]
+        },
+        {
+          "index": 46,
+          "element": "H",
+          "coordinates": [
+            -0.4976381856,
+            -3.7119315991,
+            -3.708838736
+          ]
+        },
+        {
+          "index": 47,
+          "element": "H",
+          "coordinates": [
+            1.3170720336,
+            -2.2646204878000002,
+            -2.2621893481
+          ]
+        },
+        {
+          "index": 48,
+          "element": "H",
+          "coordinates": [
+            -1.3165634804000002,
+            2.2626382714999997,
+            -2.2644628712
+          ]
+        },
+        {
+          "index": 49,
+          "element": "H",
+          "coordinates": [
+            2.9154355791,
+            2.8190852199,
+            -2.8216722357
+          ]
+        },
+        {
+          "index": 50,
+          "element": "H",
+          "coordinates": [
+            0.4984679724,
+            3.7087524383,
+            -3.7118981246000002
+          ]
+        }
+      ]
+    },
+    "metal": {
+      "index": 0,
+      "element": "Fe",
+      "coordinates": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "ligands": [
+      {
+        "name": "Pyridine",
+        "atoms": [
+          {
+            "theta": 89.993,
+            "phi": -0.011,
+            "psi": -135.024,
+            "coordinating_atom": {
+              "index": 9,
+              "element": "N",
+              "coordinates": [
+                1.9111419033,
+                -0.00037174349999999996,
+                0.0002252945
+              ]
+            },
+            "local_x_orientation": {
+              "index": 10,
+              "element": "C",
+              "coordinates": [
+                2.5681954667,
+                -0.8174682436999999,
+                0.8179666923000001
+              ]
+            },
+            "name": ""
+          },
+          {
+            "theta": 90.008,
+            "phi": 179.987,
+            "psi": 45.023,
+            "coordinating_atom": {
+              "index": 25,
+              "element": "N",
+              "coordinates": [
+                -1.9111401849,
+                0.0004256949,
+                -0.00025253060000000004
+              ]
+            },
+            "local_x_orientation": {
+              "index": 19,
+              "element": "C",
+              "coordinates": [
+                -2.5685264666,
+                -0.8170730280999999,
+                -0.8173244219
+              ]
+            },
+            "name": ""
+          }
+        ]
+      },
+      {
+        "name": "Pyrazolyl",
+        "atoms": [
+          {
+            "theta": 134.036,
+            "phi": -104.618,
+            "psi": 79.742,
+            "coordinating_atom": {
+              "index": 24,
+              "element": "N",
+              "coordinates": [
+                -0.3627690064,
+                -1.3909186193,
+                -1.389873288
+              ]
+            },
+            "local_x_orientation": {
+              "index": 23,
+              "element": "C",
+              "coordinates": [
+                0.2395667185,
+                -2.2213241921,
+                -2.2193063815
+              ]
+            },
+            "name": ""
+          },
+          {
+            "theta": 45.967,
+            "phi": 104.607,
+            "psi": -100.286,
+            "coordinating_atom": {
+              "index": 31,
+              "element": "N",
+              "coordinates": [
+                -0.3625163231,
+                1.3910530183999998,
+                1.3897941109
+              ]
+            },
+            "local_x_orientation": {
+              "index": 30,
+              "element": "C",
+              "coordinates": [
+                0.2399711162,
+                2.2211074053999997,
+                2.2194672776999997
+              ]
+            },
+            "name": ""
+          },
+          {
+            "theta": 45.918,
+            "phi": -75.394,
+            "psi": -100.278,
+            "coordinating_atom": {
+              "index": 15,
+              "element": "N",
+              "coordinates": [
+                0.3622025439,
+                -1.3899017682,
+                1.3910242795999999
+              ]
+            },
+            "local_x_orientation": {
+              "index": 14,
+              "element": "C",
+              "coordinates": [
+                -0.2404696408,
+                -2.2193440517000003,
+                2.2211724214
+              ]
+            },
+            "name": ""
+          },
+          {
+            "theta": 134.079,
+            "phi": 75.359,
+            "psi": 79.702,
+            "coordinating_atom": {
+              "index": 8,
+              "element": "N",
+              "coordinates": [
+                0.36307798739999997,
+                1.3897536395999999,
+                -1.3909542705
+              ]
+            },
+            "local_x_orientation": {
+              "index": 7,
+              "element": "C",
+              "coordinates": [
+                -0.23906883280000002,
+                2.2194039649,
+                -2.2212758071
+              ]
+            },
+            "name": ""
+          }
+        ]
+      }
+    ]
+  },
+  "calculation_parameters": {
+    "metal": {
+      "d_electrons": 6,
+      "racah_b": {
+        "key": "metal.racah_b",
+        "value": 1010.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "racah_c": {
+        "key": "metal.racah_c",
+        "value": 3850.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "spin_orbit_coupling": {
+        "key": "metal.spin_orbit_coupling",
+        "value": 450.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "kiso": {
+        "key": "metal.kiso",
+        "value": 0.8,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 0.01
+      }
+    },
+    "ligands": [
+      {
+        "name": "Pyridine",
+        "esigma": {
+          "key": "ligand.Pyridine.esigma",
+          "value": 6900.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epix": {
+          "key": "ligand.Pyridine.epix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epiy": {
+          "key": "ligand.Pyridine.epiy",
+          "value": -1335.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "eds": {
+          "key": "ligand.Pyridine.eds",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edxy": {
+          "key": "ligand.Pyridine.edxy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edx2y2": {
+          "key": "ligand.Pyridine.edx2y2",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        }
+      },
+      {
+        "name": "Pyrazolyl",
+        "esigma": {
+          "key": "ligand.Pyrazolyl.esigma",
+          "value": 6000.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epix": {
+          "key": "ligand.Pyrazolyl.epix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epiy": {
+          "key": "ligand.Pyrazolyl.epiy",
+          "value": 575.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "eds": {
+          "key": "ligand.Pyrazolyl.eds",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edxy": {
+          "key": "ligand.Pyrazolyl.edxy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edx2y2": {
+          "key": "ligand.Pyrazolyl.edx2y2",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        }
+      }
+    ],
+    "hyperfine": {
+      "p": {
+        "key": "hyperfine.p",
+        "value": 0.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 50.0
+      },
+      "kappa": {
+        "key": "hyperfine.kappa",
+        "value": 0.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 0.01
+      },
+      "metal": "63Cu",
+      "units": "(MHz)"
+    },
+    "geometry": [
+      {
+        "name": "Pyridine1",
+        "theta": {
+          "key": "atom.Pyridine1.theta",
+          "value": 89.993,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyridine1.psi",
+          "value": -135.024,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyridine1.phi",
+          "value": -0.011,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Pyridine2",
+        "theta": {
+          "key": "atom.Pyridine2.theta",
+          "value": 90.008,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyridine2.psi",
+          "value": 45.023,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyridine2.phi",
+          "value": 179.987,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Pyrazolyl1",
+        "theta": {
+          "key": "atom.Pyrazolyl1.theta",
+          "value": 134.036,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyrazolyl1.psi",
+          "value": 79.742,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyrazolyl1.phi",
+          "value": -104.618,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Pyrazolyl2",
+        "theta": {
+          "key": "atom.Pyrazolyl2.theta",
+          "value": 45.967,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyrazolyl2.psi",
+          "value": -100.286,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyrazolyl2.phi",
+          "value": 104.607,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Pyrazolyl3",
+        "theta": {
+          "key": "atom.Pyrazolyl3.theta",
+          "value": 45.918,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyrazolyl3.psi",
+          "value": -100.278,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyrazolyl3.phi",
+          "value": -75.394,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Pyrazolyl4",
+        "theta": {
+          "key": "atom.Pyrazolyl4.theta",
+          "value": 134.079,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyrazolyl4.psi",
+          "value": 79.702,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyrazolyl4.phi",
+          "value": 75.359,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      }
+    ]
+  },
+  "calculation_options": {
+    "configuration_projection": false,
+    "epr_enabled": false,
+    "real_g_values": "Real",
+    "hyperfine_enabled": false,
+    "predict_p": true,
+    "predict_kappa": true,
+    "magnetism_enabled": true,
+    "temperatures": [
+      10.0,
+      30.0,
+      50.0,
+      70.0,
+      90.0,
+      110.0,
+      130.0,
+      150.0,
+      170.0,
+      190.0,
+      210.0,
+      230.0,
+      250.0,
+      270.0,
+      290.0,
+      310.0
+    ],
+    "second_order_zeeman_limit": 12000.0,
+    "absorption_enabled": false,
+    "absorption_temperature": 300.0,
+    "cd_enabled": false,
+    "cd_temperature": 300.0,
+    "mcd_enabled": false,
+    "mcd_magfield": 7.0,
+    "mcd_lebedev": 5,
+    "mcd_temperatures": [
+      5.0
+    ]
+  },
+  "intensity_parameters": {
+    "reference_value": 1.0,
+    "parameters": [
+      {
+        "name": "Pyridine",
+        "psigma": {
+          "key": "ligand.Pyridine.psigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppix": {
+          "key": "ligand.Pyridine.ppix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppiy": {
+          "key": "ligand.Pyridine.ppiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fsigma": {
+          "key": "ligand.Pyridine.fsigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpix": {
+          "key": "ligand.Pyridine.fpix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpiy": {
+          "key": "ligand.Pyridine.fpiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        }
+      },
+      {
+        "name": "Pyrazolyl",
+        "psigma": {
+          "key": "ligand.Pyrazolyl.psigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppix": {
+          "key": "ligand.Pyrazolyl.ppix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppiy": {
+          "key": "ligand.Pyrazolyl.ppiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fsigma": {
+          "key": "ligand.Pyrazolyl.fsigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpix": {
+          "key": "ligand.Pyrazolyl.fpix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpiy": {
+          "key": "ligand.Pyrazolyl.fpiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        }
+      }
+    ]
+  },
+  "absorption_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  },
+  "cd_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  },
+  "mcd_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  }
+}
