@@ -1,0 +1,437 @@
+{
+  "molecule": {
+    "molecular_geometry": {
+      "file_name": "tetrahedral_complex.xyz",
+      "xyz_text": "5\nMnCl4\nMn 0.0   0.0   0.0\nCl 1.23  1.23  1.23\nCl -1.23 -1.23 1.23\nCl 1.23  -1.23 -1.23\nCl -1.23 1.23  -1.23",
+      "atoms": [
+        {
+          "index": 0,
+          "element": "Mn",
+          "coordinates": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "index": 1,
+          "element": "Cl",
+          "coordinates": [
+            1.23,
+            1.23,
+            1.23
+          ]
+        },
+        {
+          "index": 2,
+          "element": "Cl",
+          "coordinates": [
+            -1.23,
+            -1.23,
+            1.23
+          ]
+        },
+        {
+          "index": 3,
+          "element": "Cl",
+          "coordinates": [
+            1.23,
+            -1.23,
+            -1.23
+          ]
+        },
+        {
+          "index": 4,
+          "element": "Cl",
+          "coordinates": [
+            -1.23,
+            1.23,
+            -1.23
+          ]
+        }
+      ]
+    },
+    "metal": {
+      "index": 0,
+      "element": "Mn",
+      "coordinates": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "ligands": [
+      {
+        "name": "Cl",
+        "atoms": [
+          {
+            "theta": 54.736,
+            "phi": -135.0,
+            "psi": 0.0,
+            "coordinating_atom": {
+              "index": 2,
+              "element": "Cl",
+              "coordinates": [
+                -1.23,
+                -1.23,
+                1.23
+              ]
+            },
+            "local_x_orientation": null,
+            "name": ""
+          },
+          {
+            "theta": 125.264,
+            "phi": -45.0,
+            "psi": 0.0,
+            "coordinating_atom": {
+              "index": 3,
+              "element": "Cl",
+              "coordinates": [
+                1.23,
+                -1.23,
+                -1.23
+              ]
+            },
+            "local_x_orientation": null,
+            "name": ""
+          },
+          {
+            "theta": 125.264,
+            "phi": 135.0,
+            "psi": 0.0,
+            "coordinating_atom": {
+              "index": 4,
+              "element": "Cl",
+              "coordinates": [
+                -1.23,
+                1.23,
+                -1.23
+              ]
+            },
+            "local_x_orientation": null,
+            "name": ""
+          },
+          {
+            "theta": 54.736,
+            "phi": 45.0,
+            "psi": 0.0,
+            "coordinating_atom": {
+              "index": 1,
+              "element": "Cl",
+              "coordinates": [
+                1.23,
+                1.23,
+                1.23
+              ]
+            },
+            "local_x_orientation": null,
+            "name": ""
+          }
+        ]
+      }
+    ]
+  },
+  "calculation_parameters": {
+    "metal": {
+      "d_electrons": 5,
+      "racah_b": {
+        "key": "metal.racah_b",
+        "value": 800.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "racah_c": {
+        "key": "metal.racah_c",
+        "value": 3200.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "spin_orbit_coupling": {
+        "key": "metal.spin_orbit_coupling",
+        "value": 300.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "kiso": {
+        "key": "metal.kiso",
+        "value": 0.75,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 0.01
+      }
+    },
+    "ligands": [
+      {
+        "name": "Cl",
+        "esigma": {
+          "key": "ligand.Cl.esigma",
+          "value": 5600.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epix": {
+          "key": "ligand.Cl.epix",
+          "value": 1000.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epiy": {
+          "key": "ligand.Cl.epiy",
+          "value": 1000.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "eds": {
+          "key": "ligand.Cl.eds",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edxy": {
+          "key": "ligand.Cl.edxy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edx2y2": {
+          "key": "ligand.Cl.edx2y2",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        }
+      }
+    ],
+    "hyperfine": {
+      "p": {
+        "key": "hyperfine.p",
+        "value": 0.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 50.0
+      },
+      "kappa": {
+        "key": "hyperfine.kappa",
+        "value": 0.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 0.01
+      },
+      "metal": "63Cu",
+      "units": "(MHz)"
+    },
+    "geometry": [
+      {
+        "name": "Cl1",
+        "theta": {
+          "key": "atom.Cl1.theta",
+          "value": 54.736,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Cl1.psi",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Cl1.phi",
+          "value": -135.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Cl2",
+        "theta": {
+          "key": "atom.Cl2.theta",
+          "value": 125.264,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Cl2.psi",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Cl2.phi",
+          "value": -45.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Cl3",
+        "theta": {
+          "key": "atom.Cl3.theta",
+          "value": 125.264,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Cl3.psi",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Cl3.phi",
+          "value": 135.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Cl4",
+        "theta": {
+          "key": "atom.Cl4.theta",
+          "value": 54.736,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Cl4.psi",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Cl4.phi",
+          "value": 45.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      }
+    ]
+  },
+  "calculation_options": {
+    "configuration_projection": true,
+    "epr_enabled": false,
+    "real_g_values": "Real",
+    "hyperfine_enabled": false,
+    "predict_p": true,
+    "predict_kappa": true,
+    "magnetism_enabled": false,
+    "temperatures": [
+      30.0,
+      60.0,
+      90.0,
+      120.0,
+      150.0,
+      180.0,
+      210.0,
+      240.0,
+      270.0,
+      300.0
+    ],
+    "second_order_zeeman_limit": 12000.0,
+    "absorption_enabled": true,
+    "absorption_temperature": 300.0,
+    "cd_enabled": false,
+    "cd_temperature": 300.0,
+    "mcd_enabled": false,
+    "mcd_magfield": 7.0,
+    "mcd_lebedev": 3,
+    "mcd_temperatures": [
+      5.0
+    ]
+  },
+  "intensity_parameters": {
+    "reference_value": 0.0476,
+    "parameters": [
+      {
+        "name": "Cl",
+        "psigma": {
+          "key": "ligand.Cl.psigma",
+          "value": -21.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppix": {
+          "key": "ligand.Cl.ppix",
+          "value": 7.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppiy": {
+          "key": "ligand.Cl.ppiy",
+          "value": 7.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fsigma": {
+          "key": "ligand.Cl.fsigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpix": {
+          "key": "ligand.Cl.fpix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpiy": {
+          "key": "ligand.Cl.fpiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        }
+      }
+    ]
+  },
+  "absorption_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  },
+  "cd_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  },
+  "mcd_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  }
+}
