@@ -1,0 +1,1984 @@
+{
+  "molecule": {
+    "molecular_geometry": {
+      "file_name": "Ba_AA10_gtensororientation.xyz",
+      "xyz_text": "142\nBaAA10\nN      0.06847    2.06860   -0.38522\nC     -1.21769    2.82877   -0.43738\nC     -0.99703    4.33922   -0.42137\nC     -2.14313    2.38702    0.71727\nC     -2.73509    1.04170    0.45651\nC     -4.05451    0.62439    0.38880\nN     -1.93345   -0.04686    0.13016\nC     -2.74939   -1.08676   -0.11807\nN     -4.03270   -0.71088    0.03264\nC     -2.34227   -2.35150   -5.05526\nC     -2.15921   -2.44309   -3.53266\nO     -3.14461   -2.25519   -2.77359\nO     -0.96620   -2.66457   -3.09339\nC     -7.82610   -3.62022   -1.29046\nC     -6.49361   -2.89736   -1.34926\nN     -5.81182   -2.92753   -2.50782\nO     -6.08742   -2.31329   -0.31339\nC      1.68907    3.52762    3.39619\nC      2.69306    3.77586    2.26019\nO      2.47223    3.33257    1.10320\nC      1.14261    2.09244    3.31864\nN      3.80833    4.50877    2.53594\nC      4.73808    4.93961    1.46267\nC      5.79155    3.83455    1.16603\nO      6.91048    3.84004    1.69604\nC      5.39620    6.19765    2.05562\nC      5.50156    5.87276    3.55915\nC      4.17860    5.12041    3.84239\nN      5.38997    2.88180    0.27516\nC      6.23999    1.72385   -0.04794\nC      7.54183    2.13124   -0.75039\nC      5.45007    0.72805   -0.92497\nC      4.13096    0.33228   -0.35170\nC      2.84378    0.48786   -0.83582\nN      3.98103   -0.26291    0.89436\nC      2.66217   -0.45657    1.13866\nN      1.95025   -0.01085    0.09844\nC      8.73275    4.28789   -4.99853\nC      8.23162    4.71272   -6.38081\nO      7.82220    3.39317   -4.31847\nC      2.56941    4.94341   -7.55726\nC      3.39742    4.51096   -6.38797\nC      4.76289    4.25464   -6.35799\nC      2.92962    4.30235   -5.04035\nC      4.07393    3.94594   -4.23993\nC      1.65808    4.36915   -4.43326\nN      5.16894    3.92269   -5.07548\nC      3.96761    3.70791   -2.85403\nC      1.54946    4.08769   -3.06812\nC      2.68897    3.78158   -2.27613\nC     -1.18910    3.06590   -6.56941\nC     -1.06095    2.16622   -5.36511\nC      0.17158    1.54945   -5.05738\nC     -2.17770    1.89666   -4.53995\nC      0.28797    0.67905   -3.96157\nC     -2.06866    1.02535   -3.44272\nC     -0.83373    0.41908   -3.15769\nCu     0.00000    0.00000    0.00000\nO      0.07242   -2.03650   -0.82074\nO      0.02013   -1.62340    1.86885\nO      1.65052   -2.05191   -2.95699\nH     -1.65222   -3.03457   -5.58779\nH     -2.09118   -1.31057   -5.35474\nH     -7.74299   -4.44716   -0.55585\nH     -8.15782   -4.03368   -2.26217\nH     -6.19412   -3.44789   -3.29902\nH     -4.83545   -2.55556   -2.61182\nH      0.41947    1.90976    4.13861\nH      1.95824    1.34655    3.40049\nH      0.62195    1.90482    2.35815\nH      2.21429    3.63885    4.36654\nH      4.72984    7.06889    1.88631\nH      6.37598    6.40809    1.58686\nH      6.36661    5.20377    3.72998\nH      5.60662    6.77022    4.19879\nH      4.29170    4.34163    4.62328\nH      3.37830    5.82000    4.16599\nH      4.15144    5.13976    0.54238\nH      8.83684    5.17276   -4.33639\nH      8.02371    3.82748   -7.01793\nH      7.31116    5.32354   -6.30279\nH      9.00146    5.32670   -6.89301\nH      7.97862    2.48891   -4.65718\nH      1.79097    4.19176   -7.81726\nH      2.03058    5.89302   -7.34672\nH      5.48511    4.28682   -7.18243\nH      0.76533    4.62002   -5.02562\nH      0.55130    4.10672   -2.61253\nH      4.85721    3.49408   -2.24259\nH      2.57345    3.62358   -1.19160\nH     -1.94313    3.86342   -6.41061\nH     -0.22354    3.54823   -6.82319\nH      1.05204    1.76277   -5.68425\nH     -3.14537    2.37300   -4.76921\nH      1.23752    0.16587   -3.74533\nH     -2.94411    0.79462   -2.81562\nH     -0.76200   -0.29051   -2.32728\nH      0.75353    2.49684    0.27708\nH     -1.69362    2.53565   -1.39534\nH     -1.96133    4.86507   -0.57062\nH     -2.96087    3.12322    0.83666\nH     -1.56432    2.39620    1.66823\nH     -4.98690    1.16826    0.57086\nH     -2.44474   -2.07350   -0.46943\nH      4.37482    2.82771    0.09801\nH      6.51364    1.22476    0.91195\nH      8.16799    1.23272   -0.92621\nH      6.08962   -0.16640   -1.08209\nH      5.26950    1.17076   -1.92567\nH      2.51741    0.91612   -1.78771\nH      4.73927   -0.52465    1.53027\nH      2.24196   -0.91028    2.03991\nH      0.92573   -2.05891   -1.35928\nH     -0.01905   -2.22050    1.07693\nH      2.19204   -2.84513   -3.13671\nH     -0.91196   -1.57562    2.16555\nH     -0.56254   -2.30460   -1.60465\nH     -4.87471   -1.36078   -0.14656\nH      6.14880    3.70614   -4.79244\nH      3.19080    5.10127   -8.46170\nH     -1.50815    2.48922   -7.46546\nH     -8.59399   -2.92004   -0.90576\nH     -3.39140   -2.55547   -5.34216\nH      9.73692    3.81398   -5.07039\nH     -0.57630    4.66640    0.55149\nH     -0.30126    4.67719   -1.20918\nC      0.55723    4.58556    3.34927\nH     -0.14484    4.42796    4.19245\nH      0.95624    5.61831    3.41640\nH     -0.01812    4.50310    2.40562\nH      0.51798    2.12049   -1.31381\nH      0.74482   -2.28672   -3.31569\nH      7.34177    2.60676   -1.73430\nH      8.11268    2.83792   -0.12070\nC      1.70495    1.30879   -3.96482\nH      2.61054    1.85725   -3.80992\nH      1.62116    1.04308   -4.99791\nH      1.71935    0.42069   -3.36818\nH      0.86876    1.91409   -3.68328\n",
+      "atoms": [
+        {
+          "index": 0,
+          "element": "N",
+          "coordinates": [
+            0.06847,
+            2.0686,
+            -0.38522
+          ]
+        },
+        {
+          "index": 1,
+          "element": "C",
+          "coordinates": [
+            -1.21769,
+            2.82877,
+            -0.43738
+          ]
+        },
+        {
+          "index": 2,
+          "element": "C",
+          "coordinates": [
+            -0.99703,
+            4.33922,
+            -0.42137
+          ]
+        },
+        {
+          "index": 3,
+          "element": "C",
+          "coordinates": [
+            -2.14313,
+            2.38702,
+            0.71727
+          ]
+        },
+        {
+          "index": 4,
+          "element": "C",
+          "coordinates": [
+            -2.73509,
+            1.0417,
+            0.45651
+          ]
+        },
+        {
+          "index": 5,
+          "element": "C",
+          "coordinates": [
+            -4.05451,
+            0.62439,
+            0.3888
+          ]
+        },
+        {
+          "index": 6,
+          "element": "N",
+          "coordinates": [
+            -1.93345,
+            -0.04686,
+            0.13016
+          ]
+        },
+        {
+          "index": 7,
+          "element": "C",
+          "coordinates": [
+            -2.74939,
+            -1.08676,
+            -0.11807
+          ]
+        },
+        {
+          "index": 8,
+          "element": "N",
+          "coordinates": [
+            -4.0327,
+            -0.71088,
+            0.03264
+          ]
+        },
+        {
+          "index": 9,
+          "element": "C",
+          "coordinates": [
+            -2.34227,
+            -2.3515,
+            -5.05526
+          ]
+        },
+        {
+          "index": 10,
+          "element": "C",
+          "coordinates": [
+            -2.15921,
+            -2.44309,
+            -3.53266
+          ]
+        },
+        {
+          "index": 11,
+          "element": "O",
+          "coordinates": [
+            -3.14461,
+            -2.25519,
+            -2.77359
+          ]
+        },
+        {
+          "index": 12,
+          "element": "O",
+          "coordinates": [
+            -0.9662,
+            -2.66457,
+            -3.09339
+          ]
+        },
+        {
+          "index": 13,
+          "element": "C",
+          "coordinates": [
+            -7.8261,
+            -3.62022,
+            -1.29046
+          ]
+        },
+        {
+          "index": 14,
+          "element": "C",
+          "coordinates": [
+            -6.49361,
+            -2.89736,
+            -1.34926
+          ]
+        },
+        {
+          "index": 15,
+          "element": "N",
+          "coordinates": [
+            -5.81182,
+            -2.92753,
+            -2.50782
+          ]
+        },
+        {
+          "index": 16,
+          "element": "O",
+          "coordinates": [
+            -6.08742,
+            -2.31329,
+            -0.31339
+          ]
+        },
+        {
+          "index": 17,
+          "element": "C",
+          "coordinates": [
+            1.68907,
+            3.52762,
+            3.39619
+          ]
+        },
+        {
+          "index": 18,
+          "element": "C",
+          "coordinates": [
+            2.69306,
+            3.77586,
+            2.26019
+          ]
+        },
+        {
+          "index": 19,
+          "element": "O",
+          "coordinates": [
+            2.47223,
+            3.33257,
+            1.1032
+          ]
+        },
+        {
+          "index": 20,
+          "element": "C",
+          "coordinates": [
+            1.14261,
+            2.09244,
+            3.31864
+          ]
+        },
+        {
+          "index": 21,
+          "element": "N",
+          "coordinates": [
+            3.80833,
+            4.50877,
+            2.53594
+          ]
+        },
+        {
+          "index": 22,
+          "element": "C",
+          "coordinates": [
+            4.73808,
+            4.93961,
+            1.46267
+          ]
+        },
+        {
+          "index": 23,
+          "element": "C",
+          "coordinates": [
+            5.79155,
+            3.83455,
+            1.16603
+          ]
+        },
+        {
+          "index": 24,
+          "element": "O",
+          "coordinates": [
+            6.91048,
+            3.84004,
+            1.69604
+          ]
+        },
+        {
+          "index": 25,
+          "element": "C",
+          "coordinates": [
+            5.3962,
+            6.19765,
+            2.05562
+          ]
+        },
+        {
+          "index": 26,
+          "element": "C",
+          "coordinates": [
+            5.50156,
+            5.87276,
+            3.55915
+          ]
+        },
+        {
+          "index": 27,
+          "element": "C",
+          "coordinates": [
+            4.1786,
+            5.12041,
+            3.84239
+          ]
+        },
+        {
+          "index": 28,
+          "element": "N",
+          "coordinates": [
+            5.38997,
+            2.8818,
+            0.27516
+          ]
+        },
+        {
+          "index": 29,
+          "element": "C",
+          "coordinates": [
+            6.23999,
+            1.72385,
+            -0.04794
+          ]
+        },
+        {
+          "index": 30,
+          "element": "C",
+          "coordinates": [
+            7.54183,
+            2.13124,
+            -0.75039
+          ]
+        },
+        {
+          "index": 31,
+          "element": "C",
+          "coordinates": [
+            5.45007,
+            0.72805,
+            -0.92497
+          ]
+        },
+        {
+          "index": 32,
+          "element": "C",
+          "coordinates": [
+            4.13096,
+            0.33228,
+            -0.3517
+          ]
+        },
+        {
+          "index": 33,
+          "element": "C",
+          "coordinates": [
+            2.84378,
+            0.48786,
+            -0.83582
+          ]
+        },
+        {
+          "index": 34,
+          "element": "N",
+          "coordinates": [
+            3.98103,
+            -0.26291,
+            0.89436
+          ]
+        },
+        {
+          "index": 35,
+          "element": "C",
+          "coordinates": [
+            2.66217,
+            -0.45657,
+            1.13866
+          ]
+        },
+        {
+          "index": 36,
+          "element": "N",
+          "coordinates": [
+            1.95025,
+            -0.01085,
+            0.09844
+          ]
+        },
+        {
+          "index": 37,
+          "element": "C",
+          "coordinates": [
+            8.73275,
+            4.28789,
+            -4.99853
+          ]
+        },
+        {
+          "index": 38,
+          "element": "C",
+          "coordinates": [
+            8.23162,
+            4.71272,
+            -6.38081
+          ]
+        },
+        {
+          "index": 39,
+          "element": "O",
+          "coordinates": [
+            7.8222,
+            3.39317,
+            -4.31847
+          ]
+        },
+        {
+          "index": 40,
+          "element": "C",
+          "coordinates": [
+            2.56941,
+            4.94341,
+            -7.55726
+          ]
+        },
+        {
+          "index": 41,
+          "element": "C",
+          "coordinates": [
+            3.39742,
+            4.51096,
+            -6.38797
+          ]
+        },
+        {
+          "index": 42,
+          "element": "C",
+          "coordinates": [
+            4.76289,
+            4.25464,
+            -6.35799
+          ]
+        },
+        {
+          "index": 43,
+          "element": "C",
+          "coordinates": [
+            2.92962,
+            4.30235,
+            -5.04035
+          ]
+        },
+        {
+          "index": 44,
+          "element": "C",
+          "coordinates": [
+            4.07393,
+            3.94594,
+            -4.23993
+          ]
+        },
+        {
+          "index": 45,
+          "element": "C",
+          "coordinates": [
+            1.65808,
+            4.36915,
+            -4.43326
+          ]
+        },
+        {
+          "index": 46,
+          "element": "N",
+          "coordinates": [
+            5.16894,
+            3.92269,
+            -5.07548
+          ]
+        },
+        {
+          "index": 47,
+          "element": "C",
+          "coordinates": [
+            3.96761,
+            3.70791,
+            -2.85403
+          ]
+        },
+        {
+          "index": 48,
+          "element": "C",
+          "coordinates": [
+            1.54946,
+            4.08769,
+            -3.06812
+          ]
+        },
+        {
+          "index": 49,
+          "element": "C",
+          "coordinates": [
+            2.68897,
+            3.78158,
+            -2.27613
+          ]
+        },
+        {
+          "index": 50,
+          "element": "C",
+          "coordinates": [
+            -1.1891,
+            3.0659,
+            -6.56941
+          ]
+        },
+        {
+          "index": 51,
+          "element": "C",
+          "coordinates": [
+            -1.06095,
+            2.16622,
+            -5.36511
+          ]
+        },
+        {
+          "index": 52,
+          "element": "C",
+          "coordinates": [
+            0.17158,
+            1.54945,
+            -5.05738
+          ]
+        },
+        {
+          "index": 53,
+          "element": "C",
+          "coordinates": [
+            -2.1777,
+            1.89666,
+            -4.53995
+          ]
+        },
+        {
+          "index": 54,
+          "element": "C",
+          "coordinates": [
+            0.28797,
+            0.67905,
+            -3.96157
+          ]
+        },
+        {
+          "index": 55,
+          "element": "C",
+          "coordinates": [
+            -2.06866,
+            1.02535,
+            -3.44272
+          ]
+        },
+        {
+          "index": 56,
+          "element": "C",
+          "coordinates": [
+            -0.83373,
+            0.41908,
+            -3.15769
+          ]
+        },
+        {
+          "index": 57,
+          "element": "Cu",
+          "coordinates": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "index": 58,
+          "element": "O",
+          "coordinates": [
+            0.07242,
+            -2.0365,
+            -0.82074
+          ]
+        },
+        {
+          "index": 59,
+          "element": "O",
+          "coordinates": [
+            0.02013,
+            -1.6234,
+            1.86885
+          ]
+        },
+        {
+          "index": 60,
+          "element": "O",
+          "coordinates": [
+            1.65052,
+            -2.05191,
+            -2.95699
+          ]
+        },
+        {
+          "index": 61,
+          "element": "H",
+          "coordinates": [
+            -1.65222,
+            -3.03457,
+            -5.58779
+          ]
+        },
+        {
+          "index": 62,
+          "element": "H",
+          "coordinates": [
+            -2.09118,
+            -1.31057,
+            -5.35474
+          ]
+        },
+        {
+          "index": 63,
+          "element": "H",
+          "coordinates": [
+            -7.74299,
+            -4.44716,
+            -0.55585
+          ]
+        },
+        {
+          "index": 64,
+          "element": "H",
+          "coordinates": [
+            -8.15782,
+            -4.03368,
+            -2.26217
+          ]
+        },
+        {
+          "index": 65,
+          "element": "H",
+          "coordinates": [
+            -6.19412,
+            -3.44789,
+            -3.29902
+          ]
+        },
+        {
+          "index": 66,
+          "element": "H",
+          "coordinates": [
+            -4.83545,
+            -2.55556,
+            -2.61182
+          ]
+        },
+        {
+          "index": 67,
+          "element": "H",
+          "coordinates": [
+            0.41947,
+            1.90976,
+            4.13861
+          ]
+        },
+        {
+          "index": 68,
+          "element": "H",
+          "coordinates": [
+            1.95824,
+            1.34655,
+            3.40049
+          ]
+        },
+        {
+          "index": 69,
+          "element": "H",
+          "coordinates": [
+            0.62195,
+            1.90482,
+            2.35815
+          ]
+        },
+        {
+          "index": 70,
+          "element": "H",
+          "coordinates": [
+            2.21429,
+            3.63885,
+            4.36654
+          ]
+        },
+        {
+          "index": 71,
+          "element": "H",
+          "coordinates": [
+            4.72984,
+            7.06889,
+            1.88631
+          ]
+        },
+        {
+          "index": 72,
+          "element": "H",
+          "coordinates": [
+            6.37598,
+            6.40809,
+            1.58686
+          ]
+        },
+        {
+          "index": 73,
+          "element": "H",
+          "coordinates": [
+            6.36661,
+            5.20377,
+            3.72998
+          ]
+        },
+        {
+          "index": 74,
+          "element": "H",
+          "coordinates": [
+            5.60662,
+            6.77022,
+            4.19879
+          ]
+        },
+        {
+          "index": 75,
+          "element": "H",
+          "coordinates": [
+            4.2917,
+            4.34163,
+            4.62328
+          ]
+        },
+        {
+          "index": 76,
+          "element": "H",
+          "coordinates": [
+            3.3783,
+            5.82,
+            4.16599
+          ]
+        },
+        {
+          "index": 77,
+          "element": "H",
+          "coordinates": [
+            4.15144,
+            5.13976,
+            0.54238
+          ]
+        },
+        {
+          "index": 78,
+          "element": "H",
+          "coordinates": [
+            8.83684,
+            5.17276,
+            -4.33639
+          ]
+        },
+        {
+          "index": 79,
+          "element": "H",
+          "coordinates": [
+            8.02371,
+            3.82748,
+            -7.01793
+          ]
+        },
+        {
+          "index": 80,
+          "element": "H",
+          "coordinates": [
+            7.31116,
+            5.32354,
+            -6.30279
+          ]
+        },
+        {
+          "index": 81,
+          "element": "H",
+          "coordinates": [
+            9.00146,
+            5.3267,
+            -6.89301
+          ]
+        },
+        {
+          "index": 82,
+          "element": "H",
+          "coordinates": [
+            7.97862,
+            2.48891,
+            -4.65718
+          ]
+        },
+        {
+          "index": 83,
+          "element": "H",
+          "coordinates": [
+            1.79097,
+            4.19176,
+            -7.81726
+          ]
+        },
+        {
+          "index": 84,
+          "element": "H",
+          "coordinates": [
+            2.03058,
+            5.89302,
+            -7.34672
+          ]
+        },
+        {
+          "index": 85,
+          "element": "H",
+          "coordinates": [
+            5.48511,
+            4.28682,
+            -7.18243
+          ]
+        },
+        {
+          "index": 86,
+          "element": "H",
+          "coordinates": [
+            0.76533,
+            4.62002,
+            -5.02562
+          ]
+        },
+        {
+          "index": 87,
+          "element": "H",
+          "coordinates": [
+            0.5513,
+            4.10672,
+            -2.61253
+          ]
+        },
+        {
+          "index": 88,
+          "element": "H",
+          "coordinates": [
+            4.85721,
+            3.49408,
+            -2.24259
+          ]
+        },
+        {
+          "index": 89,
+          "element": "H",
+          "coordinates": [
+            2.57345,
+            3.62358,
+            -1.1916
+          ]
+        },
+        {
+          "index": 90,
+          "element": "H",
+          "coordinates": [
+            -1.94313,
+            3.86342,
+            -6.41061
+          ]
+        },
+        {
+          "index": 91,
+          "element": "H",
+          "coordinates": [
+            -0.22354,
+            3.54823,
+            -6.82319
+          ]
+        },
+        {
+          "index": 92,
+          "element": "H",
+          "coordinates": [
+            1.05204,
+            1.76277,
+            -5.68425
+          ]
+        },
+        {
+          "index": 93,
+          "element": "H",
+          "coordinates": [
+            -3.14537,
+            2.373,
+            -4.76921
+          ]
+        },
+        {
+          "index": 94,
+          "element": "H",
+          "coordinates": [
+            1.23752,
+            0.16587,
+            -3.74533
+          ]
+        },
+        {
+          "index": 95,
+          "element": "H",
+          "coordinates": [
+            -2.94411,
+            0.79462,
+            -2.81562
+          ]
+        },
+        {
+          "index": 96,
+          "element": "H",
+          "coordinates": [
+            -0.762,
+            -0.29051,
+            -2.32728
+          ]
+        },
+        {
+          "index": 97,
+          "element": "H",
+          "coordinates": [
+            0.75353,
+            2.49684,
+            0.27708
+          ]
+        },
+        {
+          "index": 98,
+          "element": "H",
+          "coordinates": [
+            -1.69362,
+            2.53565,
+            -1.39534
+          ]
+        },
+        {
+          "index": 99,
+          "element": "H",
+          "coordinates": [
+            -1.96133,
+            4.86507,
+            -0.57062
+          ]
+        },
+        {
+          "index": 100,
+          "element": "H",
+          "coordinates": [
+            -2.96087,
+            3.12322,
+            0.83666
+          ]
+        },
+        {
+          "index": 101,
+          "element": "H",
+          "coordinates": [
+            -1.56432,
+            2.3962,
+            1.66823
+          ]
+        },
+        {
+          "index": 102,
+          "element": "H",
+          "coordinates": [
+            -4.9869,
+            1.16826,
+            0.57086
+          ]
+        },
+        {
+          "index": 103,
+          "element": "H",
+          "coordinates": [
+            -2.44474,
+            -2.0735,
+            -0.46943
+          ]
+        },
+        {
+          "index": 104,
+          "element": "H",
+          "coordinates": [
+            4.37482,
+            2.82771,
+            0.09801
+          ]
+        },
+        {
+          "index": 105,
+          "element": "H",
+          "coordinates": [
+            6.51364,
+            1.22476,
+            0.91195
+          ]
+        },
+        {
+          "index": 106,
+          "element": "H",
+          "coordinates": [
+            8.16799,
+            1.23272,
+            -0.92621
+          ]
+        },
+        {
+          "index": 107,
+          "element": "H",
+          "coordinates": [
+            6.08962,
+            -0.1664,
+            -1.08209
+          ]
+        },
+        {
+          "index": 108,
+          "element": "H",
+          "coordinates": [
+            5.2695,
+            1.17076,
+            -1.92567
+          ]
+        },
+        {
+          "index": 109,
+          "element": "H",
+          "coordinates": [
+            2.51741,
+            0.91612,
+            -1.78771
+          ]
+        },
+        {
+          "index": 110,
+          "element": "H",
+          "coordinates": [
+            4.73927,
+            -0.52465,
+            1.53027
+          ]
+        },
+        {
+          "index": 111,
+          "element": "H",
+          "coordinates": [
+            2.24196,
+            -0.91028,
+            2.03991
+          ]
+        },
+        {
+          "index": 112,
+          "element": "H",
+          "coordinates": [
+            0.92573,
+            -2.05891,
+            -1.35928
+          ]
+        },
+        {
+          "index": 113,
+          "element": "H",
+          "coordinates": [
+            -0.01905,
+            -2.2205,
+            1.07693
+          ]
+        },
+        {
+          "index": 114,
+          "element": "H",
+          "coordinates": [
+            2.19204,
+            -2.84513,
+            -3.13671
+          ]
+        },
+        {
+          "index": 115,
+          "element": "H",
+          "coordinates": [
+            -0.91196,
+            -1.57562,
+            2.16555
+          ]
+        },
+        {
+          "index": 116,
+          "element": "H",
+          "coordinates": [
+            -0.56254,
+            -2.3046,
+            -1.60465
+          ]
+        },
+        {
+          "index": 117,
+          "element": "H",
+          "coordinates": [
+            -4.87471,
+            -1.36078,
+            -0.14656
+          ]
+        },
+        {
+          "index": 118,
+          "element": "H",
+          "coordinates": [
+            6.1488,
+            3.70614,
+            -4.79244
+          ]
+        },
+        {
+          "index": 119,
+          "element": "H",
+          "coordinates": [
+            3.1908,
+            5.10127,
+            -8.4617
+          ]
+        },
+        {
+          "index": 120,
+          "element": "H",
+          "coordinates": [
+            -1.50815,
+            2.48922,
+            -7.46546
+          ]
+        },
+        {
+          "index": 121,
+          "element": "H",
+          "coordinates": [
+            -8.59399,
+            -2.92004,
+            -0.90576
+          ]
+        },
+        {
+          "index": 122,
+          "element": "H",
+          "coordinates": [
+            -3.3914,
+            -2.55547,
+            -5.34216
+          ]
+        },
+        {
+          "index": 123,
+          "element": "H",
+          "coordinates": [
+            9.73692,
+            3.81398,
+            -5.07039
+          ]
+        },
+        {
+          "index": 124,
+          "element": "H",
+          "coordinates": [
+            -0.5763,
+            4.6664,
+            0.55149
+          ]
+        },
+        {
+          "index": 125,
+          "element": "H",
+          "coordinates": [
+            -0.30126,
+            4.67719,
+            -1.20918
+          ]
+        },
+        {
+          "index": 126,
+          "element": "C",
+          "coordinates": [
+            0.55723,
+            4.58556,
+            3.34927
+          ]
+        },
+        {
+          "index": 127,
+          "element": "H",
+          "coordinates": [
+            -0.14484,
+            4.42796,
+            4.19245
+          ]
+        },
+        {
+          "index": 128,
+          "element": "H",
+          "coordinates": [
+            0.95624,
+            5.61831,
+            3.4164
+          ]
+        },
+        {
+          "index": 129,
+          "element": "H",
+          "coordinates": [
+            -0.01812,
+            4.5031,
+            2.40562
+          ]
+        },
+        {
+          "index": 130,
+          "element": "H",
+          "coordinates": [
+            0.51798,
+            2.12049,
+            -1.31381
+          ]
+        },
+        {
+          "index": 131,
+          "element": "H",
+          "coordinates": [
+            0.74482,
+            -2.28672,
+            -3.31569
+          ]
+        },
+        {
+          "index": 132,
+          "element": "H",
+          "coordinates": [
+            7.34177,
+            2.60676,
+            -1.7343
+          ]
+        },
+        {
+          "index": 133,
+          "element": "H",
+          "coordinates": [
+            8.11268,
+            2.83792,
+            -0.1207
+          ]
+        },
+        {
+          "index": 134,
+          "element": "C",
+          "coordinates": [
+            1.70495,
+            1.30879,
+            -3.96482
+          ]
+        },
+        {
+          "index": 135,
+          "element": "H",
+          "coordinates": [
+            2.61054,
+            1.85725,
+            -3.80992
+          ]
+        },
+        {
+          "index": 136,
+          "element": "H",
+          "coordinates": [
+            1.62116,
+            1.04308,
+            -4.99791
+          ]
+        },
+        {
+          "index": 137,
+          "element": "H",
+          "coordinates": [
+            1.71935,
+            0.42069,
+            -3.36818
+          ]
+        },
+        {
+          "index": 138,
+          "element": "H",
+          "coordinates": [
+            0.86876,
+            1.91409,
+            -3.68328
+          ]
+        }
+      ]
+    },
+    "metal": {
+      "index": 57,
+      "element": "Cu",
+      "coordinates": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "ligands": [
+      {
+        "name": "His",
+        "atoms": [
+          {
+            "theta": 86.15,
+            "phi": -178.612,
+            "psi": -103.873,
+            "coordinating_atom": {
+              "index": 6,
+              "element": "N",
+              "coordinates": [
+                -1.93345,
+                -0.04686,
+                0.13016
+              ]
+            },
+            "local_x_orientation": {
+              "index": 4,
+              "element": "C",
+              "coordinates": [
+                -2.73509,
+                1.0417,
+                0.45651
+              ]
+            },
+            "name": ""
+          },
+          {
+            "theta": 87.11,
+            "phi": -0.319,
+            "psi": -156.227,
+            "coordinating_atom": {
+              "index": 36,
+              "element": "N",
+              "coordinates": [
+                1.95025,
+                -0.01085,
+                0.09844
+              ]
+            },
+            "local_x_orientation": {
+              "index": 35,
+              "element": "C",
+              "coordinates": [
+                2.66217,
+                -0.45657,
+                1.13866
+              ]
+            },
+            "name": ""
+          }
+        ]
+      },
+      {
+        "name": "H2OA",
+        "atoms": [
+          {
+            "theta": 111.938,
+            "phi": -87.963,
+            "psi": 0.0,
+            "coordinating_atom": {
+              "index": 58,
+              "element": "O",
+              "coordinates": [
+                0.07242,
+                -2.0365,
+                -0.82074
+              ]
+            },
+            "local_x_orientation": null,
+            "name": ""
+          }
+        ]
+      },
+      {
+        "name": "H2OB",
+        "atoms": [
+          {
+            "theta": 40.982,
+            "phi": -89.29,
+            "psi": 0.0,
+            "coordinating_atom": {
+              "index": 59,
+              "element": "O",
+              "coordinates": [
+                0.02013,
+                -1.6234,
+                1.86885
+              ]
+            },
+            "local_x_orientation": null,
+            "name": ""
+          }
+        ]
+      },
+      {
+        "name": "NH2",
+        "atoms": [
+          {
+            "theta": 100.543,
+            "phi": 88.104,
+            "psi": 0.0,
+            "coordinating_atom": {
+              "index": 0,
+              "element": "N",
+              "coordinates": [
+                0.06847,
+                2.0686,
+                -0.38522
+              ]
+            },
+            "local_x_orientation": null,
+            "name": ""
+          }
+        ]
+      }
+    ]
+  },
+  "calculation_parameters": {
+    "metal": {
+      "d_electrons": 9,
+      "racah_b": {
+        "key": "metal.racah_b",
+        "value": 0.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "racah_c": {
+        "key": "metal.racah_c",
+        "value": 0.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "spin_orbit_coupling": {
+        "key": "metal.spin_orbit_coupling",
+        "value": 830.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "kiso": {
+        "key": "metal.kiso",
+        "value": 0.475,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 0.01
+      }
+    },
+    "ligands": [
+      {
+        "name": "His",
+        "esigma": {
+          "key": "ligand.His.esigma",
+          "value": 4050.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epix": {
+          "key": "ligand.His.epix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epiy": {
+          "key": "ligand.His.epiy",
+          "value": 1000.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "eds": {
+          "key": "ligand.His.eds",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edxy": {
+          "key": "ligand.His.edxy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edx2y2": {
+          "key": "ligand.His.edx2y2",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        }
+      },
+      {
+        "name": "H2OA",
+        "esigma": {
+          "key": "ligand.H2OA.esigma",
+          "value": 3800.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epix": {
+          "key": "ligand.H2OA.epix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epiy": {
+          "key": "ligand.H2OA.epiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "eds": {
+          "key": "ligand.H2OA.eds",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edxy": {
+          "key": "ligand.H2OA.edxy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edx2y2": {
+          "key": "ligand.H2OA.edx2y2",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        }
+      },
+      {
+        "name": "H2OB",
+        "esigma": {
+          "key": "ligand.H2OB.esigma",
+          "value": 600.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epix": {
+          "key": "ligand.H2OB.epix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epiy": {
+          "key": "ligand.H2OB.epiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "eds": {
+          "key": "ligand.H2OB.eds",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edxy": {
+          "key": "ligand.H2OB.edxy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edx2y2": {
+          "key": "ligand.H2OB.edx2y2",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        }
+      },
+      {
+        "name": "NH2",
+        "esigma": {
+          "key": "ligand.NH2.esigma",
+          "value": 4000.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epix": {
+          "key": "ligand.NH2.epix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epiy": {
+          "key": "ligand.NH2.epiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "eds": {
+          "key": "ligand.NH2.eds",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edxy": {
+          "key": "ligand.NH2.edxy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edx2y2": {
+          "key": "ligand.NH2.edx2y2",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        }
+      }
+    ],
+    "hyperfine": {
+      "p": {
+        "key": "hyperfine.p",
+        "value": 1194.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 50.0
+      },
+      "kappa": {
+        "key": "hyperfine.kappa",
+        "value": 0.1665,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 0.01
+      },
+      "metal": "63Cu",
+      "units": "(MHz)"
+    },
+    "geometry": [
+      {
+        "name": "His1",
+        "theta": {
+          "key": "atom.His1.theta",
+          "value": 86.15,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.His1.psi",
+          "value": -103.873,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.His1.phi",
+          "value": -178.612,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "His2",
+        "theta": {
+          "key": "atom.His2.theta",
+          "value": 87.11,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.His2.psi",
+          "value": -156.227,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.His2.phi",
+          "value": -0.319,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "H2OA1",
+        "theta": {
+          "key": "atom.H2OA1.theta",
+          "value": 111.938,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.H2OA1.psi",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.H2OA1.phi",
+          "value": -87.963,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "H2OB1",
+        "theta": {
+          "key": "atom.H2OB1.theta",
+          "value": 40.982,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.H2OB1.psi",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.H2OB1.phi",
+          "value": -89.29,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "NH21",
+        "theta": {
+          "key": "atom.NH21.theta",
+          "value": 100.543,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.NH21.psi",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.NH21.phi",
+          "value": 88.104,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      }
+    ]
+  },
+  "calculation_options": {
+    "configuration_projection": false,
+    "epr_enabled": true,
+    "real_g_values": null,
+    "hyperfine_enabled": true,
+    "predict_p": true,
+    "predict_kappa": true,
+    "magnetism_enabled": false,
+    "temperatures": [
+      30.0,
+      60.0,
+      90.0,
+      120.0,
+      150.0,
+      180.0,
+      210.0,
+      240.0,
+      270.0,
+      300.0
+    ],
+    "second_order_zeeman_limit": 12000.0,
+    "absorption_enabled": false,
+    "absorption_temperature": 300.0,
+    "cd_enabled": false,
+    "cd_temperature": 300.0,
+    "mcd_enabled": false,
+    "mcd_magfield": 7.0,
+    "mcd_lebedev": 5,
+    "mcd_temperatures": [
+      5.0
+    ]
+  },
+  "intensity_parameters": {
+    "reference_value": 1.0,
+    "parameters": [
+      {
+        "name": "His",
+        "psigma": {
+          "key": "ligand.His.psigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppix": {
+          "key": "ligand.His.ppix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppiy": {
+          "key": "ligand.His.ppiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fsigma": {
+          "key": "ligand.His.fsigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpix": {
+          "key": "ligand.His.fpix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpiy": {
+          "key": "ligand.His.fpiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        }
+      },
+      {
+        "name": "H2OA",
+        "psigma": {
+          "key": "ligand.H2OA.psigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppix": {
+          "key": "ligand.H2OA.ppix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppiy": {
+          "key": "ligand.H2OA.ppiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fsigma": {
+          "key": "ligand.H2OA.fsigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpix": {
+          "key": "ligand.H2OA.fpix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpiy": {
+          "key": "ligand.H2OA.fpiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        }
+      },
+      {
+        "name": "H2OB",
+        "psigma": {
+          "key": "ligand.H2OB.psigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppix": {
+          "key": "ligand.H2OB.ppix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppiy": {
+          "key": "ligand.H2OB.ppiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fsigma": {
+          "key": "ligand.H2OB.fsigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpix": {
+          "key": "ligand.H2OB.fpix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpiy": {
+          "key": "ligand.H2OB.fpiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        }
+      },
+      {
+        "name": "NH2",
+        "psigma": {
+          "key": "ligand.NH2.psigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppix": {
+          "key": "ligand.NH2.ppix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppiy": {
+          "key": "ligand.NH2.ppiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fsigma": {
+          "key": "ligand.NH2.fsigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpix": {
+          "key": "ligand.NH2.fpix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpiy": {
+          "key": "ligand.NH2.fpiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        }
+      }
+    ]
+  },
+  "absorption_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  },
+  "cd_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  },
+  "mcd_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  }
+}

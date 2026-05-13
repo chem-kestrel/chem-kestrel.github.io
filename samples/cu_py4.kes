@@ -1,0 +1,829 @@
+{
+  "molecule": {
+    "molecular_geometry": {
+      "file_name": "45\nCuPy4\nCu 0.00000000 0.000000000 0.000000000\nC -0.695174739 2.703797661 -0.935667100\nH -1.252849847 2.112386426 -1.661786403\nC 0.696234162 2.704292804 0.934554740\nH 1.252748139 2.113413780 1.661978708\nC 0.710592471 4.094287803 0.969873234\nH 1.274833194 4.606919765 1.748082093\nC 0.002238170 4.803410619 -0.002494345\nH 0.003157740 5.893671184 -0.003448466\nC -0.707342372 4.093765099 -0.973548961\nH -1.270865502 4.605843838 -1.752638327\nC -2.705163278 0.695714907 0.934039059\nH -2.114604722 1.251200921 1.662510065\nC -4.095195580 0.710639422 0.968342019\nH -4.608161030 1.274604700 1.746531287\nC -4.803845710 0.003299507 -0.005089467\nH -5.894103231 0.004604114 -0.006879539\nC -4.093707142 -0.705799809 -0.976140546\nH -4.605478125 -1.268587753 -1.755974511\nC -2.703782408 -0.694106954 -0.937341313\nH -2.112077049 -1.251167681 -1.663681185\nN 0.000000000 2.020299387 0.000000000\nN -2.020685339 0.000061870 -0.000598595\nC 2.703651407 -0.696907651 0.934762350\nH 2.112131948 -1.255415688 1.660154620\nC 2.704410175 0.696891253 -0.933681483\nH 2.113632342 1.254455924 -1.660384628\nC 4.094407688 0.711018657 -0.968991246\nH 4.607146773 1.276153567 -1.746479720\nC 4.803395673 0.001277728 0.002463020\nH 5.893656990 0.001972041 0.003404639\nC 4.093617228 -0.709406254 0.972614170\nH 4.605590090 -1.274043458 1.750967208\nC 0.696731329 -2.705326932 -0.932756240\nH 1.253364302 -2.114905401 -1.660465621\nC 0.711548636 -4.095365066 -0.966887609\nH 1.276596203 -4.608479078 -1.744193774\nC 0.002708266 -4.803827914 0.005589773\nH 0.003881655 -5.894085779 0.007496010\nC -0.707716010 -4.093505081 0.975538198\nH -1.271697998 -4.605128671 1.754604561\nC -0.695796975 -2.703585338 0.936614563\nH -1.253849671 -2.111733437 1.662074837\nN 2.020290525 -0.000386831 0.000000000\nN -0.000206020 -2.020677521 0.000793206\n",
+      "xyz_text": "45\nCuPy4\nCu 0.00000000 0.000000000 0.000000000\nC -0.695174739 2.703797661 -0.935667100\nH -1.252849847 2.112386426 -1.661786403\nC 0.696234162 2.704292804 0.934554740\nH 1.252748139 2.113413780 1.661978708\nC 0.710592471 4.094287803 0.969873234\nH 1.274833194 4.606919765 1.748082093\nC 0.002238170 4.803410619 -0.002494345\nH 0.003157740 5.893671184 -0.003448466\nC -0.707342372 4.093765099 -0.973548961\nH -1.270865502 4.605843838 -1.752638327\nC -2.705163278 0.695714907 0.934039059\nH -2.114604722 1.251200921 1.662510065\nC -4.095195580 0.710639422 0.968342019\nH -4.608161030 1.274604700 1.746531287\nC -4.803845710 0.003299507 -0.005089467\nH -5.894103231 0.004604114 -0.006879539\nC -4.093707142 -0.705799809 -0.976140546\nH -4.605478125 -1.268587753 -1.755974511\nC -2.703782408 -0.694106954 -0.937341313\nH -2.112077049 -1.251167681 -1.663681185\nN 0.000000000 2.020299387 0.000000000\nN -2.020685339 0.000061870 -0.000598595\nC 2.703651407 -0.696907651 0.934762350\nH 2.112131948 -1.255415688 1.660154620\nC 2.704410175 0.696891253 -0.933681483\nH 2.113632342 1.254455924 -1.660384628\nC 4.094407688 0.711018657 -0.968991246\nH 4.607146773 1.276153567 -1.746479720\nC 4.803395673 0.001277728 0.002463020\nH 5.893656990 0.001972041 0.003404639\nC 4.093617228 -0.709406254 0.972614170\nH 4.605590090 -1.274043458 1.750967208\nC 0.696731329 -2.705326932 -0.932756240\nH 1.253364302 -2.114905401 -1.660465621\nC 0.711548636 -4.095365066 -0.966887609\nH 1.276596203 -4.608479078 -1.744193774\nC 0.002708266 -4.803827914 0.005589773\nH 0.003881655 -5.894085779 0.007496010\nC -0.707716010 -4.093505081 0.975538198\nH -1.271697998 -4.605128671 1.754604561\nC -0.695796975 -2.703585338 0.936614563\nH -1.253849671 -2.111733437 1.662074837\nN 2.020290525 -0.000386831 0.000000000\nN -0.000206020 -2.020677521 0.000793206\n",
+      "atoms": [
+        {
+          "index": 0,
+          "element": "Cu",
+          "coordinates": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "index": 1,
+          "element": "C",
+          "coordinates": [
+            -0.695174739,
+            2.703797661,
+            -0.9356671
+          ]
+        },
+        {
+          "index": 2,
+          "element": "H",
+          "coordinates": [
+            -1.252849847,
+            2.112386426,
+            -1.661786403
+          ]
+        },
+        {
+          "index": 3,
+          "element": "C",
+          "coordinates": [
+            0.696234162,
+            2.704292804,
+            0.93455474
+          ]
+        },
+        {
+          "index": 4,
+          "element": "H",
+          "coordinates": [
+            1.252748139,
+            2.11341378,
+            1.661978708
+          ]
+        },
+        {
+          "index": 5,
+          "element": "C",
+          "coordinates": [
+            0.710592471,
+            4.094287803,
+            0.969873234
+          ]
+        },
+        {
+          "index": 6,
+          "element": "H",
+          "coordinates": [
+            1.274833194,
+            4.606919765,
+            1.748082093
+          ]
+        },
+        {
+          "index": 7,
+          "element": "C",
+          "coordinates": [
+            0.00223817,
+            4.803410619,
+            -0.002494345
+          ]
+        },
+        {
+          "index": 8,
+          "element": "H",
+          "coordinates": [
+            0.00315774,
+            5.893671184,
+            -0.003448466
+          ]
+        },
+        {
+          "index": 9,
+          "element": "C",
+          "coordinates": [
+            -0.707342372,
+            4.093765099,
+            -0.973548961
+          ]
+        },
+        {
+          "index": 10,
+          "element": "H",
+          "coordinates": [
+            -1.270865502,
+            4.605843838,
+            -1.752638327
+          ]
+        },
+        {
+          "index": 11,
+          "element": "C",
+          "coordinates": [
+            -2.705163278,
+            0.695714907,
+            0.934039059
+          ]
+        },
+        {
+          "index": 12,
+          "element": "H",
+          "coordinates": [
+            -2.114604722,
+            1.251200921,
+            1.662510065
+          ]
+        },
+        {
+          "index": 13,
+          "element": "C",
+          "coordinates": [
+            -4.09519558,
+            0.710639422,
+            0.968342019
+          ]
+        },
+        {
+          "index": 14,
+          "element": "H",
+          "coordinates": [
+            -4.60816103,
+            1.2746047,
+            1.746531287
+          ]
+        },
+        {
+          "index": 15,
+          "element": "C",
+          "coordinates": [
+            -4.80384571,
+            0.003299507,
+            -0.005089467
+          ]
+        },
+        {
+          "index": 16,
+          "element": "H",
+          "coordinates": [
+            -5.894103231,
+            0.004604114,
+            -0.006879539
+          ]
+        },
+        {
+          "index": 17,
+          "element": "C",
+          "coordinates": [
+            -4.093707142,
+            -0.705799809,
+            -0.976140546
+          ]
+        },
+        {
+          "index": 18,
+          "element": "H",
+          "coordinates": [
+            -4.605478125,
+            -1.268587753,
+            -1.755974511
+          ]
+        },
+        {
+          "index": 19,
+          "element": "C",
+          "coordinates": [
+            -2.703782408,
+            -0.694106954,
+            -0.937341313
+          ]
+        },
+        {
+          "index": 20,
+          "element": "H",
+          "coordinates": [
+            -2.112077049,
+            -1.251167681,
+            -1.663681185
+          ]
+        },
+        {
+          "index": 21,
+          "element": "N",
+          "coordinates": [
+            0.0,
+            2.020299387,
+            0.0
+          ]
+        },
+        {
+          "index": 22,
+          "element": "N",
+          "coordinates": [
+            -2.020685339,
+            6.187e-05,
+            -0.000598595
+          ]
+        },
+        {
+          "index": 23,
+          "element": "C",
+          "coordinates": [
+            2.703651407,
+            -0.696907651,
+            0.93476235
+          ]
+        },
+        {
+          "index": 24,
+          "element": "H",
+          "coordinates": [
+            2.112131948,
+            -1.255415688,
+            1.66015462
+          ]
+        },
+        {
+          "index": 25,
+          "element": "C",
+          "coordinates": [
+            2.704410175,
+            0.696891253,
+            -0.933681483
+          ]
+        },
+        {
+          "index": 26,
+          "element": "H",
+          "coordinates": [
+            2.113632342,
+            1.254455924,
+            -1.660384628
+          ]
+        },
+        {
+          "index": 27,
+          "element": "C",
+          "coordinates": [
+            4.094407688,
+            0.711018657,
+            -0.968991246
+          ]
+        },
+        {
+          "index": 28,
+          "element": "H",
+          "coordinates": [
+            4.607146773,
+            1.276153567,
+            -1.74647972
+          ]
+        },
+        {
+          "index": 29,
+          "element": "C",
+          "coordinates": [
+            4.803395673,
+            0.001277728,
+            0.00246302
+          ]
+        },
+        {
+          "index": 30,
+          "element": "H",
+          "coordinates": [
+            5.89365699,
+            0.001972041,
+            0.003404639
+          ]
+        },
+        {
+          "index": 31,
+          "element": "C",
+          "coordinates": [
+            4.093617228,
+            -0.709406254,
+            0.97261417
+          ]
+        },
+        {
+          "index": 32,
+          "element": "H",
+          "coordinates": [
+            4.60559009,
+            -1.274043458,
+            1.750967208
+          ]
+        },
+        {
+          "index": 33,
+          "element": "C",
+          "coordinates": [
+            0.696731329,
+            -2.705326932,
+            -0.93275624
+          ]
+        },
+        {
+          "index": 34,
+          "element": "H",
+          "coordinates": [
+            1.253364302,
+            -2.114905401,
+            -1.660465621
+          ]
+        },
+        {
+          "index": 35,
+          "element": "C",
+          "coordinates": [
+            0.711548636,
+            -4.095365066,
+            -0.966887609
+          ]
+        },
+        {
+          "index": 36,
+          "element": "H",
+          "coordinates": [
+            1.276596203,
+            -4.608479078,
+            -1.744193774
+          ]
+        },
+        {
+          "index": 37,
+          "element": "C",
+          "coordinates": [
+            0.002708266,
+            -4.803827914,
+            0.005589773
+          ]
+        },
+        {
+          "index": 38,
+          "element": "H",
+          "coordinates": [
+            0.003881655,
+            -5.894085779,
+            0.00749601
+          ]
+        },
+        {
+          "index": 39,
+          "element": "C",
+          "coordinates": [
+            -0.70771601,
+            -4.093505081,
+            0.975538198
+          ]
+        },
+        {
+          "index": 40,
+          "element": "H",
+          "coordinates": [
+            -1.271697998,
+            -4.605128671,
+            1.754604561
+          ]
+        },
+        {
+          "index": 41,
+          "element": "C",
+          "coordinates": [
+            -0.695796975,
+            -2.703585338,
+            0.936614563
+          ]
+        },
+        {
+          "index": 42,
+          "element": "H",
+          "coordinates": [
+            -1.253849671,
+            -2.111733437,
+            1.662074837
+          ]
+        },
+        {
+          "index": 43,
+          "element": "N",
+          "coordinates": [
+            2.020290525,
+            -0.000386831,
+            0.0
+          ]
+        },
+        {
+          "index": 44,
+          "element": "N",
+          "coordinates": [
+            -0.00020602,
+            -2.020677521,
+            0.000793206
+          ]
+        }
+      ]
+    },
+    "metal": {
+      "index": 0,
+      "element": "Cu",
+      "coordinates": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "ligands": [
+      {
+        "name": "Pyridine",
+        "atoms": [
+          {
+            "theta": 90.0,
+            "phi": -0.011,
+            "psi": 36.758,
+            "coordinating_atom": {
+              "index": 43,
+              "element": "N",
+              "coordinates": [
+                2.020290525,
+                -0.000386831,
+                0.0
+              ]
+            },
+            "local_x_orientation": {
+              "index": 25,
+              "element": "C",
+              "coordinates": [
+                2.704410175,
+                0.696891253,
+                -0.933681483
+              ]
+            },
+            "name": ""
+          },
+          {
+            "theta": 89.978,
+            "phi": -90.006,
+            "psi": 36.738,
+            "coordinating_atom": {
+              "index": 44,
+              "element": "N",
+              "coordinates": [
+                -0.00020602,
+                -2.020677521,
+                0.000793206
+              ]
+            },
+            "local_x_orientation": {
+              "index": 33,
+              "element": "C",
+              "coordinates": [
+                0.696731329,
+                -2.705326932,
+                -0.93275624
+              ]
+            },
+            "name": ""
+          },
+          {
+            "theta": 90.017,
+            "phi": 179.998,
+            "psi": -143.346,
+            "coordinating_atom": {
+              "index": 22,
+              "element": "N",
+              "coordinates": [
+                -2.020685339,
+                6.187e-05,
+                -0.000598595
+              ]
+            },
+            "local_x_orientation": {
+              "index": 11,
+              "element": "C",
+              "coordinates": [
+                -2.705163278,
+                0.695714907,
+                0.934039059
+              ]
+            },
+            "name": ""
+          },
+          {
+            "theta": 90.0,
+            "phi": 90.0,
+            "psi": 36.611,
+            "coordinating_atom": {
+              "index": 21,
+              "element": "N",
+              "coordinates": [
+                0.0,
+                2.020299387,
+                0.0
+              ]
+            },
+            "local_x_orientation": {
+              "index": 1,
+              "element": "C",
+              "coordinates": [
+                -0.695174739,
+                2.703797661,
+                -0.9356671
+              ]
+            },
+            "name": ""
+          }
+        ]
+      }
+    ]
+  },
+  "calculation_parameters": {
+    "metal": {
+      "d_electrons": 9,
+      "racah_b": {
+        "key": "metal.racah_b",
+        "value": 0.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "racah_c": {
+        "key": "metal.racah_c",
+        "value": 0.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "spin_orbit_coupling": {
+        "key": "metal.spin_orbit_coupling",
+        "value": 830.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 100.0
+      },
+      "kiso": {
+        "key": "metal.kiso",
+        "value": 0.7,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 0.01
+      }
+    },
+    "ligands": [
+      {
+        "name": "Pyridine",
+        "esigma": {
+          "key": "ligand.Pyridine.esigma",
+          "value": 7000.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epix": {
+          "key": "ligand.Pyridine.epix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "epiy": {
+          "key": "ligand.Pyridine.epiy",
+          "value": 1500.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 100.0
+        },
+        "eds": {
+          "key": "ligand.Pyridine.eds",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edxy": {
+          "key": "ligand.Pyridine.edxy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        },
+        "edx2y2": {
+          "key": "ligand.Pyridine.edx2y2",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": false,
+          "step_value": 100.0
+        }
+      }
+    ],
+    "hyperfine": {
+      "p": {
+        "key": "hyperfine.p",
+        "value": 1168.0,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 50.0
+      },
+      "kappa": {
+        "key": "hyperfine.kappa",
+        "value": 0.2611,
+        "linker": null,
+        "is_assignable": true,
+        "step_value": 0.01
+      },
+      "metal": "63Cu",
+      "units": "(MHz)"
+    },
+    "geometry": [
+      {
+        "name": "Pyridine1",
+        "theta": {
+          "key": "atom.Pyridine1.theta",
+          "value": 90.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyridine1.psi",
+          "value": 36.758,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyridine1.phi",
+          "value": -0.011,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Pyridine2",
+        "theta": {
+          "key": "atom.Pyridine2.theta",
+          "value": 89.978,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyridine2.psi",
+          "value": 36.738,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyridine2.phi",
+          "value": -90.006,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Pyridine3",
+        "theta": {
+          "key": "atom.Pyridine3.theta",
+          "value": 90.017,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyridine3.psi",
+          "value": -143.346,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyridine3.phi",
+          "value": 179.998,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      },
+      {
+        "name": "Pyridine4",
+        "theta": {
+          "key": "atom.Pyridine4.theta",
+          "value": 90.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "psi": {
+          "key": "atom.Pyridine4.psi",
+          "value": 36.611,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        },
+        "phi": {
+          "key": "atom.Pyridine4.phi",
+          "value": 90.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 5.0
+        }
+      }
+    ]
+  },
+  "calculation_options": {
+    "configuration_projection": false,
+    "epr_enabled": true,
+    "real_g_values": "Real",
+    "hyperfine_enabled": true,
+    "predict_p": true,
+    "predict_kappa": true,
+    "magnetism_enabled": false,
+    "temperatures": [
+      30.0,
+      60.0,
+      90.0,
+      120.0,
+      150.0,
+      180.0,
+      210.0,
+      240.0,
+      270.0,
+      300.0
+    ],
+    "second_order_zeeman_limit": 12000.0,
+    "absorption_enabled": false,
+    "absorption_temperature": 300.0,
+    "cd_enabled": false,
+    "cd_temperature": 300.0,
+    "mcd_enabled": false,
+    "mcd_magfield": 7.0,
+    "mcd_lebedev": 3,
+    "mcd_temperatures": [
+      5.0
+    ]
+  },
+  "intensity_parameters": {
+    "reference_value": 1.0,
+    "parameters": [
+      {
+        "name": "Pyridine",
+        "psigma": {
+          "key": "ligand.Pyridine.psigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppix": {
+          "key": "ligand.Pyridine.ppix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "ppiy": {
+          "key": "ligand.Pyridine.ppiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fsigma": {
+          "key": "ligand.Pyridine.fsigma",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpix": {
+          "key": "ligand.Pyridine.fpix",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        },
+        "fpiy": {
+          "key": "ligand.Pyridine.fpiy",
+          "value": 0.0,
+          "linker": null,
+          "is_assignable": true,
+          "step_value": 1.0
+        }
+      }
+    ]
+  },
+  "absorption_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  },
+  "cd_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  },
+  "mcd_simulation": {
+    "fwhm": 2000.0,
+    "normalise": false,
+    "energy_start": 10000.0,
+    "energy_final": 30000.0,
+    "energy_steps": 200,
+    "comparison_data": []
+  }
+}
