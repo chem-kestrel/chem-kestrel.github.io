@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kestrel — Cellular Ligand Field Theory for 3d Complexes</title>
+    <title>Kestrel - Ligand Field Calculations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -47,73 +47,131 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ── HEADER (Responsive & Grid-based) ──────────────── */
-                header {
-                    background: var(--white);
-                    border-bottom: 1px solid var(--border);
-                    padding: 0 32px;
-                    display: grid;
-                    grid-template-columns: 1fr auto 1fr; /* Restored Grid */
-                    align-items: center;
-                    min-height: 72px;
-                    height: auto;
-                    position: sticky;
-                    top: 0;
-                    z-index: 200;
-                    box-shadow: var(--shadow-sm);
-                }
+        /* ── HEADER (Full width background) ──────────────── */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 200;
+            box-shadow: var(--shadow-sm);
+        }
 
-                .logo-area { display: flex; align-items: center; gap: 10px; }
-                .header-logo { height: 50px; width: auto; transition: height 0.2s; }
-                .logo-wordmark { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--navy); }
+        /* ── HEADER INNER (The 1024px Container) ─────────── */
+        .header-inner {
+            max-width: 1024px;
+            margin: 0 auto;       /* Centers the container */
+            display: grid;
+            grid-template-columns: 1fr auto 1fr; /* Your restored grid */
+            align-items: center;
+            min-height: 72px;
+            padding: 0 20px;      /* Standard "gutter" so logos don't touch screen edges */
+        }
 
-                nav { display: flex; align-items: center; gap: 4px; justify-content: center; }
+        /* ── LOGOS DISPLAY ──────────────────────── */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-                .nav-btn {
-                    background: none; border: none; font-family: var(--font-body); font-size: 1.0rem;
-                    font-weight: 500; color: var(--text-mid); padding: 7px 14px; border-radius: 6px;
-                    cursor: pointer; transition: background 0.18s, color 0.18s;
-                }
-                .nav-btn:hover { background: var(--surface-2); color: var(--navy); }
-                .nav-btn.active { background: var(--navy); color: var(--white); }
+        .header-logo {
+            display: block;
+            height: 50px;
+            width: auto;
+            transition: height 0.2s;
+        }
 
-                .uoy-logo-area { display: flex; align-items: center; justify-content: flex-end; }
-                .uoy-logo-slot img { height: auto; width: 130px; padding-top: 10px;}
-
-                /* Mobile Adjustments */
-                @media (max-width: 950px) {
-                    header { display: flex; flex-direction: column; padding: 15px; }
-                    .header-logo { height: 50px; }
-                    .uoy-logo-area { display: none; }
-                    nav { width: 100%; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); flex-wrap: wrap; }
-                    .nav-btn { font-size: 0.9rem; padding: 6px 10px; }
-                }
-
-
-        .nav-btn:hover {
-            background: var(--surface-2);
+        .logo-wordmark {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
             color: var(--navy);
         }
+        /* ── NAVIGATION BAR ──────────────────────── */
 
-        .nav-btn.active {
-            background: var(--navy);
-            color: var(--white);
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: center;
         }
 
+        .nav-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 1.0rem;
+            font-weight: 500;
+            color: var(--text-mid);
+            padding: 7px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .nav-btn:hover { background: var(--surface-2); color: var(--navy); }
+        .nav-btn.active { background: var(--navy); color: var(--white); }
+
+        .uoy-logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .uoy-logo-slot img {
+            display: block;
+            height: auto;
+            width: 130px;
+            padding-top: 10px;
+        }
+
+        /* ── MOBILE VIEW ADJUSTMENTS ─────────────────────────── */
+        @media (max-width: 950px) {
+            /* Switch the inner container to column mode on mobile */
+            .header-inner {
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+                height: auto;
+            }
+
+            .header-logo { height: 50px; }
+            .uoy-logo-area { display: none; }
+
+            nav {
+                width: 100%;
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 1px solid var(--border);
+                flex-wrap: wrap;
+            }
+
+            .nav-btn { font-size: 0.9rem; padding: 6px 10px; }
+        }
+
+        /* ── DROPDOWN MENU OPTIONS ─────────────────────────── */
         .dropdown { position: relative; display: inline-block; }
 
         .dropdown-content {
             display: none;
             position: absolute;
-            top: calc(100% + 6px);
+            top: 100%;
             left: 0;
             min-width: 190px;
+            padding-top: 6px;
+            background: transparent;
+            z-index: 300;
+        }
+
+        /* Inner box carries the visual border/shadow so the padding area stays transparent */
+        .dropdown-content-inner {
             background: var(--white);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-md);
             overflow: hidden;
-            z-index: 300;
         }
 
         .dropdown-content a,
@@ -143,7 +201,7 @@
         .dropdown:hover > .nav-btn { background: var(--surface-2); color: var(--navy); }
         .dropdown:hover > .nav-btn.active { background: var(--navy); color: var(--white); }
 
-        /* ── MAIN LAYOUT ────────────────────────────── */
+        /* ── GENERAL PAGE LAYOUT ────────────────────────────── */
         main {
             max-width: 1024px;
             margin: 0 auto;
@@ -161,7 +219,61 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── TYPOGRAPHY ─────────────────────────────── */
+        /* ── FOOTER ─────────────────────────────────── */
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 28px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 60px;
+            font-size: 0.83rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.83rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .footer-btn-outline {
+            color: var(--text-mid);
+            border: 1px solid var(--border-dark);
+        }
+
+        .footer-btn-outline:hover {
+            background: var(--surface-2);
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .footer-btn-filled {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .footer-btn-filled:hover {
+            background: var(--accent-hover);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* ── TYPOGRAPHY OPTIONS ─────────────────────────────── */
         h1 {
             font-family: var(--font-display);
             font-size: 2.6rem;
@@ -211,37 +323,86 @@
         ul { padding-left: 1.4em; color: var(--text-mid); }
         ul li { margin-bottom: 0.35rem; }
 
-        /* ── WELCOME PAGE ───────────────────────────── */
+        /* ────────────────────────────── */
+        /* ── WELCOME PAGE INTRODUCTION ───────────────────────────── */
         /* New Header Layout */
         .welcome-header {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 1rem;
+            padding-right: 150px;
+            margin-bottom: 1.25rem;
         }
 
+        /* ---KESTREL title and acronym---*/
+        .welcome-title-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            flex-wrap: wrap;        /* wraps on very narrow viewports */
+            margin-bottom: 0.75rem;
+        }
+
+        .welcome-header h1 {
+            text-transform: uppercase;
+            margin-bottom: 0;
+            white-space: nowrap;
+        }
+
+        .welcome-intro .welcome-acronym {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.01em;
+            line-height: 1.3;
+        }
+
+        /* Highlighted letters within the acronym */
+        .welcome-intro .welcome-acronym .hl {
+            color: var(--teal);
+            font-weight: 700;
+            font-size: 1.6rem;
+            line-height: 1.8;
+        }
+
+        .welcome-intro .welcome-tagline {
+            color: rgba(255,255,255,0.92);
+            font-weight: 600;
+            font-size: 1.1rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-top: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* On mobile, drop the logo-clearance padding and let title wrap naturally */
+        @media (max-width: 640px) {
+            .welcome-header { padding-right: 0; }
+        }
+
+        /* ---KESTREL logo options---*/
         .welcome-logo {
             position: absolute;
             top: 24px;
             right: 24px;
-            height: 116px; /* Slightly larger, adjust as needed */
+            height: 160px; /* Slightly larger, adjust as needed */
             width: auto;
             filter: brightness(0) invert(1); /* Optional: Forces a colored logo to turn pure white */
             opacity: 0.9;
             z-index: 1;
         }
 
-        @media (max-width: 940px) {
+        @media (max-width: 650px) {
             .welcome-logo {
-                height: 48px;
+                height: 100px;
                 top: 12px;
                 right: 12px;
             }
         }
 
+        /* ---Welcome page main text, boxes and images---*/
         .welcome-intro {
             background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
             border-radius: var(--radius-lg);
-            padding: 44px 52px;
+            padding: 44px 52px 20px 52px;
             margin-bottom: 2.5rem;
             position: relative;
             overflow: hidden;
@@ -278,6 +439,32 @@
             padding: 3px 10px;
             border-radius: 100px;
             margin-bottom: 1rem;
+        }
+
+        .description-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--accent);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin-top: 1.5rem;
+        }
+
+        .description-box p {
+            font-size: 0.95rem;
+            color: var(--text-mid);
+            margin-bottom: 0.75rem;
+        }
+
+        .description-box p:last-child { margin-bottom: 0; }
+
+        .description-box .description-footnote {
+            font-size: 0.82rem;
+            font-style: italic;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 0.65rem;
+            margin-top: 0.65rem;
         }
 
         .gui-wrapper {
@@ -347,7 +534,7 @@
             color: var(--accent);
         }
 
-        /* ── FEATURE CARDS ───────────────────────────── */
+        /* ── WELCOME PAGE FEATURE CARDS ───────────────────────────── */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -404,7 +591,7 @@
             line-height: 1.55;
         }
 
-        /* ── AUTHOR BOX ─────────────────────────────── */
+        /* ── WELCOME PAGE - AUTHOR BOX ─────────────────────────────── */
         .author-box {
             background: var(--white);
             border: 1px solid var(--border);
@@ -431,6 +618,7 @@
 
         .author-box p strong { color: var(--text); }
 
+        /* ────────────────────────────── */
         /* ── DOWNLOAD PAGE ──────────────────────────── */
         .release-card {
             background: var(--white);
@@ -496,7 +684,7 @@
 
         .install-box ol li { margin-bottom: 6px; }
 
-        /* ── TABLES ─────────────────────────────────── */
+        /* ── DOWNLOAD PAGE - TABLES ─────────────────────────────────── */
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -531,7 +719,7 @@
         .data-table tbody tr:hover td { background: var(--surface); }
         .data-table td a { font-weight: 500; }
 
-        /* ── CITATION ───────────────────────────────── */
+        /* ── DOWNLOAD PAGE - CITATION ───────────────────────────────── */
         .citation-block {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -542,7 +730,8 @@
             margin-top: 0.75rem;
         }
 
-        /* ── DOCUMENTATION ──────────────────────────── */
+        /* ────────────────────────────── */
+        /* ── DOCUMENTATION PAGE ──────────────────────────── */
         .info-banner {
             background: var(--accent-light);
             border: 1px solid #BDD5F5;
@@ -556,6 +745,7 @@
             align-items: flex-start;
         }
 
+        /* ────────────────────────────── */
         /* ── RESOURCES PAGE ─────────────────────────── */
         .select-row {
             display: grid;
@@ -635,6 +825,7 @@
 
         .lit-list li strong { color: var(--text); display: block; margin-bottom: 2px; }
 
+        /* ────────────────────────────── */
         /* ── SUBSCRIBE PAGE ─────────────────────────── */
         .subscribe-card {
             background: var(--white);
@@ -646,60 +837,7 @@
             max-width: 520px;
         }
 
-        /* ── FOOTER ─────────────────────────────────── */
-        footer {
-            background: var(--white);
-            border-top: 1px solid var(--border);
-            padding: 28px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 60px;
-            font-size: 0.83rem;
-            color: var(--text-muted);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 10px;
-        }
-
-        .footer-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            border-radius: var(--radius-md);
-            font-size: 0.83rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background 0.18s, color 0.18s;
-        }
-
-        .footer-btn-outline {
-            color: var(--text-mid);
-            border: 1px solid var(--border-dark);
-        }
-
-        .footer-btn-outline:hover {
-            background: var(--surface-2);
-            color: var(--navy);
-            text-decoration: none;
-        }
-
-        .footer-btn-filled {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .footer-btn-filled:hover {
-            background: var(--accent-hover);
-            color: var(--white);
-            text-decoration: none;
-        }
-
+        /* ────────────────────────────── */
         /* ── COMMUNITY PAGE ─────────────────────────────────── */
         .table-scroll-container {
             max-height: 400px;
@@ -766,7 +904,8 @@
             margin-top: 4px;
         }
 
-        /* ── PDF MODAL ──────────────────────────────── */
+        /* ────────────────────────────── */
+        /* ── PDF VIEWER ──────────────────────────────── */
         .pdf-modal-overlay {
             display: none;
             position: fixed;
@@ -833,55 +972,416 @@
             border: none;
         }
 
+        /* ────────────────────────────── */
+        /* ── PARAMETERS PAGE ────────────────────────── */
+
+        /* ── Definition cards for esigma and epi ───────────────── */
+        .param-def-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin: 1.5rem 0 2.5rem;
+        }
+
+        .param-def-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--accent);
+            border-radius: var(--radius-lg);
+            padding: 20px 22px;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .param-def-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .param-def-card:nth-child(2) { border-top-color: var(--teal); }
+        .param-def-card:nth-child(3) { border-top-color: #8B5CF6; }
+
+        .param-symbol {
+            font-family: var(--font-mono);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .param-def-card:nth-child(2) .param-symbol { color: var(--teal); }
+        .param-def-card:nth-child(3) .param-symbol { color: #8B5CF6; }
+
+        .param-def-card p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ── Search/filter for parameter table ───────────────── */
+        .param-toolbar {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .param-search {
+            flex: 1;
+            min-width: 180px;
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            color: var(--text);
+            background: var(--white);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-md);
+            padding: 9px 13px;
+            transition: border-color 0.18s;
+        }
+
+        .param-search:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(33,113,199,0.12);
+        }
+
+        .param-search::placeholder { color: var(--text-muted); }
+
+        .param-filter-select {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            color: var(--text-mid);
+            background: var(--white);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-md);
+            padding: 9px 32px 9px 12px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7C99' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            cursor: pointer;
+            transition: border-color 0.18s;
+        }
+
+        .param-filter-select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(33,113,199,0.12);
+        }
+
+        .param-count-badge {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        /* ── e Parameter table wrapper ───────────────── */
+        .param-table-wrapper {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1rem;
+        }
+
+        /* Override data-table margin inside wrapper */
+        .param-table-wrapper .data-table {
+            margin: 0;
+            border: none;
+            box-shadow: none;
+            font-size: 0.875rem;
+        }
+
+        .param-table-wrapper .data-table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* Scrollable body when collapsed */
+        .param-table-body-wrap {
+            max-height: 280px;
+            overflow-y: auto;
+            transition: max-height 0.45s ease;
+        }
+
+        .param-table-body-wrap.expanded {
+            max-height: 9999px;
+        }
+
+        /* Expand / collapse toggle row */
+        .param-expand-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-top: 1px dashed var(--border);
+            background: var(--surface);
+        }
+
+        .param-expand-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 0.83rem;
+            font-weight: 500;
+            color: var(--text-mid);
+            padding: 6px 16px;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s, border-color 0.18s;
+        }
+
+        .param-expand-btn:hover {
+            background: var(--surface-2);
+            color: var(--navy);
+            border-color: var(--accent);
+        }
+
+        .param-expand-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .param-expand-btn.open svg { transform: rotate(180deg); }
+
+        /* "–" value styling */
+        .val-dash { color: var(--text-muted); font-style: italic; }
+
+        /* No-results row */
+        .param-no-results td {
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+            padding: 24px;
+        }
+
+        /* Info note below table */
+        .param-note {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* ── Free-ion SOC/Racah lookup widgets ───────────────── */
+        .lookup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 1.25rem 0 2rem;
+        }
+
+        .lookup-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--accent);
+            border-radius: var(--radius-lg);
+            padding: 20px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .lookup-card:nth-child(2) { border-top-color: var(--teal); }
+
+        .lookup-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        .lookup-card p {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .lookup-selects {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .lookup-select {
+            flex: 1;
+            min-width: 100px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--text);
+            background: var(--surface);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-md);
+            padding: 8px 10px;
+            cursor: pointer;
+            transition: border-color 0.18s;
+        }
+
+        .lookup-select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(33,113,199,0.12);
+        }
+
+        /* Result chip — hidden until a valid combo is selected */
+        .lookup-result {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s;
+        }
+
+        .lookup-result.has-value {
+            background: var(--accent-light);
+            border-color: var(--accent);
+        }
+
+        .lookup-result.not-found {
+            background: #FFF8F0;
+            border-color: #F0A04B;
+        }
+
+        .lookup-result-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .lookup-result-values {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+
+        .lookup-value-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .lookup-value-number {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+
+        .lookup-value-unit {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .lookup-placeholder {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
     </style>
 </head>
 <body>
 
+<!-- ══ NAVIGATION MENU ══════════════════════════════════════════════════════ -->
 <header>
-    <div class="logo-area">
-        <img src="kestrel_logo.png" alt="Kestrel Logo" class="header-logo">
-        <span class="logo-wordmark"></span>
-    </div>
-    <nav>
-        <button id="nav-welcome" class="nav-btn active" onclick="showPage('welcome')">Welcome</button>
-        <div class="dropdown">
-            <button id="nav-download" class="nav-btn" onclick="showPage('download')">Download</button>
-            <div class="dropdown-content">
-                <button onclick="showPage('download')">Kestrel GUI</button>
-                <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank">Python Version (GitHub)</a>
-            </div>
+    <div class="header-inner">
+        <div class="logo-area">
+            <img src="kestrel_logo.png" alt="Kestrel Logo" class="header-logo">
+            <span class="logo-wordmark"></span>
         </div>
-        <button id="nav-documentation" class="nav-btn" onclick="showPage('documentation')">Documentation</button>
-        <button id="nav-resources" class="nav-btn" onclick="showPage('resources')">Resources</button>
-        <button id="nav-community" class="nav-btn" onclick="showPage('community')">Community</button>
-    </nav>
-    <div class="uoy-logo-area">
-        <div class="uoy-logo-slot">
-            <img src="uni_york_logo.svg" alt="University of York Logo">
+        <nav>
+            <button id="nav-welcome" class="nav-btn active" onclick="showPage('welcome')">Welcome</button>
+            <div class="dropdown">
+                <button id="nav-download" class="nav-btn" onclick="showPage('download')">Download</button>
+                <div class="dropdown-content">
+                    <div class="dropdown-content-inner">
+                    <button onclick="showPage('download')">Kestrel GUI</button>
+                    <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank">Python Version (GitHub)</a>
+                    </div>
+                </div>
+            </div>
+            <button id="nav-documentation" class="nav-btn" onclick="showPage('documentation')">Documentation</button>
+            <div class="dropdown">
+                <button id="nav-resources" class="nav-btn" onclick="showPage('resources')">Resources</button>
+                <div class="dropdown-content">
+                    <div class="dropdown-content-inner">
+                    <button onclick="showPage('resources')">Sample Datasets</button>
+                    <button id="nav-parameters" onclick="showPage('parameters')">Typical Parameter Values</button>
+                        <button id="nav-literature" onclick="showPage('literature')">Academic Literature</button>
+                    </div>
+                </div>
+            </div>
+            <button id="nav-community" class="nav-btn" onclick="showPage('community')">Community</button>
+        </nav>
+        <div class="uoy-logo-area">
+            <div class="uoy-logo-slot">
+                <img src="uni_york_logo.svg" alt="University of York Logo">
+            </div>
         </div>
     </div>
 </header>
 
+
 <main>
 
-    <!-- ══ WELCOME ══════════════════════════════════════════════════════ -->
+    <!-- ══ WELCOME PAGE ══════════════════════════════════════════════════════ -->
     <section id="welcome" class="page-section active">
 
         <div class="welcome-intro">
             <img src="kestrel_logo.png" alt="Kestrel Logo" class="welcome-logo">
 
             <div class="welcome-header">
-                <h1>Kestrel - Ligand Field Calculations <br> for 3d transition metal complexes</h1>
-            </div>
+                <div class="welcome-title-row">
+                    <h1>KESTREL</h1>
+                    <p class="welcome-acronym">
+                        <span class="hl">K</span>wik
+                        <span class="hl">E</span>lectronic
+                        <span class="hl">S</span>tructure for
+                        <span class="hl">TR</span>ansition
+                        <span class="hl">EL</span>ements
+                    </p>
+                </div>
 
+                <p class="welcome-tagline">
+                    A kestrel is a small, fast, and agile falcon, renowned for its ability to hover with
+                    precision while searching for prey. Likewise, KESTREL is designed for rapid and precise
+                    exploration of the electronic structure, magnetism and spectra of transition-metal complexes.</p>
+            </div>
+        </div>
+
+        <div class="description-box">
             <p>
-                Kestrel is a computational package that performs ligand field calculations on any monomeric 3d transition metal complex
-                in any coordination geometry. Based on the Cellular Ligand Field (CLF) model developed by Malcolm Gerloch et al.,
-                Kestrel assumes minimal spatial overlap between the metal and ligand orbitals and can be run on standard desktop computers and laptops.
+                Based on the Cellular Ligand Field (CLF) model developed by Malcolm Gerloch and R. G. Woolley<sup>1,2</sup> and
+                further developed by A. Bencini,<sup>3</sup> KESTREL performs ligand field calculations in real-time on any
+                monomeric 3d<sup>*</sup> transition metal complex in any coordination geometry and runs on standard desktop computers
+                and laptops. The effect of the ligands is described using chemically significant parameter values — providing a tool
+                for relating the chemistry of a transition metal complex to its spectroscopic results.
             </p>
             <p>
-                The effect of the ligands is described using chemically significant parameter values, allowing calculations to be carried out and interpreted in real-time
-                — providing a tool for relating the chemistry of a transition metal complex to its spectroscopic results.
+                KESTREL can also be used for teaching how electronic energies and d-orbital splitting vary with ligand type and
+                coordination geometry. Datasets including input and output files for standard coordination geometries are given
+                <a href="#" onclick="showPage('Sample Files')">here</a> for this purpose.
+            </p>
+            <p class="description-footnote">
+                <sup>*</sup> KESTREL assumes minimal metal–ligand spatial overlap, an approximation that is appropriate for most
+                3d transition-metal complexes. Strongly covalent ligands (i.e. CO or CN<sup>-</sup>) as well as many 4d and 5d
+                metal complexes can still be treated but may yield less reliable results.
+            </p>
+            <p class="description-footnote">
+                  (1) M. Gerloch (1983), ISBN: 9780521109154&nbsp;&nbsp;&nbsp;
+                  (2) R. G. Woolley (1981), <a href="https://doi.org/10.1080/00268978100100551" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>&nbsp;&nbsp;&nbsp;
+                  (3) A. Bencini, C. Benelli and D. Gatteschi (1984), <a href="https://doi.org/10.1016/0010-8545(84)85064-X" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
             </p>
         </div>
 
@@ -890,8 +1390,9 @@
         </div>
 
         <p>
-            <strong>Kestrel can be downloaded free of charge as a GUI (Graphical User Interface) that provides a user-friendly visual interface.</strong>
-            Alternatively, a Python package (KestrelPy) is available for advanced use via <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank">GitHub</a>.
+            <strong>Kestrel can be downloaded free of charge as a GUI (Graphical User Interface) that provides a user-friendly
+                visual interface.</strong> Alternatively, a Python package (KestrelPy) is available for advanced use via
+            <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank">GitHub</a>.
         </p>
 
         <div class="cta-row">
@@ -908,8 +1409,8 @@
         <div class="info-banner">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <span>
-                <strong>The GUI is recommended for most users.</strong> A standalone python package (KestrelPy) is available for advanced users
-                who want full control of the code. KestrelPy can also be installed as a python module and used in other projects.
+                <strong>The GUI is recommended for most users.</strong> A standalone python package (KestrelPy) is available for advanced
+                users who want full control of the code. KestrelPy can also be installed as a python module and used in other projects.
             </span>
         </div>
 
@@ -965,7 +1466,8 @@
                     <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
                 </div>
                 <h3>Paramagnetic susceptibilities</h3>
-                <p>Calculates the paramagnetic susceptibility and can plot susceptibility curves across a temperature range to model phenomena such as spin-crossover.</p>
+                <p>Calculates the paramagnetic susceptibility and can plot susceptibility curves across a temperature range to
+                    model phenomena such as spin-crossover.</p>
             </div>
 
             <div class="feature-card">
@@ -973,7 +1475,8 @@
                     <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
                 </div>
                 <h3>d-orbital energies &amp; compositions</h3>
-                <p>Computes the energy of each d-orbital and its orbital character, permitting comparison with experimental and theoretical crystal field splittings.</p>
+                <p>Computes the energy of each d-orbital and its orbital character, permitting comparison with experimental and
+                    theoretical crystal field splittings.</p>
             </div>
 
         </div>
@@ -982,12 +1485,12 @@
             <h3>Authors &amp; Contact</h3>
             <p><strong>Developed by:</strong> Dr George Nunn, Benjamin Grace, Dr Martin Bates and Prof. Paul Walton</p>
             <p><strong>Institution:</strong> Department of Chemistry, University of York</p>
-            <p><strong>Email:</strong> <a href="mailto:chem-kestrel@york.ac.uk">chem-kestrel@york.ac.uk</a></p>
+            <p><strong>Email:</strong> <a href="mailto:chem-kestrel@york.ac.uk?subject=Kestrel%20-%20General%20Query">chem-kestrel@york.ac.uk</a></p>
         </div>
 
     </section>
 
-    <!-- ══ DOWNLOAD ══════════════════════════════════════════════════════ -->
+    <!-- ══ DOWNLOAD PAGE ══════════════════════════════════════════════════════ -->
     <section id="download" class="page-section">
         <h1>Download Kestrel GUI</h1>
         <p>
@@ -1008,12 +1511,17 @@
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v8M8 12h8"/></svg>
                     macOS (.dmg)
                 </a>
+                <a href="https://github.com/chem-kestrel/kestrelGUI/releases/latest/download/kestrel-linux.dmg" class="btn-secondary">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v8M8 12h8"/></svg>
+                    Linux (.flatpak)
+                </a>
             </div>
         </div>
 
         <div class="info-banner">
             <span>
-                <a href="#" onclick="showPage('subscribe')"><strong>✉ Subscribe to the Kestrel mailing list</strong></a> to be notified of new releases.
+                <a href="#" onclick="showPage('subscribe')"><strong>✉ Subscribe to the Kestrel mailing list</strong></a>
+                to be notified of new releases.
             </span>
         </div>
 
@@ -1024,7 +1532,8 @@
                 <ol>
                     <li>Download the <code>.exe</code> file above.</li>
                     <li>Double-click the <code>.exe</code> file to run Kestrel.</li>
-                    <li>If Windows Defender flags the file, right-click and select <code>Properties</code>, then check the <code>Unblock</code> option. Kestrel should then launch.</li>
+                    <li>If Windows Defender flags the file, right-click and select <code>Properties</code>,
+                        then check the <code>Unblock</code> option. Kestrel should then launch.</li>
                 </ol>
             </div>
             <div class="install-box">
@@ -1058,14 +1567,15 @@
         </table>
 
         <h2>Citation</h2>
-        <p>If you use Kestrel in your work, we kindly ask that you provide the following citation:</p>
+        <p>An official release paper for Kestrel is currently being worked on. If you use Kestrel in your work,
+            we kindly ask that you cite the following GitHub repository in the meantime:</p>
         <div class="citation-block">
-            G. Nunn, B. S. Grace, P. H. Walton and M. A. Bates, Kestrel [Computer software].
+            George Nunn, Benjamin S. Grace, Martin A. Bates and Paul H. Walton, Kestrel [Computer software].
             <a href=" https://github.com/chem-kestrel/Kestrelpy" target="_blank" style="font-size:0.82rem;"> https://github.com/chem-kestrel/Kestrelpy</a>
         </div>
     </section>
 
-    <!-- ══ DOCUMENTATION ════════════════════════════════════════════════ -->
+    <!-- ══ DOCUMENTATION PAGE ════════════════════════════════════════════════ -->
     <section id="documentation" class="page-section">
         <h1>GUI Documentation</h1>
 
@@ -1121,14 +1631,15 @@
         </table>
     </section>
 
-    <!-- ══ RESOURCES ════════════════════════════════════════════════════ -->
+    <!-- ══ RESOURCES PAGE - SAMPLE DATASETS ═══════════════════════════════════════════════ -->
     <section id="resources" class="page-section">
         <h1>Resources</h1>
-        <p><strong>This page contains sample datasets and academic literature that supports the theoretical basis of Kestrel's calculations.</strong></p>
+        <p><strong>This page contains sample datasets that support the theoretical basis of Kestrel's calculations and demonstrate
+            the effect of coordination geometry on the d orbital splitting and electronic energies.</strong></p>
         <p>
-            Sample datasets contain input (<code>.xyz</code>) and calculation result (<code>.kes</code>) files for common coordination geometries.
-            By default, systems are configured as d⁵ Mn(II) complexes — the d electron count can be changed within the GUI and
-            different ligands can be represented by adjusting the <em>e</em> parameter values.
+            Sample datasets contain input (<code>.xyz</code>) and calculation result (<code>.kes</code>) files for common
+            coordination geometries. By default, systems are configured as d⁵ Mn(II) complexes — the d electron count can be
+            changed within the GUI and different ligands can be represented by adjusting the <em>e</em> parameter values.
         </p>
 
         <h2>Sample Datasets</h2>
@@ -1165,30 +1676,44 @@
                 <li>Selecting <code>Plot v parameter</code> and then choosing <code>Many-Electron Eigenfunctions</code></li>
             </ol>
         </div>
+    </section>
 
+    <!-- ══ RESOURCES PAGE - ACADEMIC LITERATURE ═══════════════════════════════════════════════ -->
+    <section id="literature" class="page-section">
         <h2>Literature Resources</h2>
+
+        <p>This page collates various source of ligand field parameter values as well as the literature foundational to
+            Kestrel's theoretical basis.</p>
 
         <p style="font-size:1.1rem;"><strong>Sources of parameter values</strong></p>
         <p style="font-size:0.95rem;">
-            The following publications provide sources and explanation of ligand field parameter values. Please note that this is not an exhaustive
-            list and that parameter values may vary substantially depending on the exact system being parameterised.</p>
+            The following publications provide sources and explanation of ligand field parameter values. Please note that
+            this is not an exhaustive list and that parameter values may vary substantially depending on the exact system
+            being parameterised. Selected parameter values are also tabulated on the
+            <a href="#" onclick="showPage('parameters')">parameters page.</a>
+        </p>
         <ul class="lit-list">
             <li>
                 <strong>P. E. Hoggard (2004)</strong> "Angular Overlap Model Parameters." <em>Structure and Bonding</em>
                 <a href="https://doi.org/10.1007/b11304" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
             </li>
             <li>
-                <strong>H. Schmidtke (2004)</strong> "The variation of Slater-Condon parameters Fᵏ and Racah parameters B and C with chemical bonding in transition group complexes" <em>Structure and Bonding</em>
-                <a href="https://doi.org/10.1007/b11303" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+                <strong>A. Bencini, C. Benelli and D. Gatteschi  (1984)</strong> "The Angular Overlap Model for the description of the paramagnetic properties of transition metal complexes." <em>Coordination Chemistry Reviews</em>
+                <a href="https://doi.org/10.1016/0010-8545(84)85064-X" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
             </li>
             <li>
                 <strong>G. Nunn (2023)</strong> "Development of a contemporary ligand-field program for 3d transition-metal complexes." <em>PhD Thesis, University of York</em>
                 <a href="https://etheses.whiterose.ac.uk/id/eprint/34322/" style="font-size:0.82rem; display:inline-block; margin-top:4px;">Web link ↗</a>
             </li>
+            <li>
+                <strong>H. Schmidtke (2004)</strong> "The variation of Slater-Condon parameters Fᵏ and Racah parameters B and C with chemical bonding in transition group complexes" <em>Structure and Bonding</em>
+                <a href="https://doi.org/10.1007/b11303" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+            </li>
         </ul>
 
         <p style="margin-top:1.5rem; font-size:1.1rem;"><strong>Theoretical literature</strong></p>
-        <p style="font-size:0.95rem;"> The following publications provide an overview of the theoretical basis behind Kestrel's calculations.</p>
+        <p style="font-size:0.95rem;"> The following publications provide an overview of the theoretical basis behind Kestrel's
+            calculations including the original work on mathematical model.</p>
         <ul class="lit-list">
             <li>
                 <strong>M. Gerloch (1983)</strong> "Magnetism and ligand-field analysis." <em>Cambridge University Press, Cambridge, 1st edition</em>
@@ -1210,6 +1735,159 @@
                 <a href="https://doi.org/10.1002/ejic.202100936" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
             </li>
         </ul>
+    </section>
+
+    <!-- ══ RESOURCES PAGE - TYPICAL PARAMETERS ══════════════════════════════════════════════════ -->
+    <section id="parameters" class="page-section">
+        <h1>Parameter Values</h1>
+
+        <p>
+            Kestrel uses <i>e</i> parameters to describe the bonding interactions between a metal centre and its ligands.
+            Each <i>e</i> parameter describes the type and strength of a bond making each parameter chemically meaningful.
+            The most common <i>e</i> parameters are e<sub>σ</sub> and e<sub>π</sub> which describe the strength of σ and π bonding respectively.
+        </p>
+
+        <!-- Parameter definition cards -->
+        <div class="param-def-grid">
+            <div class="param-def-card">
+                <div class="param-symbol">e<sub>&#963</sub></div>
+                <p>
+                    <strong>(e<sub>σ</sub>)</strong> quantifies the strength of ligand-metal σ bonding interactions and values are
+                    usually positive to represent σ donation. Typical values range from 3000 cm<sup>-1</sup> to ~10000 cm<sup>-1</sup>
+                    depending on the ligand's donor strength, with stronger field ligands giving larger e<sub>σ</sub> values.
+                </p>
+            </div>
+            <div class="param-def-card">
+                <div class="param-symbol">e<sub>&#960</sub></div>
+                <p>
+                    <strong>(e<sub>πx</sub> and e<sub>πy</sub>)</strong> quantify the strength of ligand-metal π bonding interactions,
+                    with e<sub>πx</sub> describing the ligand's x direction and e<sub>πy</sub> the y direction. Values of e<sub>π</sub>
+                    can be positive or negative to reflect π-donor or π-acceptor ligands. Typical values range from -3000 cm<sup>-1</sup>
+                    to ~+3000 cm<sup>-1</sup>.
+                </p>
+            </div>
+        </div>
+
+        <h2>Ligand Parameter Values</h2>
+        <p>
+            The table below collates <i>e</i> parameter values reported in the literature for a range of metal centres and ligands.
+            All values are given in cm<sup>−1</sup>. A dash (—) indicates that the parameter was not reported or was set to zero.
+            The table can be sorted by clicking on the column headers. Alternatively, the search box allows the table to be
+            filtered by metal or ligand.
+        </p>
+
+        <div class="info-banner">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>
+                Parameter values have been averaged for each metal/ligand combination in the referenced studies. Each value should be used
+                to guide what a 'reasonable' parameter value is. Exact values will vary depending on the precise structure being analysed.
+            </span>
+        </div>
+
+        <!-- Toolbar: search + metal filter -->
+        <div class="param-toolbar">
+            <input  class="param-search"
+                    id="param-search"
+                    type="search"
+                    placeholder="Search metal or ligand type..."
+                    oninput="renderParamTable()">
+            <select class="param-filter-select" id="param-metal-filter" onchange="renderParamTable()">
+                <option value="">All metals</option>
+            </select>
+            <span class="param-count-badge" id="param-count"></span>
+        </div>
+
+        <!-- Expandable table -->
+        <div class="param-table-wrapper">
+            <div class="param-table-body-wrap" id="param-table-body-wrap">
+                <table class="data-table" id="param-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortParamTable('metal')"    style="cursor:pointer;" title="Sort">Metal <span class="sort-arrow" data-col="metal"></span></th>
+                            <th onclick="sortParamTable('ox')"       style="cursor:pointer;" title="Sort">Oxidation State <span class="sort-arrow" data-col="ox"></span></th>
+                            <th onclick="sortParamTable('ligand')"   style="cursor:pointer;" title="Sort">Ligand <span class="sort-arrow" data-col="ligand"></span></th>
+                            <th onclick="sortParamTable('esigma')"   style="cursor:pointer; text-align:right;" title="Sort"><span style="text-transform:none">e<sub>&#963;</sub></span> / cm<sup>−1</sup> <span class="sort-arrow" data-col="esigma"></span></th>
+                            <th onclick="sortParamTable('epix')"     style="cursor:pointer; text-align:right;" title="Sort"><span style="text-transform:none">e<sub>&#960;x</sub></span> / cm<sup>−1</sup> <span class="sort-arrow" data-col="epix"></span></th>
+                            <th onclick="sortParamTable('epiy')"     style="cursor:pointer; text-align:right;" title="Sort"><span style="text-transform:none">e<sub>&#960;y</sub></span> / cm<sup>−1</sup> <span class="sort-arrow" data-col="epiy"></span></th>
+                            <th>Reference</th>
+                        </tr>
+                    </thead>
+                    <tbody id="param-tbody"></tbody>
+                </table>
+            </div>
+            <div class="param-expand-row">
+                <button class="param-expand-btn" id="param-expand-btn" onclick="toggleParamExpand()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    Show all entries
+                </button>
+            </div>
+        </div>
+
+        <p class="param-note">
+            ✦ Values are taken from the cited publications. If you have parameter values from a published study that are not listed
+            here, please <a href="mailto:chem-kestrel@york.ac.uk?subject=Kestrel%20-%20request%20to%20update%20parameter%20table">contact us</a>
+            to have them included.
+        </p>
+
+        <h2>Metal Parameter Values (SOC/Racah)</h2>
+        <p>
+            Select a metal and oxidation state to look up the corresponding free-ion spin-orbit coupling (SOC) parameter
+            values and average Racah B/C parameters.
+        </p>
+
+        <div class="lookup-grid">
+
+            <!-- SOC lookup -->
+            <div class="lookup-card">
+                <h3>Spin-Orbit Coupling Constant &mdash; <span style="text-transform:none; font-family:var(--font-mono)">&#950;</span></h3>
+                <p>
+                    The free-ion spin-orbit coupling constant (&#950;) quantifies the coupling between
+                    an electron's spin and orbital angular momentum. Values increase across the period
+                    and with increasing oxidation state.
+                </p>
+                <div class="lookup-selects">
+                    <select class="lookup-select" id="soc-metal" onchange="populateOxStates('soc')">
+                        <option value="">Metal…</option>
+                    </select>
+                    <select class="lookup-select" id="soc-ox" onchange="updateLookup('soc')" disabled>
+                        <option value="">Ox. state…</option>
+                    </select>
+                </div>
+                <div class="lookup-result" id="soc-result">
+                    <span class="lookup-placeholder">Select a metal and oxidation state above</span>
+                </div>
+                <p style="font-size:0.75rem"><i>Values are taken from F. Mabbs and D. Collinson (1992). ISBN: 9781483291499</i></p>
+            </div>
+
+            <!-- Racah lookup -->
+            <div class="lookup-card">
+                <h3>Racah Parameters &mdash; <em>B</em> and <em>C</em></h3>
+                <p>
+                    The Racah parameters <em>B</em> and <em>C</em> describe the inter-electronic repulsion within the
+                    metal d-shell. The ratio <em>C</em>/<em>B</em> &asymp; 4 is assumed for most 3d metals. For d1/d9 configurations,
+                    Racah values can be set to 0 cm<sup>-1</sup>.
+                </p>
+                <div class="lookup-selects">
+                    <select class="lookup-select" id="racah-metal" onchange="populateOxStates('racah')">
+                        <option value="">Metal…</option>
+                    </select>
+                    <select class="lookup-select" id="racah-ox" onchange="updateLookup('racah')" disabled>
+                        <option value="">Ox. state…</option>
+                    </select>
+                </div>
+                <div class="lookup-result" id="racah-result">
+                    <span class="lookup-placeholder">Select a metal and oxidation state above</span>
+                </div>
+                <p style="font-size:0.75rem"><i>Values are averaged from
+                    V. Rojas and J. Torres (2022) - <a href="https://doi.org/10.1021/acs.jchemed.2c00885" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>,
+                    M . Atanasov (2004) - <a href="https://doi.org/10.1021/acs.jchemed.2c00885" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+                    and published Kestrel results.
+                </i>
+                </p>
+            </div>
+
+        </div>
+
     </section>
 
     <!-- ══ COMMUNITY ════════════════════════════════════════════════════ -->
@@ -1279,12 +1957,17 @@
         <h2>Publications using Kestrel</h2>
         <p>
             The below publications make use of Kestrel. If you use Kestrel in any published work please
-            <a href="mailto:chem-kestrel@york.ac.uk">contact us</a> so we can add your publication to the list below.
+            <a href="mailto:chem-kestrel@york.ac.uk?subject=Kestrel%20-%20request%20to%20add%20publication">contact us</a>
+            so we can add your publication to the list below.
         </p>
         <ul class="lit-list">
             <li>
                 <strong>P. Comba, G. Nunn, F. Scherz and P. H. Walton (2022)</strong> "Intermediate-spin iron(IV)-oxido species with record reactivity."
                 <em>Faraday Discussions.</em> <a href="https://doi.org/10.1039/D1FD00073J" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+            </li>
+            <li>
+                <strong>S. Mace, B. S. Grace, A. Goodfellow, M. A. Bates, M. A. Halcrow, P. H. Walton, Y. Xu and B. N. Nguyen (2026)</strong> "Prediction of Energies of Spin States for First Row Transition Metal Complexes: DFT vs Ligand Field Theory"
+                <em>Inorganic Chemistry Frontiers</em> <a href="DOI	https://doi.org/10.1039/D6QI00844E" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
             </li>
         </ul>
     </section>
@@ -1295,7 +1978,8 @@
         <p>Join the Kestrel mailing group to receive notifications about new releases and features.</p>
         <div class="subscribe-card">
             <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;"><a href="https://groups.google.com/g/chem-kestrel" class="footer-btn footer-btn-outline"><strong>✉ Join the mailing list</strong></a></p>
-            <p style="font-size:0.83rem; color:var(--text-muted);">This link will redirect you to a Google group sign-up page. By subscribing, you agree to receive notifications of new releases and features.
+            <p style="font-size:0.83rem; color:var(--text-muted);">This link will redirect you to a Google group sign-up page.
+                By subscribing, you agree to receive notifications of new releases and features.
                 We will never share your data. <strong>You can unsubscribe at any time.</strong></p>
         </div>
     </section>
@@ -1326,12 +2010,13 @@
     <span>&copy; 2026 Kestrel Development Team — University of York</span>
     <div class="footer-links">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_Bh0xELrcLXV5SQQKG7vmVpEV_v99ixryJ5AFKdnDpxr2Sw/viewform?usp=publish-editor" class="footer-btn footer-btn-outline">&#9888 Report a bug</a>
-        <a href="mailto:chem-kestrel@york.ac.uk" class="footer-btn footer-btn-outline">✉ Contact Us</a>
+        <a href="mailto:chem-kestrel@york.ac.uk?subject=Kestrel%20-%20General%20Query" class="footer-btn footer-btn-outline">✉ Contact Us</a>
         <a href="#" onclick="showPage('subscribe')" class="footer-btn footer-btn-filled">🔔 Stay Updated</a>
     </div>
 </footer>
 
 <script>
+    /* ─── Navigate to different pages ───────────────────────── */
     function showPage(pageId, pushState = true) {
         document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -1343,17 +2028,12 @@
         if (pushState) history.pushState({ page: pageId }, '', '#' + pageId);
     }
 
-    // On load: read the hash and show the right page (or default to 'welcome')
-    window.addEventListener('DOMContentLoaded', () => {
-        const hash = window.location.hash.slice(1); // strips the '#'
-        showPage(hash && document.getElementById(hash) ? hash : 'welcome', false);
-    });
-
     // Handle browser back/forward buttons
     window.addEventListener('popstate', e => {
         if (e.state && e.state.page) showPage(e.state.page, false);
     });
 
+    /* ─── Data for sample files lookup ───────────────────────── */
     const complexData = {
         'octahedral': {
             title: 'Octahedral Complex (O<sub>h</sub>)',
@@ -1400,15 +2080,8 @@
                 </div>`;
         }
     }
-    function updateCharCount(input) {
-        const counter = document.getElementById('char-counter');
-        const link = document.getElementById('github-submit-link');
-        counter.innerText = `${input.value.length} / 100`;
 
-        const bodyText = encodeURIComponent(`Description: ${input.value}\n\n(Please attach your .kes or .xyz file to this issue)`);
-        link.href = `https://github.com/chem-kestrel/chem-kestrel.github.io/issues/new?title=File+Submission&body=${bodyText}`;
-    }
-
+    /* ─── Open PDF using built-in PDF viewer ────────────────── */
     function openPdfModal(url, title) {
         // iOS Safari doesn't reliably render PDFs in iframes — open in new tab instead
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -1435,6 +2108,498 @@
     // Also close on Escape key
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') closePdfModal();
+    });
+
+/* ═══════════════════════════════════════════════════════════════════
+       FREE-ION PARAMETERS LOOKUP
+       ─────────────────────────────────────────────────────────────────
+       To add or update values: edit the objects below.
+
+       socData  – keyed by element symbol, then oxidation state (integer).
+                  Value is ζ in cm⁻¹.
+                  e.g.  "Fe": { 2: 400, 3: 460 }
+
+       racahData – keyed by element symbol, then oxidation state.
+                  Value is an object with B and C in cm⁻¹.
+                  e.g.  "Fe": { 2: { B: 1059, C: 4219 }, 3: { B: 1015, C: 4800 } }
+
+       ═══════════════════════════════════════════════════════════════════ */
+
+    const socData = {
+        "Ti": { 0: 70,  1: 90, 2: 120, 3: 155 },
+        "V":  { 0: 95, 1: 135, 2: 170, 3: 210,  4: 250 },
+        "Cr": { 0: 135, 1: 190, 2: 230, 3: 275, 4: 325, 5: 380 },
+        "Mn": { 0: 190, 1: 255, 2: 300, 3: 355,  4: 415, 5: 475, 6: 540 },
+        "Fe": { 0: 255, 1: 345, 2: 400, 3: 460, 4: 515, 5: 555, 6: 665 },
+        "Co": { 0: 390, 1: 455, 2: 515, 3: 580, 4: 650, 5: 715, 6: 790 },
+        "Ni": { 1: 605, 2: 630, 3: 715, 4: 790, 5: 865, 6: 950 },
+        "Cu": { 2: 830, 3: 875, 4: 960, 5: 1030, 6: 1130 },
+    };
+
+    const racahData = {
+        "V":  {2: {B: 630, C: null }, 3: {B: 620,  C: 2600 } },
+        "Cr": {3: {B: 690, C: 3120}, 4: {B: 470, C: 1960} },
+        "Mn": {2: {B: 770, C: 3180}, 3: {B: 660, C: 3280}, 5: {B: 430, C: 2600 } },
+        "Fe": {2: {B: 1010, C: 3850}, 3: {B: 600, C: 3740}, 4: {B: 700, C: 2500}, 6: {B: 380, C: 1390} },
+        "Co": {2: {B: 830, C: 3660}, 3: {B: 630, C: 3890} },
+        "Ni": {2: {B: 860, C: 3540} },
+    };
+
+    /* ─── Build metal dropdowns from data keys ───────────────────────── */
+    function buildLookupDropdowns() {
+        const fill = (selectId, dataObj) => {
+            const sel = document.getElementById(selectId);
+            if (!sel) return;
+            Object.keys(dataObj).sort().forEach(metal => {
+                const opt = document.createElement('option');
+                opt.value = metal;
+                opt.textContent = metal;
+                sel.appendChild(opt);
+            });
+        };
+        fill('soc-metal',   socData);
+        fill('racah-metal', racahData);
+    }
+
+    /* ─── Populate oxidation state dropdown for a given metal ──────── */
+    function populateOxStates(type) {
+        const data      = type === 'soc' ? socData : racahData;
+        const metalSel  = document.getElementById(`${type}-metal`);
+        const oxSel     = document.getElementById(`${type}-ox`);
+        const metal     = metalSel?.value;
+
+        // Reset ox dropdown
+        oxSel.innerHTML = '<option value="">Ox. state…</option>';
+        oxSel.disabled  = true;
+
+        if (!metal || !data[metal]) return;
+
+        const states = Object.keys(data[metal]).map(Number).sort((a, b) => a - b);
+        states.forEach(ox => {
+            const opt = document.createElement('option');
+            opt.value = ox;
+            opt.textContent = ox > 0 ? `+${ox}` : `${ox}`;
+            oxSel.appendChild(opt);
+        });
+        oxSel.disabled = false;
+    }
+
+    /* ─── Update the results display with the correct value ──────────── */
+    function updateLookup(type) {
+        const data     = type === 'soc' ? socData : racahData;
+        const metal    = document.getElementById(`${type}-metal`)?.value;
+        const ox       = document.getElementById(`${type}-ox`)?.value;
+        const resultEl = document.getElementById(`${type}-result`);
+        if (!resultEl) return;
+
+        if (!metal || !ox) {
+            resultEl.className = 'lookup-result';
+            resultEl.innerHTML = `<span class="lookup-placeholder">Select a metal and oxidation state above</span>`;
+            return;
+        }
+
+        const entry = data[metal]?.[Number(ox)];
+        const label = `${metal}${Number(ox) > 0 ? '<sup>'+ox+'+</sup>' : '<sup>'+Math.abs(ox)+'−</sup>'}`;
+
+        if (entry === undefined || entry === null) {
+            resultEl.className = 'lookup-result not-found';
+            resultEl.innerHTML = `<span class="lookup-placeholder">No data available for ${metal}<sup>${ox}+</sup></span>`;
+            return;
+        }
+
+        resultEl.className = 'lookup-result has-value';
+
+        if (type === 'soc') {
+            resultEl.innerHTML = `
+                <div class="lookup-result-label">Free-ion ζ for ${label}</div>
+                <div class="lookup-result-values">
+                    <div class="lookup-value-item">
+                        <span class="lookup-value-number">${entry.toLocaleString()} cm<sup>−1</sup></span>
+                    </div>
+                </div>`;
+        } else {
+            const bVal = entry.B !== null ? entry.B.toLocaleString() : '—';
+            const cVal = entry.C !== null ? entry.C.toLocaleString() : '—';
+            resultEl.innerHTML = `
+                <div class="lookup-result-label">Averaged B, C for ${label}</div>
+                <div class="lookup-result-values">
+                    <div class="lookup-value-item">
+                        <span class="lookup-value-number">${bVal}</span>
+                        <span class="lookup-value-unit"><em>B</em> / cm<sup>−1</sup></span>
+                    </div>
+                    <div class="lookup-value-item">
+                        <span class="lookup-value-number">${cVal}</span>
+                        <span class="lookup-value-unit"><em>C</em> / cm<sup>−1</sup></span>
+                    </div>
+                </div>`;
+        }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       LIGAND-FIELD PARAMETERS TABLE
+       ─────────────────────────────────────────────────────────────────
+       To add new entries: append an object to the paramData array below.
+       Fields:
+         metal   – element symbol, e.g. "Fe"
+         ox      – oxidation state as integer, e.g. 2
+         ligand  – ligand name/formula (HTML allowed), e.g. "Cl<sup>−</sup>"
+         esigma  – eσ value in cm⁻¹ (number), or null if not reported
+         epix    – eπx value in cm⁻¹ (number), or null if not reported
+         epiy    – eπy value in cm⁻¹ (number), or null if not reported
+         ref     – author/year string, e.g. "Smith et al. (2021)"
+         doi     – DOI URL string, e.g. "https://doi.org/10.1039/…" (or "" if none)
+       ═══════════════════════════════════════════════════════════════════ */
+
+    const paramData = [
+        // ── Titanium ──────────────────────────────────────────────────
+        // ── Vanadium ──────────────────────────────────────────────────
+        // ── Chromium ──────────────────────────────────────────────────
+        {
+            metal: "Cr", ox: 3,
+            ligand: "NH<sub>3</sub>", esigma: 7010, epix: 0, epiy: 0,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "F<sup>-</sup>", esigma: 7870, epix: 1880, epiy: 1880,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "Cl<sup>-</sup>", esigma: 5610, epix: 910, epiy: 910,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "Br<sup>-</sup>", esigma: 5050, epix: 690, epiy: 690,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "I<sup>-</sup>", esigma: 4140, epix: 670, epiy: 670,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "OH<sup>-</sup>", esigma: 7510, epix: 1400, epiy: 1400,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "H<sub>2</sub>O", esigma: 7490, epix: 1390, epiy: 1390,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "Ethylenediamine", esigma: 7290, epix: 0, epiy: 0,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "dmso", esigma: 6770, epix: 1650, epiy: 1650,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "NCS<sup>-</sup>", esigma: 6240, epix: 380, epiy: 380,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "CN<sup>-</sup>", esigma: 8310, epix: -290, epiy: -290,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "Pyridine", esigma: 5800, epix: 0, epiy: -580,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+
+        // ── Manganese ─────────────────────────────────────────────────
+        {
+            metal: "Mn", ox: 2,
+            ligand: "F<sup>-</sup>", esigma: 6000, epix: 2500, epiy: 2500,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Mn", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 3400, epix: 1250, epiy: 1250,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Mn", ox: 2,
+            ligand: "Br<sup>-</sup>", esigma: 2800, epix: 1000, epiy: 1000,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Mn", ox: 2,
+            ligand: "I<sup>-</sup>", esigma: 2300, epix: 750, epiy: 750,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+
+        // ── Iron ──────────────────────────────────────────────────────
+        {
+            metal: "Fe", ox: 2,
+            ligand: "F<sup>-</sup>", esigma: 6900, epix: 2900, epiy: 2900,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Fe", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 3400, epix: 1250, epiy: 1250,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Fe", ox: 2,
+            ligand: "Br<sup>-</sup>", esigma: 2800, epix: 900, epiy: 900,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Fe", ox: 2,
+            ligand: "I<sup>-</sup>", esigma: 2150, epix: 650, epiy: 650,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+
+        // ── Cobalt ────────────────────────────────────────────────────
+        {
+            metal: "Co", ox: 2,
+            ligand: "F<sup>-</sup>", esigma: 5300, epix: 2200, epiy: 2200,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Co", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 3600, epix: 900, epiy: 900,
+            ref: "Bencini et al. (1984)", doi: "https://doi.org/10.1016/0010-8545(84)85064-X"
+        },
+        {
+            metal: "Co", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 3150, epix: 1100, epiy: 1100,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Co", ox: 2,
+            ligand: "Br<sup>-</sup>", esigma: 3100, epix: 775, epiy: 775,
+            ref: "Bencini et al. (1984)", doi: "https://doi.org/10.1016/0010-8545(84)85064-X"
+        },
+        {
+            metal: "Co", ox: 2,
+            ligand: "Br<sup>-</sup>", esigma: 2700, epix: 900, epiy: 900,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Co", ox: 2,
+            ligand: "I<sup>-</sup>", esigma: 2150, epix: 700, epiy: 700,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Co", ox: 2,
+            ligand: "acac", esigma: 4900, epix: 800, epiy: 1000,
+            ref: "Bencini et al. (1984)", doi: "https://doi.org/10.1016/0010-8545(84)85064-X"
+        },
+        {
+            metal: "Co", ox: 2,
+            ligand: "PPh<sub>3</sub>", esigma: 4000, epix: -1000, epiy: -1000,
+            ref: "Bencini et al. (1984)", doi: "https://doi.org/10.1016/0010-8545(84)85064-X"
+        },
+        // ── Nickel ────────────────────────────────────────────────────
+        {
+            metal: "Ni", ox: 2,
+            ligand: "F<sup>-</sup>", esigma: 5200, epix: 2250, epiy: 2250,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "Cl<sup>−</sup>", esigma: 4000, epix: 2000, epiy: 2000,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 3100, epix: 1150, epiy: 1150,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "Br<sup>−</sup>", esigma: 3400, epix: 700, epiy: 700,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "Br<sup>-</sup>", esigma: 2700, epix: 900, epiy: 900,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "I<sup>−</sup>", esigma: 2000, epix: 600, epiy: 600,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "I<sup>-</sup>", esigma: 2100, epix: 700, epiy: 700,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "PPh<sub>3</sub>", esigma: 5500, epix: -1500, epiy: -1500,
+            ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "NH<sub>3</sub>", esigma: 6000, epix: 0, epiy: 0,
+            ref: "Bencini et al. (1984)", doi: "https://doi.org/10.1016/0010-8545(84)85064-X"
+        },
+        // ── Copper ────────────────────────────────────────────────────
+        {
+            metal: "Cu", ox: 2,
+            ligand: "Histidine", esigma: 6200, epix: 0, epiy: 1450,
+            ref: "Nunn (2023)", doi: "oai:etheses.whiterose.ac.uk:34322"
+        },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "NH<sub>2</sub>", esigma: 5500, epix: 0, epiy: 0,
+            ref: "Nunn (2023)", doi: "oai:etheses.whiterose.ac.uk:34322"
+        },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "F<sup>-</sup>", esigma: 5300, epix: 2350, epiy: 2350,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 3000, epix: 1100, epiy: 1100,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "Br<sup>-</sup>", esigma: 2500, epix: 900, epiy: 900,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "I<sup>-</sup>", esigma: 1900, epix: 600, epiy: 600,
+            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 5350, epix: 300, epiy: 300,
+            ref: "Nunn (2023)", doi: "oai:etheses.whiterose.ac.uk:34322"
+        },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "Br<sup>-</sup>", esigma: 4300, epix: 300, epiy: 300,
+            ref: "Nunn (2023)", doi: "oai:etheses.whiterose.ac.uk:34322"
+        },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "acac", esigma: 7500, epix: 1700, epiy: 2200,
+            ref: "Bencini et al. (1984)", doi: "https://doi.org/10.1016/0010-8545(84)85064-X"
+        },
+    ];
+
+    /* ─── Internal state ─────────────────────────────────────────────── */
+    let paramSortCol = 'metal';
+    let paramSortDir = 1; // 1 = asc, -1 = desc
+    let paramExpanded = false;
+
+    /* ─── Populate the metal filter dropdown ────────────────────────── */
+    function buildParamMetalFilter() {
+        const sel = document.getElementById('param-metal-filter');
+        if (!sel) return;
+        const metals = [...new Set(paramData.map(r => r.metal))].sort();
+        metals.forEach(m => {
+            const opt = document.createElement('option');
+            opt.value = m;
+            opt.textContent = m;
+            sel.appendChild(opt);
+        });
+    }
+
+    /* ─── Render / re-render e value table ─────────────────────────────── */
+    function renderParamTable() {
+        const query  = (document.getElementById('param-search')?.value || '').toLowerCase();
+        const metal  = document.getElementById('param-metal-filter')?.value || '';
+
+        // Filter
+        let rows = paramData.filter(r => {
+            if (metal && r.metal !== metal) return false;
+            if (query) {
+                const haystack = [
+                    r.metal, r.ligand.replace(/<[^>]+>/g,''),
+                ].join(' ').toLowerCase();
+                if (!haystack.includes(query)) return false;
+            }
+            return true;
+        });
+
+        // Sort
+        rows.sort((a, b) => {
+            let va = a[paramSortCol], vb = b[paramSortCol];
+            if (va === null) va = -Infinity;
+            if (vb === null) vb = -Infinity;
+            if (typeof va === 'string') return va.localeCompare(vb) * paramSortDir;
+            return (va - vb) * paramSortDir;
+        });
+
+        // Render
+        const tbody = document.getElementById('param-tbody');
+        if (!tbody) return;
+
+        if (rows.length === 0) {
+            tbody.innerHTML = '<tr class="param-no-results"><td colspan="7">No matching parameters found.</td></tr>';
+        } else {
+            tbody.innerHTML = rows.map(r => `
+                <tr>
+                    <td><strong>${r.metal}</strong></td>
+                    <td>${r.ox > 0 ? '+' : ''}${r.ox}</td>
+                    <td>${r.ligand}</td>
+                    <td style="text-align:right;">${r.esigma !== null ? r.esigma.toLocaleString() : '<span class="val-dash">—</span>'}</td>
+                    <td style="text-align:right;">${r.epix  !== null ? r.epix.toLocaleString()  : '<span class="val-dash">—</span>'}</td>
+                    <td style="text-align:right;">${r.epiy  !== null ? r.epiy.toLocaleString()  : '<span class="val-dash">—</span>'}</td>
+                    <td>${r.doi
+                        ? `<a href="${r.doi}" target="_blank" rel="noopener">${r.ref} ↗</a>`
+                        : r.ref}</td>
+                </tr>`).join('');
+        }
+
+        // Update count badge
+        const badge = document.getElementById('param-count');
+        if (badge) badge.textContent = `${rows.length} entr${rows.length === 1 ? 'y' : 'ies'}`;
+
+        // Update sort arrows
+        document.querySelectorAll('.sort-arrow').forEach(el => {
+            const col = el.dataset.col;
+            el.textContent = col === paramSortCol ? (paramSortDir === 1 ? ' ↑' : ' ↓') : '';
+        });
+    }
+
+    function sortParamTable(col) {
+        if (paramSortCol === col) {
+            paramSortDir *= -1;
+        } else {
+            paramSortCol = col;
+            paramSortDir = 1;
+        }
+        renderParamTable();
+    }
+
+    function toggleParamExpand() {
+        paramExpanded = !paramExpanded;
+        const wrap = document.getElementById('param-table-body-wrap');
+        const btn  = document.getElementById('param-expand-btn');
+        if (!wrap || !btn) return;
+        wrap.classList.toggle('expanded', paramExpanded);
+        btn.classList.toggle('open', paramExpanded);
+        btn.innerHTML = paramExpanded
+            ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> Show fewer entries`
+            : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> Show all entries`;
+    }
+
+    // Initialise the parameters table when the DOM is ready
+    window.addEventListener('DOMContentLoaded', () => {
+        buildLookupDropdowns();
+        buildParamMetalFilter();
+        renderParamTable();
+
+        const hash = window.location.hash.slice(1);
+        showPage(hash && document.getElementById(hash) ? hash : 'welcome', false);
     });
 </script>
 </body>
