@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kestrel - Ligand Field Calculations</title>
+    <title>KESTREL - Ligand Field Calculations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -1220,6 +1220,17 @@
             padding: 8px 10px;
             cursor: pointer;
             transition: border-color 0.18s;
+
+            /* ── override macOS/Safari native widget ── */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            /* custom chevron arrow via inline SVG background */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7C99' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
         }
 
         .lookup-select:focus {
@@ -1297,7 +1308,7 @@
 <header>
     <div class="header-inner">
         <div class="logo-area">
-            <img src="kestrel_logo.png" alt="Kestrel Logo" class="header-logo">
+            <img src="kestrel_logo.png" alt="KESTREL Logo" class="header-logo">
             <span class="logo-wordmark"></span>
         </div>
         <nav>
@@ -1306,18 +1317,18 @@
                 <button id="nav-download" class="nav-btn" onclick="showPage('download')">Download</button>
                 <div class="dropdown-content">
                     <div class="dropdown-content-inner">
-                    <button onclick="showPage('download')">Kestrel GUI</button>
-                    <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank">Python Version (GitHub)</a>
+                    <button onclick="showPage('download')">KESTREL GUI</button>
+                    <a href="https://github.com/chem-kestrel/kestrelpy" target="_blank">Python Version (GitHub)</a>
                     </div>
                 </div>
             </div>
             <button id="nav-documentation" class="nav-btn" onclick="showPage('documentation')">Documentation</button>
             <div class="dropdown">
-                <button id="nav-resources" class="nav-btn" onclick="showPage('resources')">Resources</button>
+                <button id="nav-resources" class="nav-btn" onclick="showPage('parameters')">Resources</button>
                 <div class="dropdown-content">
                     <div class="dropdown-content-inner">
-                    <button onclick="showPage('resources')">Sample Datasets</button>
-                    <button id="nav-parameters" onclick="showPage('parameters')">Typical Parameter Values</button>
+                        <button id="nav-parameters" onclick="showPage('parameters')">Typical Parameter Values</button>
+                        <button onclick="showPage('resources')">Teaching Resources</button>
                         <button id="nav-literature" onclick="showPage('literature')">Academic Literature</button>
                     </div>
                 </div>
@@ -1339,7 +1350,7 @@
     <section id="welcome" class="page-section active">
 
         <div class="welcome-intro">
-            <img src="kestrel_logo.png" alt="Kestrel Logo" class="welcome-logo">
+            <img src="kestrel_logo.png" alt="KESTREL Logo" class="welcome-logo">
 
             <div class="welcome-header">
                 <div class="welcome-title-row">
@@ -1362,16 +1373,18 @@
 
         <div class="description-box">
             <p>
-                Based on the Cellular Ligand Field (CLF) model developed by Malcolm Gerloch and R. G. Woolley<sup>1,2</sup> and
-                further developed by A. Bencini,<sup>3</sup> KESTREL performs ligand field calculations in real-time on any
-                monomeric 3d<sup>*</sup> transition metal complex in any coordination geometry and runs on standard desktop computers
-                and laptops. The effect of the ligands is described using chemically significant parameter values — providing a tool
-                for relating the chemistry of a transition metal complex to its spectroscopic results.
+                Based on the Cellular Ligand Field (CLF) model initially developed by Malcolm Gerloch and R. G. Woolley<sup>1,2</sup> with further
+                contributions by A. Bencini,<sup>3</sup> KESTREL performs ligand field calculations in real-time on any
+                monomeric transition metal complex<sup>*</sup> in any coordination geometry. KESTREL runs on standard desktop computers
+                and laptops. KESTREL takes as its input the 3D structure of a complex. It can then be used in two senses. First, by parameterising
+                the metal-ligand bonds in terms of their individual σ and π contributions KESTREL will predict spectroscopic and magnetic
+                properties. Second, based on spectroscopic and magnetic properties KESTREL can be used to determine the strength and nature of
+                individual metal-ligand interactions.
             </p>
             <p>
                 KESTREL can also be used for teaching how electronic energies and d-orbital splitting vary with ligand type and
                 coordination geometry. Datasets including input and output files for standard coordination geometries are given
-                <a href="#" onclick="showPage('Sample Files')">here</a> for this purpose.
+                <a href="#" onclick="showPage('resources')">here</a> for this purpose.
             </p>
             <p class="description-footnote">
                 <sup>*</sup> KESTREL assumes minimal metal–ligand spatial overlap, an approximation that is appropriate for most
@@ -1386,13 +1399,13 @@
         </div>
 
         <div class="gui-wrapper">
-            <img src="kestrel_gui.png" alt="Kestrel GUI" class="kestrel-gui">
+            <img src="kestrel_gui.png" alt="KESTREL GUI" class="kestrel-gui">
         </div>
 
         <p>
-            <strong>Kestrel can be downloaded free of charge as a GUI (Graphical User Interface) that provides a user-friendly
-                visual interface.</strong> Alternatively, a Python package (KestrelPy) is available for advanced use via
-            <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank">GitHub</a>.
+            <strong>KESTREL can be downloaded free-of-charge as an executable file. KESTREL utilises a GUI (Graphical User Interface) that provides a
+                user-friendly interface.</strong> Alternatively, a Python package (KestrelPy) is available for advanced use via
+            <a href="https://github.com/chem-kestrel/kestrelpy" target="_blank">GitHub</a>.
         </p>
 
         <div class="cta-row">
@@ -1400,7 +1413,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download the GUI
             </a>
-            <a href="https://github.com/chem-kestrel/Kestrelpy" target="_blank" class="btn-secondary">
+            <a href="https://github.com/chem-kestrel/kestrelpy" target="_blank" class="btn-secondary">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 Python Package (GitHub)
             </a>
@@ -1419,22 +1432,11 @@
 
             <div class="feature-card">
                 <div class="feature-icon">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <h3>Real-time calculations</h3>
-                <p>
-                    Up to <strong>1,000 calculations per second</strong> for d¹ and d⁹ systems.
-                    Even d⁵ systems complete in under a second through Kestrel's parametric approach.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
                     <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
                 </div>
                 <h3>Multi-configurational energies</h3>
                 <p>
-                    Calculates the energy and spin multiplicity of the ground state and each excited state.
+                    Calculates the multi-configurational nature, energy and spin multiplicity of the ground state and each excited state.
                     Tanabe-Sugano-style diagrams can also be generated to visualise how the ligand field affects the electronic states.
                 </p>
             </div>
@@ -1446,7 +1448,7 @@
                 <h3>UV/CD/MCD spectral simulation</h3>
                 <p>
                     Calculates d-d transition intensities, enabling simulation of d-d transitions in
-                    absorption (UV), circular dichroism (CD), and magnetic circular dichroism (MCD) spectra.
+                    absorption (UV), circular dichroism (CD) for chiral complexes, and magnetic circular dichroism (MCD) spectra.
                 </p>
             </div>
 
@@ -1463,11 +1465,20 @@
 
             <div class="feature-card">
                 <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Real-time calculations</h3>
+                <p>
+                   KESTREL effectively calculates in real-time, allowing rapid exploration of electronic structure with ligand field strength.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
                     <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
                 </div>
                 <h3>Paramagnetic susceptibilities</h3>
-                <p>Calculates the paramagnetic susceptibility and can plot susceptibility curves across a temperature range to
-                    model phenomena such as spin-crossover.</p>
+                <p>Calculates the variation of magnetic susceptibility with temperature and can model phenomena such as spin-crossover.</p>
             </div>
 
             <div class="feature-card">
@@ -1492,37 +1503,37 @@
 
     <!-- ══ DOWNLOAD PAGE ══════════════════════════════════════════════════════ -->
     <section id="download" class="page-section">
-        <h1>Download Kestrel GUI</h1>
+        <h1>Download KESTREL GUI</h1>
         <p>
-            Kestrel's GUI is available for Windows and macOS as a <code>.exe</code> and <code>.dmg</code> file respectively.
-            The latest stable releases are linked below and are hosted on GitHub releases. We recommend checking back regularly for updates.
+            KESTREL's GUI is available for Windows, macOS and Linux as <code>.exe</code>, <code>.dmg</code> and <code>.flatpak</code> files respectively.
+            The latest stable releases are linked below and are hosted on GitHub releases.
         </p>
+
+        <div class="info-banner">
+            <span>
+                ✉ We strongly recommend that you <a href="#" onclick="showPage('subscribe')"><strong>subscribe to the KESTREL mailing list</strong></a>
+                to be notified of new releases.
+            </span>
+        </div>
 
         <div class="release-card">
             <span class="release-tag">Latest stable</span>
             <h3>Version 1.0.0</h3>
             <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:0;">Released May 2026 — Initial public release</p>
             <div class="btn-group">
-                <a href="https://github.com/chem-kestrel/KestrelGUI/releases/latest/download/kestrel-windows.exe" class="btn-primary">
+                <a href="https://github.com/chem-kestrel/kestrelpy/releases/tag/v1.0.0" class="btn-primary">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                     Windows (.exe)
                 </a>
-                <a href="https://github.com/chem-kestrel/kestrelGUI/releases/latest/download/kestrel-mac.dmg" class="btn-secondary">
+                <a href="https://github.com/chem-kestrel/kestrelpy/releases/tag/v1.0.0" class="btn-secondary">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v8M8 12h8"/></svg>
                     macOS (.dmg)
                 </a>
-                <a href="https://github.com/chem-kestrel/kestrelGUI/releases/latest/download/kestrel-linux.dmg" class="btn-secondary">
+                <a href="https://github.com/chem-kestrel/kestrelpy/releases/tag/v1.0.0" class="btn-secondary">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v8M8 12h8"/></svg>
                     Linux (.flatpak)
                 </a>
             </div>
-        </div>
-
-        <div class="info-banner">
-            <span>
-                <a href="#" onclick="showPage('subscribe')"><strong>✉ Subscribe to the Kestrel mailing list</strong></a>
-                to be notified of new releases.
-            </span>
         </div>
 
         <h2>Installation Instructions</h2>
@@ -1531,9 +1542,9 @@
                 <h4>Windows (.exe)</h4>
                 <ol>
                     <li>Download the <code>.exe</code> file above.</li>
-                    <li>Double-click the <code>.exe</code> file to run Kestrel.</li>
+                    <li>Double-click the <code>.exe</code> file to run KESTREL.</li>
                     <li>If Windows Defender flags the file, right-click and select <code>Properties</code>,
-                        then check the <code>Unblock</code> option. Kestrel should then launch.</li>
+                        then check the <code>Unblock</code> option. KESTREL should then launch.</li>
                 </ol>
             </div>
             <div class="install-box">
@@ -1541,7 +1552,7 @@
                 <ol>
                     <li>Download the <code>.dmg</code> file above.</li>
                     <li>Double-click to open the <code>.dmg</code> file.</li>
-                    <li>Drag the Kestrel <code>.app</code> icon into your Applications folder and double-click to launch the GUI.</li>
+                    <li>Drag the KESTREL <code>.app</code> icon into your Applications folder and double-click to launch the GUI.</li>
                 </ol>
             </div>
         </div>
@@ -1561,17 +1572,17 @@
                     <td><strong>v1.0.0</strong></td>
                     <td>May 2026</td>
                     <td>Initial public release</td>
-                    <td><a href="#">GitHub Release</a></td>
+                    <td><a href="https://github.com/chem-kestrel/kestrelpy/releases/tag/v1.0.0">GitHub Release</a></td>
                 </tr>
             </tbody>
         </table>
 
         <h2>Citation</h2>
-        <p>An official release paper for Kestrel is currently being worked on. If you use Kestrel in your work,
+        <p>An official release paper for KESTREL is currently being worked on. If you use KESTREL in your work,
             we kindly ask that you cite the following GitHub repository in the meantime:</p>
         <div class="citation-block">
-            George Nunn, Benjamin S. Grace, Martin A. Bates and Paul H. Walton, Kestrel [Computer software].
-            <a href=" https://github.com/chem-kestrel/Kestrelpy" target="_blank" style="font-size:0.82rem;"> https://github.com/chem-kestrel/Kestrelpy</a>
+            George Nunn, Benjamin S. Grace, Martin A. Bates and Paul H. Walton, KESTREL [Computer software].
+            <a href=" https://github.com/chem-kestrel/kestrelpy" target="_blank" style="font-size:0.82rem;"> https://github.com/chem-kestrel/kestrelpy</a>
         </div>
     </section>
 
@@ -1601,7 +1612,7 @@
 
         <h2>Quickstart Tutorial Files</h2>
         <p>
-            Kestrel uses standard <code>.xyz</code> files for coordinate input and its own <code>.kes</code> format for saving calculations.
+            KESTREL uses standard <code>.xyz</code> files for coordinate input and its own <code>.kes</code> format for saving calculations.
             The <code>.xyz</code> file below provides the coordinates used in the quickstart tutorial and the <code>.kes</code> file the results.
         </p>
         <p>
@@ -1633,9 +1644,12 @@
 
     <!-- ══ RESOURCES PAGE - SAMPLE DATASETS ═══════════════════════════════════════════════ -->
     <section id="resources" class="page-section">
-        <h1>Resources</h1>
-        <p><strong>This page contains sample datasets that support the theoretical basis of Kestrel's calculations and demonstrate
-            the effect of coordination geometry on the d orbital splitting and electronic energies.</strong></p>
+        <h1>Teaching Resources</h1>
+        <p><strong>
+            This page contains sample datasets that support the theoretical basis of KESTREL's calculations and demonstrate
+            the effect of coordination geometry on the d orbital splitting and electronic energies.</strong> These datasets can be used
+            for teaching how electronic energies and d-orbital splitting vary with ligand type and coordination geometry.
+        </p>
         <p>
             Sample datasets contain input (<code>.xyz</code>) and calculation result (<code>.kes</code>) files for common
             coordination geometries. By default, systems are configured as d⁵ Mn(II) complexes — the d electron count can be
@@ -1665,7 +1679,7 @@
         </div>
 
          <div class="gui-wrapper">
-            <img src="kestrel_gui_tanabe.png" alt="Kestrel GUI with Tanabe diagram" class="kestrel-gui">
+            <img src="kestrel_gui_tanabe.png" alt="KESTREL GUI with Tanabe diagram" class="kestrel-gui">
         </div>
 
         <div class="install-box">
@@ -1680,10 +1694,10 @@
 
     <!-- ══ RESOURCES PAGE - ACADEMIC LITERATURE ═══════════════════════════════════════════════ -->
     <section id="literature" class="page-section">
-        <h2>Literature Resources</h2>
+        <h1>Literature Resources</h1>
 
         <p>This page collates various source of ligand field parameter values as well as the literature foundational to
-            Kestrel's theoretical basis.</p>
+            KESTREL's theoretical basis.</p>
 
         <p style="font-size:1.1rem;"><strong>Sources of parameter values</strong></p>
         <p style="font-size:0.95rem;">
@@ -1712,7 +1726,7 @@
         </ul>
 
         <p style="margin-top:1.5rem; font-size:1.1rem;"><strong>Theoretical literature</strong></p>
-        <p style="font-size:0.95rem;"> The following publications provide an overview of the theoretical basis behind Kestrel's
+        <p style="font-size:0.95rem;"> The following publications provide an overview of the theoretical basis behind KESTREL's
             calculations including the original work on mathematical model.</p>
         <ul class="lit-list">
             <li>
@@ -1742,7 +1756,7 @@
         <h1>Parameter Values</h1>
 
         <p>
-            Kestrel uses <i>e</i> parameters to describe the bonding interactions between a metal centre and its ligands.
+            KESTREL uses <i>e</i> parameters to describe the bonding interactions between a metal centre and its ligands.
             Each <i>e</i> parameter describes the type and strength of a bond making each parameter chemically meaningful.
             The most common <i>e</i> parameters are e<sub>σ</sub> and e<sub>π</sub> which describe the strength of σ and π bonding respectively.
         </p>
@@ -1843,7 +1857,8 @@
                 <p>
                     The free-ion spin-orbit coupling constant (&#950;) quantifies the coupling between
                     an electron's spin and orbital angular momentum. Values increase across the period
-                    and with increasing oxidation state.
+                    and with increasing oxidation state. <br><br>KESTREL typically uses the free-ion value which
+                    is then reduced by an orbital reduction factor (k<sub>iso</sub>)
                 </p>
                 <div class="lookup-selects">
                     <select class="lookup-select" id="soc-metal" onchange="populateOxStates('soc')">
@@ -1861,11 +1876,12 @@
 
             <!-- Racah lookup -->
             <div class="lookup-card">
-                <h3>Racah Parameters &mdash; <em>B</em> and <em>C</em></h3>
+                <h3>Free-ion Racah Parameters &mdash; <em>B</em> and <em>C</em></h3>
                 <p>
                     The Racah parameters <em>B</em> and <em>C</em> describe the inter-electronic repulsion within the
                     metal d-shell. The ratio <em>C</em>/<em>B</em> &asymp; 4 is assumed for most 3d metals. For d1/d9 configurations,
-                    Racah values can be set to 0 cm<sup>-1</sup>.
+                    Racah values can be set to 0 cm<sup>-1</sup>. <br><br>The Racah values given below are for free-ions. For complexes, values
+                    are typically reduced by up to 25%.
                 </p>
                 <div class="lookup-selects">
                     <select class="lookup-select" id="racah-metal" onchange="populateOxStates('racah')">
@@ -1878,12 +1894,7 @@
                 <div class="lookup-result" id="racah-result">
                     <span class="lookup-placeholder">Select a metal and oxidation state above</span>
                 </div>
-                <p style="font-size:0.75rem"><i>Values are averaged from
-                    V. Rojas and J. Torres (2022) - <a href="https://doi.org/10.1021/acs.jchemed.2c00885" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>,
-                    M . Atanasov (2004) - <a href="https://doi.org/10.1021/acs.jchemed.2c00885" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
-                    and published Kestrel results.
-                </i>
-                </p>
+                <p style="font-size:0.75rem"><i>Free-ion Racah values are taken from B. N. Figgis and M. A. Hitchman (2000). ISBN: 9788126528455</i></p>
             </div>
 
         </div>
@@ -1895,7 +1906,7 @@
         <h1>Community Hub</h1>
         <p>
             Share your <code>.kes</code> calculation results with the community or browse contributions from other users.
-            All the files below have been checked and approved by the Kestrel Development Team.
+            All the files below have been checked and approved by the KESTREL Development Team.
         </p>
 
         <div class="table-scroll-container">
@@ -1946,7 +1957,7 @@
             </p>
 
 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTf7WdMSy_VL-DvRLeiTBDI5kSXmVXkU0-8JKLzy_9CkykDg/viewform?usp=publish-editor"
+            <a href="https://forms.gle/MLDwiw1TL4BgFY69A"
                id="google-form-submit-btn"
                target="_blank"
                class="btn-primary">
@@ -1954,9 +1965,9 @@
             </a>
         </div>
 
-        <h2>Publications using Kestrel</h2>
+        <h2>Publications using KESTREL</h2>
         <p>
-            The below publications make use of Kestrel. If you use Kestrel in any published work please
+            The below publications make use of KESTREL. If you use KESTREL in any published work please
             <a href="mailto:chem-kestrel@york.ac.uk?subject=Kestrel%20-%20request%20to%20add%20publication">contact us</a>
             so we can add your publication to the list below.
         </p>
@@ -1967,7 +1978,7 @@
             </li>
             <li>
                 <strong>S. Mace, B. S. Grace, A. Goodfellow, M. A. Bates, M. A. Halcrow, P. H. Walton, Y. Xu and B. N. Nguyen (2026)</strong> "Prediction of Energies of Spin States for First Row Transition Metal Complexes: DFT vs Ligand Field Theory"
-                <em>Inorganic Chemistry Frontiers</em> <a href="DOI	https://doi.org/10.1039/D6QI00844E" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
+                <em>Inorganic Chemistry Frontiers</em> <a href="https://doi.org/10.1039/D6QI00844E" style="font-size:0.82rem; display:inline-block; margin-top:4px;">DOI link ↗</a>
             </li>
         </ul>
     </section>
@@ -1975,7 +1986,7 @@
     <!-- ══ SUBSCRIBE ════════════════════════════════════════════════════ -->
     <section id="subscribe" class="page-section">
         <h1>Stay Updated</h1>
-        <p>Join the Kestrel mailing group to receive notifications about new releases and features.</p>
+        <p>Join the KESTREL mailing group to receive notifications about new releases and features.</p>
         <div class="subscribe-card">
             <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;"><a href="https://groups.google.com/g/chem-kestrel" class="footer-btn footer-btn-outline"><strong>✉ Join the mailing list</strong></a></p>
             <p style="font-size:0.83rem; color:var(--text-muted);">This link will redirect you to a Google group sign-up page.
@@ -2007,9 +2018,9 @@
 </main>
 
 <footer>
-    <span>&copy; 2026 Kestrel Development Team — University of York</span>
+    <span>&copy; 2026 KESTREL Development Team — University of York</span>
     <div class="footer-links">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_Bh0xELrcLXV5SQQKG7vmVpEV_v99ixryJ5AFKdnDpxr2Sw/viewform?usp=publish-editor" class="footer-btn footer-btn-outline">&#9888 Report a bug</a>
+        <a href="https://forms.gle/VRgLYDgpQRbaArSr9" class="footer-btn footer-btn-outline">&#9888 Report a bug</a>
         <a href="mailto:chem-kestrel@york.ac.uk?subject=Kestrel%20-%20General%20Query" class="footer-btn footer-btn-outline">✉ Contact Us</a>
         <a href="#" onclick="showPage('subscribe')" class="footer-btn footer-btn-filled">🔔 Stay Updated</a>
     </div>
@@ -2137,12 +2148,14 @@
     };
 
     const racahData = {
-        "V":  {2: {B: 630, C: null }, 3: {B: 620,  C: 2600 } },
-        "Cr": {3: {B: 690, C: 3120}, 4: {B: 470, C: 1960} },
-        "Mn": {2: {B: 770, C: 3180}, 3: {B: 660, C: 3280}, 5: {B: 430, C: 2600 } },
-        "Fe": {2: {B: 1010, C: 3850}, 3: {B: 600, C: 3740}, 4: {B: 700, C: 2500}, 6: {B: 380, C: 1390} },
-        "Co": {2: {B: 830, C: 3660}, 3: {B: 630, C: 3890} },
-        "Ni": {2: {B: 860, C: 3540} },
+        "Ti": {0: {B: 380, C: 910}, 1: {B: 580, C: 1980}, 2: {B: 710, C: 2640 } },
+        "V":  {0: {B: 440, C: 1050}, 1: {B: 590, C: 2460}, 2: {B: 760, C: 2890}, 3: {B: 890, C: 3540} },
+        "Cr": {0: {B: 790, C: 2530}, 1: {B: 660, C: 2690}, 2: {B: 800, C: 3340}, 3: {B: 930, C: 3730}, 4: {B: 1040, C: 4260} },
+        "Mn": {0: {B: 720, C: 3100}, 1: {B: 680, C: 3130}, 2: {B: 860, C: 3520}, 3: {B: 950, C: 4090}, 4: {B: 1090, C: 4460} },
+        "Fe": {0: {B: 810, C: 3540}, 1: {B: 760, C: 3440}, 2: {B: 900, C: 3860}, 3: {B: 1030, C: 4220}, 4: {B: 1120, C: 4710} },
+        "Co": {0: {B: 780, C: 4130}, 1: {B: 800, C: 4390}, 2: {B: 990, C: 4250}, 3: {B: 1080, C: 4540}, 4: {B: 1190, C: 4980} },
+        "Ni": {1: {B: 1040, C: 4370}, 2: {B: 1040, C: 4590}, 3: {B: 1150, C: 4830}, 4: {B: 1240, C: 5200} },
+        "Cu": {2: {B: 1240, C: 4710} },
     };
 
     /* ─── Build metal dropdowns from data keys ───────────────────────── */
@@ -2221,7 +2234,7 @@
             const bVal = entry.B !== null ? entry.B.toLocaleString() : '—';
             const cVal = entry.C !== null ? entry.C.toLocaleString() : '—';
             resultEl.innerHTML = `
-                <div class="lookup-result-label">Averaged B, C for ${label}</div>
+                <div class="lookup-result-label">Free-ion B, C for ${label}</div>
                 <div class="lookup-result-values">
                     <div class="lookup-value-item">
                         <span class="lookup-value-number">${bVal}</span>
