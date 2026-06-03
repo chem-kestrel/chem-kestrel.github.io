@@ -1374,12 +1374,12 @@
         <div class="description-box">
             <p>
                 Based on the Cellular Ligand Field (CLF) model initially developed by Malcolm Gerloch and R. G. Woolley<sup>1,2</sup> with further
-                contributions by A. Bencini,<sup>3</sup> KESTREL performs ligand field calculations in real-time on any
-                monomeric transition metal complex<sup>*</sup> in any coordination geometry. KESTREL runs on standard desktop computers
-                and laptops. KESTREL takes as its input the 3D structure of a complex. It can then be used in two senses. First, by parameterising
-                the metal-ligand bonds in terms of their individual σ and π contributions KESTREL will predict spectroscopic and magnetic
-                properties. Second, based on spectroscopic and magnetic properties KESTREL can be used to determine the strength and nature of
-                individual metal-ligand interactions.
+                contributions by A. Bencini,<sup>3</sup> KESTREL is a user-friendly computer program that performs ligand field calculations
+                in real-time on any monomeric transition metal complex<sup>*</sup> in any coordination geometry. KESTREL runs on standard desktop computers
+                and laptops. KESTREL takes as its input the 3D structure of a complex. It can then be used in two modes. First, a predictive mode
+                where the metal-ligand bonds are parameterised in terms of their individual σ and π contributions to predict spectroscopic and magnetic
+                properties. Second, an analytical mode that takes spectroscopic and magnetic properties to determine the strength and nature
+                of individual metal-ligand interactions.
             </p>
             <p>
                 KESTREL can also be used for teaching how electronic energies and d-orbital splitting vary with ligand type and
@@ -1447,8 +1447,8 @@
                 </div>
                 <h3>UV/CD/MCD spectral simulation</h3>
                 <p>
-                    Calculates d-d transition intensities, enabling simulation of d-d transitions in
-                    absorption (UV), circular dichroism (CD) for chiral complexes, and magnetic circular dichroism (MCD) spectra.
+                    Calculates d-d transition intensities, enabling simulation of ligand-field (<i>d-d</i>) spectra for absorption (UV),
+                    circular dichroism (CD) of chiral complexes, and magnetic circular dichroism (MCD) - including A, B and C terms.
                 </p>
             </div>
 
@@ -1494,8 +1494,9 @@
 
         <div class="author-box">
             <h3>Authors &amp; Contact</h3>
-            <p><strong>Developed by:</strong> Dr George Nunn, Benjamin Grace, Dr Martin Bates and Prof. Paul Walton</p>
-            <p><strong>Institution:</strong> Department of Chemistry, University of York</p>
+            <p><strong>Developed by:</strong> Dr George Nunn and Benjamin Grace</p>
+            <p><strong>Supervised by:</strong> Dr Martin Cockett, Dr Martin Bates and Prof. Paul Walton</p>
+            <p><strong>Institution:</strong> Department of Chemistry, University of York, United Kingdom</p>
             <p><strong>Email:</strong> <a href="mailto:chem-kestrel@york.ac.uk?subject=Kestrel%20-%20General%20Query">chem-kestrel@york.ac.uk</a></p>
         </div>
 
@@ -1794,7 +1795,8 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <span>
                 Parameter values have been averaged for each metal/ligand combination in the referenced studies. Each value should be used
-                to guide what a 'reasonable' parameter value is. Exact values will vary depending on the precise structure being analysed.
+                to guide what a 'reasonable' parameter value is and are taken as pairs for each complex. Exact values will vary
+                depending on the precise structure being analysed.
             </span>
         </div>
 
@@ -1880,8 +1882,8 @@
                 <p>
                     The Racah parameters <em>B</em> and <em>C</em> describe the inter-electronic repulsion within the
                     metal d-shell. The ratio <em>C</em>/<em>B</em> &asymp; 4 is assumed for most 3d metals. For d1/d9 configurations,
-                    Racah values can be set to 0 cm<sup>-1</sup>. <br><br>The Racah values given below are for free-ions. For complexes, values
-                    are typically reduced by up to 25%.
+                    Racah values can be set to 0 cm<sup>-1</sup>. <br><br>The Racah values given below are for free-ions. <strong>For complexes, the values
+                    given here should be reduced by up to 25%.</strong>
                 </p>
                 <div class="lookup-selects">
                     <select class="lookup-select" id="racah-metal" onchange="populateOxStates('racah')">
@@ -2268,6 +2270,11 @@
         // ── Vanadium ──────────────────────────────────────────────────
         // ── Chromium ──────────────────────────────────────────────────
         {
+            metal: "Cr", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 4500, epix: 1800, epiy: 1800,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
             metal: "Cr", ox: 3,
             ligand: "NH<sub>3</sub>", esigma: 7010, epix: 0, epiy: 0,
             ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
@@ -2327,6 +2334,52 @@
             ligand: "Pyridine", esigma: 5800, epix: 0, epiy: -580,
             ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
         },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "OH<sup>-</sup>", esigma: 8630, epix: 2150, epiy: 2150,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "NH<sub>3</sub>", esigma: 6920, epix: 0, epiy: 0,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "Cl<sup>-</sup>", esigma: 5700, epix: 975, epiy: 975,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "F<sup>-</sup>", esigma: 8170, epix: 1870, epiy: 1870,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "Br<sup>-</sup>", esigma: 5380, epix: 950, epiy: 950,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "I<sup>-</sup>", esigma: 4140, epix: 670, epiy: 670,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "Ethylenediamine", esigma: 7250, epix: 0, epiy: 0,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "H<sub>2</sub>O", esigma: 7550, epix: 2100, epiy: 2100,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Cr", ox: 3,
+            ligand: "dmso", esigma: 6770, epix: 1650, epiy: 1650,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+
 
         // ── Manganese ─────────────────────────────────────────────────
         {
@@ -2349,6 +2402,16 @@
             ligand: "I<sup>-</sup>", esigma: 2300, epix: 750, epiy: 750,
             ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
         },
+        {
+            metal: "Mn", ox: 3,
+            ligand: "Cl<sup>-</sup>", esigma: 3380, epix: 1200, epiy: 1200,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Mn", ox: 3,
+            ligand: "Br<sup>-</sup>", esigma: 3150, epix: 1900, epiy: 1900,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
 
         // ── Iron ──────────────────────────────────────────────────────
         {
@@ -2370,6 +2433,11 @@
             metal: "Fe", ox: 2,
             ligand: "I<sup>-</sup>", esigma: 2150, epix: 650, epiy: 650,
             ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+        },
+        {
+            metal: "Fe", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 3570, epix: 2300, epiy: 2300,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
         },
 
         // ── Cobalt ────────────────────────────────────────────────────
@@ -2413,6 +2481,42 @@
             ligand: "PPh<sub>3</sub>", esigma: 4000, epix: -1000, epiy: -1000,
             ref: "Bencini et al. (1984)", doi: "https://doi.org/10.1016/0010-8545(84)85064-X"
         },
+        {
+            metal: "Co", ox: 3,
+            ligand: "NCS<sup>-</sup>", esigma: 3040, epix: -70, epiy: -70,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Co", ox: 3,
+            ligand: "PPh<sub>3</sub>", esigma: 3750, epix: -1000, epiy: -1000,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Co", ox: 3,
+            ligand: "H<sub>2</sub>O", esigma: 3640, epix: 470, epiy: 550,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Co", ox: 3,
+            ligand: "Pyridine", esigma: 6100, epix: 0, epiy: -750,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Co", ox: 3,
+            ligand: "Cl<sup>-</sup>", esigma: 3180, epix: 1100, epiy: 1100,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Co", ox: 3,
+            ligand: "Br<sup>-</sup>", esigma: 2990, epix: 770, epiy: 770,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Co", ox: 3,
+            ligand: "acac", esigma: 4540, epix: 490, epiy: 839,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+
         // ── Nickel ────────────────────────────────────────────────────
         {
             metal: "Ni", ox: 2,
@@ -2421,7 +2525,7 @@
         },
         {
             metal: "Ni", ox: 2,
-            ligand: "Cl<sup>−</sup>", esigma: 4000, epix: 2000, epiy: 2000,
+            ligand: "Cl<sup>-</sup>", esigma: 4000, epix: 2000, epiy: 2000,
             ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
         },
         {
@@ -2431,7 +2535,7 @@
         },
         {
             metal: "Ni", ox: 2,
-            ligand: "Br<sup>−</sup>", esigma: 3400, epix: 700, epiy: 700,
+            ligand: "Br<sup>-</sup>", esigma: 3400, epix: 700, epiy: 700,
             ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
         },
         {
@@ -2441,7 +2545,7 @@
         },
         {
             metal: "Ni", ox: 2,
-            ligand: "I<sup>−</sup>", esigma: 2000, epix: 600, epiy: 600,
+            ligand: "I<sup>-</sup>", esigma: 2000, epix: 600, epiy: 600,
             ref: "Hoggard (2004)", doi: "https://doi.org/10.1007/b11304"
         },
         {
@@ -2458,6 +2562,46 @@
             metal: "Ni", ox: 2,
             ligand: "NH<sub>3</sub>", esigma: 6000, epix: 0, epiy: 0,
             ref: "Bencini et al. (1984)", doi: "https://doi.org/10.1016/0010-8545(84)85064-X"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 3620, epix: 2030, epiy: 2030,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "Br<sup>-</sup>", esigma: 3600, epix: 1000, epiy: 1000,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "I<sup>-</sup>", esigma: 2000, epix: 600, epiy: 600,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "PPh<sub>3</sub>", esigma: 4880, epix: -1750, epiy: -1750,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "Pyridine", esigma: 4150, epix: 0, epiy: 50,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "Ethylenediamine", esigma: 4000, epix: 0, epiy: 0,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "NCS<sup>-</sup>", esigma: 3040, epix: -70, epiy: -70,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Ni", ox: 2,
+            ligand: "NH<sub>3</sub>", esigma: 3580, epix: 0, epiy: 0,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
         },
         // ── Copper ────────────────────────────────────────────────────
         {
@@ -2505,10 +2649,20 @@
             ligand: "acac", esigma: 7500, epix: 1700, epiy: 2200,
             ref: "Bencini et al. (1984)", doi: "https://doi.org/10.1016/0010-8545(84)85064-X"
         },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "Cl<sup>-</sup>", esigma: 6800, epix: 1800, epiy: 1800,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
+        {
+            metal: "Cu", ox: 2,
+            ligand: "Br<sup>-</sup>", esigma: 5500, epix: 850, epiy: 850,
+            ref: "Lever (1984)", doi: "https://books.google.co.uk/books/about/Inorganic_Electronic_Spectroscopy.html?id=NRd1swEACAAJ&redir_esc=y"
+        },
     ];
 
     /* ─── Internal state ─────────────────────────────────────────────── */
-    let paramSortCol = 'metal';
+    let paramSortCol = 'ligand';
     let paramSortDir = 1; // 1 = asc, -1 = desc
     let paramExpanded = false;
 
