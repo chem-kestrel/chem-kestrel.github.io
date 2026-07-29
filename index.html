@@ -1160,11 +1160,19 @@
             padding: 24px;
         }
 
-        /* Info note below table */
+        /* Info notes below table */
         .param-note {
             font-size: 0.82rem;
             color: var(--text-muted);
             margin-top: 0.5rem;
+        }
+        .param-dft-toggle {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.90rem;
+            cursor: pointer;
+            user-select: none;
         }
 
         /* ── Free-ion SOC/Racah lookup widgets ───────────────── */
@@ -1796,7 +1804,7 @@
             <span>
                 Parameter values have been averaged for each metal/ligand combination in the referenced studies. Each value should be used
                 to guide what a 'reasonable' parameter value is and are taken as pairs for each complex. Exact values will vary
-                depending on the precise structure being analysed.
+                depending on the precise structure being analysed; we advise checking the original literature before using a set of values.
             </span>
         </div>
 
@@ -1844,6 +1852,12 @@
             here, please <a href="mailto:chem-kestrel@york.ac.uk?subject=Kestrel%20-%20request%20to%20update%20parameter%20table">contact us</a>
             to have them included.
         </p>
+        <div class="citation-block">
+            <label class="param-dft-toggle">
+                <input type="checkbox" id="param-dft-toggle" onchange="renderParamTable()">
+                &nbsp;&nbsp;Show parameter values obtained from DFT calculation. By default, values obtained by fitting experimental data are shown.
+            </label>
+        </div>
 
         <h2>Metal Parameter Values (SOC/Racah)</h2>
         <p>
@@ -1911,6 +1925,7 @@
             All the files below have been checked and approved by the KESTREL Development Team.
         </p>
 
+        <!-- INSERT USER SUBMISSIONS HERE -->
         <div class="table-scroll-container">
             <table class="data-table">
                 <thead>
@@ -1954,7 +1969,8 @@
             <h3>Share Your Calculations</h3>
             <p>
                 For security, we review all submissions via a Google Form.
-                Please attach your <code>.kes</code> file and give a short description (max 150 characters) via the link below.
+                Please attach your <code>.kes</code> file and give a short description (max 150 characters) via the link below. Alternatively
+                <a href="mailto:chem-kestrel@york.ac.uk?subject=Kestrel%20-%20request%20to%20add%20publication">contact us</a> by email.
                 Approved submissions will be added to the table above periodically.
             </p>
 
@@ -2263,6 +2279,7 @@
          epiy    – eπy value in cm⁻¹ (number), or null if not reported
          ref     – author/year string, e.g. "Smith et al. (2021)"
          doi     – DOI URL string, e.g. "https://doi.org/10.1039/…" (or "" if none)
+         dft     - Specifies if data is DFT-calculated
        ═══════════════════════════════════════════════════════════════════ */
 
     const paramData = [
@@ -2385,22 +2402,26 @@
         {
             metal: "Mn", ox: 2,
             ligand: "F<sup>-</sup>", esigma: 6000, epix: 2500, epiy: 2500,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Mn", ox: 2,
             ligand: "Cl<sup>-</sup>", esigma: 3400, epix: 1250, epiy: 1250,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Mn", ox: 2,
             ligand: "Br<sup>-</sup>", esigma: 2800, epix: 1000, epiy: 1000,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Mn", ox: 2,
             ligand: "I<sup>-</sup>", esigma: 2300, epix: 750, epiy: 750,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Mn", ox: 3,
@@ -2417,22 +2438,26 @@
         {
             metal: "Fe", ox: 2,
             ligand: "F<sup>-</sup>", esigma: 6900, epix: 2900, epiy: 2900,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Fe", ox: 2,
             ligand: "Cl<sup>-</sup>", esigma: 3400, epix: 1250, epiy: 1250,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Fe", ox: 2,
             ligand: "Br<sup>-</sup>", esigma: 2800, epix: 900, epiy: 900,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Fe", ox: 2,
             ligand: "I<sup>-</sup>", esigma: 2150, epix: 650, epiy: 650,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Fe", ox: 2,
@@ -2444,7 +2469,8 @@
         {
             metal: "Co", ox: 2,
             ligand: "F<sup>-</sup>", esigma: 5300, epix: 2200, epiy: 2200,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Co", ox: 2,
@@ -2454,7 +2480,8 @@
         {
             metal: "Co", ox: 2,
             ligand: "Cl<sup>-</sup>", esigma: 3150, epix: 1100, epiy: 1100,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Co", ox: 2,
@@ -2464,12 +2491,14 @@
         {
             metal: "Co", ox: 2,
             ligand: "Br<sup>-</sup>", esigma: 2700, epix: 900, epiy: 900,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Co", ox: 2,
             ligand: "I<sup>-</sup>", esigma: 2150, epix: 700, epiy: 700,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Co", ox: 2,
@@ -2521,7 +2550,8 @@
         {
             metal: "Ni", ox: 2,
             ligand: "F<sup>-</sup>", esigma: 5200, epix: 2250, epiy: 2250,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Ni", ox: 2,
@@ -2531,7 +2561,8 @@
         {
             metal: "Ni", ox: 2,
             ligand: "Cl<sup>-</sup>", esigma: 3100, epix: 1150, epiy: 1150,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Ni", ox: 2,
@@ -2541,7 +2572,8 @@
         {
             metal: "Ni", ox: 2,
             ligand: "Br<sup>-</sup>", esigma: 2700, epix: 900, epiy: 900,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Ni", ox: 2,
@@ -2551,7 +2583,8 @@
         {
             metal: "Ni", ox: 2,
             ligand: "I<sup>-</sup>", esigma: 2100, epix: 700, epiy: 700,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Ni", ox: 2,
@@ -2617,22 +2650,26 @@
         {
             metal: "Cu", ox: 2,
             ligand: "F<sup>-</sup>", esigma: 5300, epix: 2350, epiy: 2350,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Cu", ox: 2,
             ligand: "Cl<sup>-</sup>", esigma: 3000, epix: 1100, epiy: 1100,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Cu", ox: 2,
             ligand: "Br<sup>-</sup>", esigma: 2500, epix: 900, epiy: 900,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Cu", ox: 2,
             ligand: "I<sup>-</sup>", esigma: 1900, epix: 600, epiy: 600,
-            ref: "Buchhorn et al. (2022)", doi: "https://doi.org/10.1002/chem.202103775"
+            ref: "Buchhorn et al. (2022) [DFT]", doi: "https://doi.org/10.1002/chem.202103775",
+            dft: true
         },
         {
             metal: "Cu", ox: 2,
@@ -2681,20 +2718,23 @@
 
     /* ─── Render / re-render e value table ─────────────────────────────── */
     function renderParamTable() {
+        const showDFT = document.getElementById('param-dft-toggle').checked;
         const query  = (document.getElementById('param-search')?.value || '').toLowerCase();
         const metal  = document.getElementById('param-metal-filter')?.value || '';
 
         // Filter
-        let rows = paramData.filter(r => {
-            if (metal && r.metal !== metal) return false;
-            if (query) {
-                const haystack = [
-                    r.metal, r.ligand.replace(/<[^>]+>/g,''),
-                ].join(' ').toLowerCase();
-                if (!haystack.includes(query)) return false;
-            }
-            return true;
-        });
+        let rows = paramData
+            .filter(d => showDFT || !d.dft)
+            .filter(r => {
+                if (metal && r.metal !== metal) return false;
+                if (query) {
+                    const haystack = [
+                        r.metal, r.ligand.replace(/<[^>]+>/g,''),
+                    ].join(' ').toLowerCase();
+                    if (!haystack.includes(query)) return false;
+                }
+                return true;
+            });
 
         // Sort
         rows.sort((a, b) => {
