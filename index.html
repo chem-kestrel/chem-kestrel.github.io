@@ -1308,6 +1308,122 @@
             font-style: italic;
         }
 
+        /* ────────────────────────────── */
+        /* ── NEWS PAGE ──────────────────────────────────────── */
+        .news-intro {
+            max-width: 640px;
+            margin-bottom: 2rem;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+
+        /* Date sits in its own column so the feed scans like a timeline */
+        .news-item {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 32px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+            padding: 28px 32px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Most recent article gets the teal accent used elsewhere for "new" */
+        .news-item.latest { border-left-color: var(--teal); }
+
+        .news-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .news-date {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.3;
+        }
+
+        .news-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 100px;
+            color: var(--accent);
+            background: var(--accent-light);
+            border: 1px solid #BDD5F5;
+        }
+
+        .news-tag.release {
+            color: #0B7C4E;
+            background: #E6F7EF;
+            border-color: #A7E3C4;
+        }
+
+        .news-body h2 {
+            font-size: 1.4rem;
+            margin: 0 0 0.75rem;
+            padding: 0;
+            border-bottom: none;
+        }
+
+        .news-body p { font-size: 0.95rem; }
+
+        .news-body ul {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-figure {
+            margin: 1.25rem 0;
+        }
+
+        .news-figure img {
+            display: block;
+            max-width: 320px;
+            height: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+
+        .news-figure figcaption {
+            font-size: 0.82rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 6px;
+            align-items: center;
+        }
+
+        .news-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
+        }
+
+        @media (max-width: 700px) {
+            .news-item {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                padding: 22px 20px;
+            }
+            .news-meta {
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1330,6 +1446,7 @@
                     </div>
                 </div>
             </div>
+            <button id="nav-news" class="nav-btn" onclick="showPage('news')">News</button>
             <button id="nav-documentation" class="nav-btn" onclick="showPage('documentation')">Documentation</button>
             <div class="dropdown">
                 <button id="nav-resources" class="nav-btn" onclick="showPage('parameters')">Resources</button>
@@ -1525,9 +1642,9 @@
         </div>
 
         <div class="release-card">
-            <span class="release-tag">Latest stable</span>
-            <h3>Version 1.0.0</h3>
-            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:0;">Released May 2026 — Initial public release</p>
+            <span class="release-tag">Latest Beta</span>
+            <h3>KESTREL Pre-release</h3>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:0;">Released November 2026 — Public Pre-release</p>
             <div class="btn-group">
                 <a href="https://github.com/chem-kestrel/kestrelpy/releases/tag/v1.0.0" class="btn-primary">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -1542,6 +1659,9 @@
                     Linux (.flatpak)
                 </a>
             </div>
+            <br>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:0;"><b>Each link redirects to a GitHub page.</b> Scroll to the bottom and select
+                the <code>.exe</code> file for Windows, <code>.dmg</code> file for macOS and <code>.flatpak</code> file for Linux.</p>
         </div>
 
         <h2>Installation Instructions</h2>
@@ -1549,7 +1669,7 @@
             <div class="install-box">
                 <h4>Windows (.exe)</h4>
                 <ol>
-                    <li>Download the <code>.exe</code> file above.</li>
+                    <li>Download the <code>.exe</code> file from the link above.</li>
                     <li>Double-click the <code>.exe</code> file to run KESTREL.</li>
                     <li>If Windows Defender flags the file, right-click and select <code>Properties</code>,
                         then check the <code>Unblock</code> option. KESTREL should then launch.</li>
@@ -1558,7 +1678,7 @@
             <div class="install-box">
                 <h4>macOS (.dmg)</h4>
                 <ol>
-                    <li>Download the <code>.dmg</code> file above.</li>
+                    <li>Download the <code>.dmg</code> file from the link above.</li>
                     <li>Double-click to open the <code>.dmg</code> file.</li>
                     <li>Drag the KESTREL <code>.app</code> icon into your Applications folder and double-click to launch the GUI.</li>
                 </ol>
@@ -1592,6 +1712,81 @@
             George Nunn, Benjamin S. Grace, Martin A. Bates and Paul H. Walton, KESTREL [Computer software].
             <a href=" https://github.com/chem-kestrel/kestrelpy" target="_blank" style="font-size:0.82rem;"> https://github.com/chem-kestrel/kestrelpy</a>
         </div>
+    </section>
+
+    <!-- ══ NEWS PAGE ═══════════════════════════════════════════════════════ -->
+    <section id="news" class="page-section">
+        <h1>News</h1>
+        <div class="news-list">
+
+            <!-- ── ARTICLE 1 (most recent): software release ─────────────── -->
+            <article class="news-item latest">
+                <div class="news-meta">
+                    <time class="news-date" datetime="2026-11-18">18 Nov 2026</time>
+                    <span class="news-tag release">Software release</span>
+                </div>
+                <div class="news-body">
+                    <h2>Pre-release version of KESTREL now available</h2>
+                    <p>
+                        We are pleased to announce a pre-release of KESTREL, a free and user-friendly program for
+                        performing real-time ligand field calculations on transition-metal complexes.
+                    </p>
+                    <p>
+                        The pre-release can be downloaded as an <b>easy to use graphical user interface</b>
+                        for Windows, macOS and Linux or a <b>comprehensive Python package (KestrelPy)</b>
+                        designed for users who want full control of the code.
+                    </p>
+                    <h3>What's included:</h3>
+                    <ul>
+                        <li>Multi-configurational calculations of <i>d-d</i> energies</li>
+                        <li>Simulation of UV, CD and MCD spectra</li>
+                        <li>Calculation of EPR <em>g</em> and <em>A</em> values</li>
+                        <li>Calculation of paramagnetic susceptibilities</li>
+                    </ul>
+                    <div class="news-actions">
+                        <a href="#" onclick="showPage('download'); return false;" class="btn-primary">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Download KESTREL GUI
+                        </a>
+                        <a href="https://github.com/chem-kestrel/kestrelpy" target="_blank" class="btn-secondary">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            Access KestrelPy on GitHub
+                        </a>
+                    </div>
+                    <div class="info-banner" style="margin: 1.5rem 0 0;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        <span>
+                            We recommend signing up to our <a href="#" onclick="showPage('subscribe'); return false;">mailing list</a>
+                            to be kept informed of planned future updates.
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ── ARTICLE 2: poster prize ───────────────────────────────── -->
+            <article class="news-item">
+                <div class="news-meta">
+                    <time class="news-date" datetime="2026-09-04">02 Sep 2026</time>
+                    <span class="news-tag">Award</span>
+                </div>
+                <div class="news-body">
+                    <h2>KESTREL wins poster prize at IBDG Jubilee meeting</h2>
+                    <p>
+                        <b>A poster presenting KESTREL was awarded the best poster prize at
+                        the IBDG Jubilee meeting, held in Norwich, United Kingdom from the 3rd-4th September 2026.</b><br>
+                        The poster, presented by Benjamin Grace outlined the theory behind KESTREL and how it calculates
+                        the spectroscopic and magnetic properties of transition-metal complexes and metalloproteins in
+                        real-time.
+                    </p>
+                    <figure class="news-figure">
+                        <img src="images/poster_prize.jpg" alt="Benjamin standing alongside the poster presented at the IBDG Jubilee meeting">
+                        <figcaption>The poster presented at the IBDG Jubilee meeting</figcaption>
+                    </figure>
+                </div>
+            </article>
+
+        </div>
+
     </section>
 
     <!-- ══ DOCUMENTATION PAGE ════════════════════════════════════════════════ -->
